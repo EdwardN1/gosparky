@@ -1,0 +1,41 @@
+.category-menu {
+  padding-top: 2em;
+}
+
+#short-product-category-menu {
+  background-color: $blue;
+
+  > li.menu-item {
+    > a {
+      color: $white;
+      background-color: $blue;
+      text-align: center;
+      min-height: 48px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-right: 1px solid $white;
+
+      &:after {
+        content: "";
+        display: none;
+      }
+
+      &:hover {
+        background-color: $light-blue;
+      }
+
+
+    }
+
+    &.active {
+      > a {
+        background-color: $light-blue;
+      }
+    }
+    &:last-child {
+      a {
+        border-right: none;
+      }
+    }
+  }
+}

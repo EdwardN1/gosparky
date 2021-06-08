@@ -1,16 +1,17 @@
 /** ================= Fixed Top Bar =============== */
 
 $top-bar-fixed: false; // fixes the top bar to top of the page.
-$header-padded: false; // pads the header to accommodate top bar.
+$header-padded: true; // pads the header to accommodate top bar.
 $header-padding: 60px; // amount to pad the header.
-$top-bar-background: transparent; //background colour of the top bar.
+$top-bar-background: $blue; //background colour of the top bar.
 
 /** ================= Absolute Top Bar =============== */
 
 $top-bar-absolute: true; // fixes the top bar to top of the page.
-$header-padded: false; // pads the header to accommodate top bar.
+$header-padded: true; // pads the header to accommodate top bar.
 $header-padding: 60px; // amount to pad the header.
-$top-bar-background: transparent; //background colour of the top bar.
+$top-bar-background: $blue; //background colour of the top bar.
+
 
 
 #top-bar-menu {
@@ -43,6 +44,13 @@ $top-bar-background: transparent; //background colour of the top bar.
     }
     ul {
       background-color: $top-bar-background;
+      a {
+        color: $white;
+        font-weight: $medium;
+        font-size: 12px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
     }
   }
 }
@@ -50,5 +58,25 @@ $top-bar-background: transparent; //background colour of the top bar.
 @if $header-padded {
   header.header {
     padding-bottom: $header-padding;
+  }
+}
+
+.page-top {
+  .logo {
+    img {
+      max-width: 340px;
+      width: 23.6111vw;
+    }
+  }
+  .search {
+    padding-left: 3em;
+  }
+}
+
+.header-icons {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  .spacer {
+    border-right: 1px solid $grey;
   }
 }
