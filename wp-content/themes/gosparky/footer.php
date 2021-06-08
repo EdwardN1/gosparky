@@ -31,6 +31,21 @@
 
 </div>
 
+<div id="footer-contact-sales" class="grid-container">
+    <div class="grid-x">
+        <div class="cell shrink">
+            <img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/binocular-icon.png'; ?>">
+        </div>
+        <div class="cell auto message">
+            <h2>Need help finding something?</h2>
+            <p>We can help source the product you want<br>even if we don't stock it!</p>
+        </div>
+        <div class="cell shrink button-div">
+            <a href="#" class="button pill white">CONTACT SALES</a>
+        </div>
+    </div>
+</div>
+
 <footer class="footer" role="contentinfo">
 
     <div class="inner-footer grid-x grid-margin-x grid-padding-x">

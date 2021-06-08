@@ -1,0 +1,18 @@
+a.button {
+  text-transform: uppercase;
+  &.blue {
+    background-color: $blue;
+    color: $white;
+  }
+  &.light-blue {
+    background-color: $light-blue;
+    color: $white;
+  }
+  &.white {
+    background-color: $white;
+    color: $blue;
+  }
+  &.pill {
+    border-radius:0.4em;
+  }
+}
