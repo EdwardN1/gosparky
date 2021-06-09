@@ -7,7 +7,7 @@
 
 get_header(); ?>
 	
-	<div class="content">
+	<div class="page content">
 	
 		<div class="inner-content">
 	

@@ -64,8 +64,12 @@
                     <img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/contact-top.png'; ?>">
                 </div>
                 <div class="cell shrink top-icons">
-                    <a href="/cart/"><img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/top-icons.png'; ?>"></a>
+                    <div class="grid-x">
+                        <div class="cell shrink"><a href="/my-account/"><img
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/prototype/account-icon.png'; ?>"></a></div>
+                        <div class="cell shrink"><a href="/cart/"><img
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/prototype/basket-icon.png'; ?>"></a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,4 +84,12 @@
                 <div class="cell auto text-center spacer"><img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/find-icon.png'; ?>"></div>
                 <div class="cell auto text-center"><img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png'; ?>"></div>
             </div>
+        </div>
+
+        <div class="grid-container">
+            <?php
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+            }
+            ?>
         </div>

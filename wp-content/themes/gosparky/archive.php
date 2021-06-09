@@ -7,7 +7,7 @@
 
 get_header(); ?>
 			
-	<div class="content">
+	<div class="archive content">
 	
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 		

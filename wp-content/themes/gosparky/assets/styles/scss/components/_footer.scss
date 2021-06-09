@@ -26,7 +26,7 @@
 
 #footer-contact-sales {
   padding-top: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
   .grid-x {
     color: $white;
     background-color: $red;
@@ -50,6 +50,32 @@
         font-weight: $bold;
         letter-spacing: 2px;
       }
+    }
+  }
+}
+
+#footer-opt-in {
+  background-color: $light-gray;
+  font-family: $cervo-neue;
+  font-size: 20px;
+  color: $blue;
+  letter-spacing: 1px;
+  font-weight: $bold;
+  line-height: 80px;
+}
+
+footer, .footer {
+  background-color: $blue;
+  color: $white;
+  margin: 0;
+  a {
+    color: $white;
+  }
+  .copyright-row {
+    background-color: $light-blue;
+    p {
+      margin: 0;
+      line-height: 50px;
     }
   }
 }

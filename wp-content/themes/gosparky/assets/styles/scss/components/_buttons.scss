@@ -9,10 +9,66 @@ a.button {
     color: $white;
   }
   &.white {
-    background-color: $white;
-    color: $blue;
+    background-color: $white !important;
+    color: $blue !important;
   }
   &.pill {
     border-radius:0.4em;
   }
 }
+
+.woocommerce {
+  .button {
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: $blue;
+    color: $white;
+  }
+
+  .checkout-button, a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt {
+    color: $white;
+    &.white.pill {
+      background-color: $white !important;
+      color: $blue !important;
+    }
+  }
+
+  .woocommerce .checkout-button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt {
+    color: $white;
+    &.white.pill {
+      background-color: $white !important;
+      color: $blue !important;
+    }
+  }
+
+  .wc-proceed-to-checkout {
+    .checkout-button, a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt {
+      color: $white;
+      &.white.pill {
+        background-color: $white !important;
+        color: $blue !important;
+      }
+    }
+  }
+
+  .woocommerce {
+    .checkout-button, a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt {
+      color: $white;
+      &.white.pill {
+        background-color: $white !important;
+        color: $blue !important;
+      }
+    }
+  }
+
+}
+
+.woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt {
+  color: $white !important;
+  &.white.pill {
+    background-color: $white !important;
+    color: $blue !important;
+  }
+}
+
