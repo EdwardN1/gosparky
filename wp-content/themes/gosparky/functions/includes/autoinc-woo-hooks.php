@@ -92,13 +92,14 @@ function woocommerce_template_single_add_to_cart_override()
 
         <?php do_action('woocommerce_before_add_to_cart_form'); ?>
 
+
         <form class="cart"
               action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>"
               method="post" enctype='multipart/form-data'>
             <?php do_action('woocommerce_before_add_to_cart_button'); ?>
             <div class="grid-x">
                 <div class="cell shrink">
-                    <button class="btn minus1" style="font-size: 26px">-</button>
+                    <button class="btn minus1" style="font-size: 26px" onclick="document.querySelector('.quantity .qty').stepDown()">-</button>
                 </div>
                 <div class="cell shrink">
                     <?php
@@ -116,7 +117,7 @@ function woocommerce_template_single_add_to_cart_override()
                     ?>
                 </div>
                 <div class="cell shrink">
-                    <button class="btn plus1" style="font-size: 26px">+</button>
+                    <button class="btn plus1" style="font-size: 26px" onclick="document.querySelector('.quantity .qty').stepUp()">+</button>
                 </div>
                 <div class="cell auto">
                     <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
@@ -125,7 +126,14 @@ function woocommerce_template_single_add_to_cart_override()
             </div>
             <?php do_action('woocommerce_after_add_to_cart_button'); ?>
         </form>
-
+        <script>
+            var buttons = document.querySelectorAll('.btn');
+            for (i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            }
+        </script>
         <?php do_action('woocommerce_after_add_to_cart_form'); ?>
 
     <?php endif;

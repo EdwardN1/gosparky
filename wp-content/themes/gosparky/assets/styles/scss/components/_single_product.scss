@@ -73,15 +73,30 @@
     padding:.5em;
     font-size:1.2rem;
     text-align:center;
-    font-weight:900;
+    font-weight:$regular;
     background:white;
     border:1px solid #aaa;
     height: 52px;
     line-height: 1;
   }
+  .btn.minus1, .btn.plus1 {
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .quantity input[type=number] {
     border-left:none;
     border-right:none;
+  }
+  .single_add_to_cart_button {
+    background-color: $medium-blue !important;
+    margin-left: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 5px;
+    line-height: 52px;
   }
   #breadcrumbs {
     border-bottom: 1px solid $grey;
@@ -91,5 +106,36 @@
     padding-top: 2em;
   }
 
+  .woocommerce-tabs {
+    ul.tabs.wc-tabs {
+      border: none;
+      padding-top: 1em;
+      &:before {
+        bottom: auto;
+        top: 0;
+      }
+      li{
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        min-width: 20%;
+        padding-right: 2em;
+        width: auto;
+        a {
+          font-family: $cervo-neue;
+          text-transform: uppercase;
+          font-weight: $regular;
+          font-size: 22px;
+          letter-spacing: 1px;
+        }
+        &.active {
+          a {
+            color: $blue;
+            font-weight: $bold;
+          }
+        }
+      }
+    }
+  }
 
 }
