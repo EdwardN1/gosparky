@@ -58,7 +58,8 @@
                                 src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
                 </div>
                 <div class="cell shrink search">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/searchbox.png'; ?>">
+                    <?php get_product_search_form(); ?>
+                    <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/searchbox.png'; */ ?>">-->
                 </div>
                 <div class="cell auto contact-top text-center">
                     <img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/contact-top.png'; ?>">
@@ -66,9 +67,20 @@
                 <div class="cell shrink top-icons">
                     <div class="grid-x">
                         <div class="cell shrink"><a href="/my-account/"><img
-                                        src="<?php echo get_template_directory_uri() . '/assets/images/prototype/account-icon.png'; ?>"></a></div>
-                        <div class="cell shrink"><a href="/cart/"><img
-                                        src="<?php echo get_template_directory_uri() . '/assets/images/prototype/basket-icon.png'; ?>"></a></div>
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/prototype/account-icon.png'; ?>"></a>
+                        </div>
+                        <div class="cell shrink">
+                            <div class="cart-icon-wrapper">
+                                <a href="<?php echo wc_get_cart_url(); ?>"><img
+                                            src="<?php echo get_template_directory_uri() . '/assets/images/basket-icon.png'; ?>"></a>
+                                <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>"
+                                   title="<?php _e('View your shopping cart'); ?>">
+                                    <span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
+                                    <span class="cart-items"><?php echo sprintf(_n('%d item', '%d items', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?></span>
+
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,16 +92,22 @@
 
         <div class="header-icons grid-container">
             <div class="grid-x">
-                <div class="cell auto text-center spacer"><img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/chat-icon.png'; ?>"></div>
-                <div class="cell auto text-center spacer"><img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/find-icon.png'; ?>"></div>
-                <div class="cell auto text-center"><img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png'; ?>"></div>
+                <div class="cell auto text-center spacer"><img
+                            src="<?php echo get_template_directory_uri() . '/assets/images/prototype/chat-icon.png'; ?>">
+                </div>
+                <div class="cell auto text-center spacer"><img
+                            src="<?php echo get_template_directory_uri() . '/assets/images/prototype/find-icon.png'; ?>">
+                </div>
+                <div class="cell auto text-center"><img
+                            src="<?php echo get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png'; ?>">
+                </div>
             </div>
         </div>
 
         <div class="grid-container">
             <?php
-            if ( function_exists('yoast_breadcrumb') ) {
-                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+            if (function_exists('yoast_breadcrumb')) {
+                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
             }
             ?>
         </div>

@@ -1,0 +1,67 @@
+.woocommerce.single-product {
+  .product {
+    .images {
+      img.wp-post-image {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .product_title {
+      font-family: $cervo-neue;
+      font-size: 42px;
+      letter-spacing: 1px;
+      color: $blue;
+      font-weight: $bold;
+    }
+  }
+  .product_meta {
+    font-weight: $bold;
+    border-top: 1px solid $grey;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    .sku, .posted_in a {
+      font-weight: $regular;
+    }
+    .sku {
+      padding-right: 3em;
+    }
+  }
+  .price {
+    > span {
+      display: block;
+    }
+    .only {
+      font-family: $cervo-neue;
+      font-weight: $bold;
+      font-size: 38px;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      color: $blue;
+    }
+    .display-price {
+      font-family: $cervo-neue;
+      font-weight: $bold;
+      font-size: 65px;
+      letter-spacing: 1px;
+      line-height: 1;
+      color: $blue;
+    }
+    .vat {
+      color: $body-font-color;
+      line-height: 2;
+    }
+  }
+  #breadcrumbs {
+    border-bottom: 1px solid $grey;
+    padding-top: 2em;
+  }
+  .single.content {
+    padding-top: 2em;
+  }
+
+}

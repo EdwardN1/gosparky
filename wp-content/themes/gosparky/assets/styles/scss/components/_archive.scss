@@ -1,5 +1,5 @@
 .woocommerce {
-  h1.page-title {
+  h2, h3 {
     font-family: $cervo-neue;
     font-size: 24px;
     letter-spacing: 1px;
@@ -13,20 +13,33 @@
         height: 320px;
         display: block;
         img {
-          max-width: 205px;
+          width: auto;
           height: auto;
+          max-width: 205px;
+          max-height: 205px;
           display: block;
           margin-left: auto;
           margin-right: auto;
+
         }
       }
       .button {
         display: block;
         margin-right: auto;
         margin-left: auto;
-        background-color: $blue;
+        max-width: 50%;
+        background-color: $medium-blue;
+        border-radius: 5px;
         color: $white;
       }
     }
   }
+}
+
+h1.page-title {
+  font-family: $cervo-neue;
+  font-size: 42px;
+  letter-spacing: 1px;
+  color: $blue;
+  font-weight: $bold;
 }

@@ -1,0 +1,26 @@
+.cart-icon-wrapper {
+  position: relative;
+  width: 100%;
+  .cart-total, .cart-items {
+    position: absolute;
+  }
+  .cart-total {
+    color: $red;
+    font-family: $cervo-neue;
+    font-weight: $bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+    top:50px;
+    left:30%;
+    width: 100%;
+    text-align: center;
+  }
+  .cart-items {
+    font-size: 12px;
+    top: 67px;
+    left: 30%;
+    width: 100%;
+    text-align: center;
+    font-weight: $bold;
+  }
+}

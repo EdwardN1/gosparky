@@ -1,0 +1,32 @@
+.related.products {
+  ul.products {
+    li.product {
+      a {
+        img {
+          width: auto;
+          height: auto;
+          max-width: 205px;
+          max-height: 205px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      .woocommerce-loop-product__title {
+        text-align: center;
+      }
+      .price {
+        text-align: center;
+      }
+      .button {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 50%;
+        background-color: #2f59a7;
+        border-radius: 5px;
+        color: #fefefe;
+      }
+    }
+  }
+}

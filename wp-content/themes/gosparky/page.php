@@ -11,7 +11,7 @@ get_header(); ?>
 	
 		<div class="inner-content">
 	
-		    <main class="main grid-container" role="main">
+		    <main class="main grid-container page-php" role="main">
 				
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
