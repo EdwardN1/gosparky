@@ -23,6 +23,38 @@
         margin: 0;
       }
     }
+    .woocommerce-tabs {
+      ul.tabs.wc-tabs {
+        border: none;
+        padding-top: 1em;
+        &:before {
+          bottom: auto;
+          top: 0;
+        }
+        li{
+          border: none;
+          background-color: transparent;
+          padding: 0;
+          min-width: 20%;
+          padding-right: 2em;
+          width: auto;
+          a {
+            font-family: $cervo-neue;
+            text-transform: uppercase;
+            font-weight: $regular;
+            font-size: 22px;
+            letter-spacing: 1px;
+          }
+          &.active {
+            a {
+              color: $blue;
+              font-weight: $bold;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
 
   }
   .product_meta {
@@ -106,36 +138,6 @@
     padding-top: 2em;
   }
 
-  .woocommerce-tabs {
-    ul.tabs.wc-tabs {
-      border: none;
-      padding-top: 1em;
-      &:before {
-        bottom: auto;
-        top: 0;
-      }
-      li{
-        border: none;
-        background-color: transparent;
-        padding: 0;
-        min-width: 20%;
-        padding-right: 2em;
-        width: auto;
-        a {
-          font-family: $cervo-neue;
-          text-transform: uppercase;
-          font-weight: $regular;
-          font-size: 22px;
-          letter-spacing: 1px;
-        }
-        &.active {
-          a {
-            color: $blue;
-            font-weight: $bold;
-          }
-        }
-      }
-    }
-  }
+
 
 }
