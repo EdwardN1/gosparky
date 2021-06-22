@@ -18,6 +18,12 @@
       color: $blue;
       font-weight: $bold;
     }
+    form.cart {
+      .quantity {
+        margin: 0;
+      }
+    }
+
   }
   .product_meta {
     font-weight: $bold;
@@ -55,6 +61,27 @@
       color: $body-font-color;
       line-height: 2;
     }
+
+  }
+
+  .quantity input[type=number]::-webkit-inner-spin-button,
+  .quantity input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+  }
+  .btn.minus1, .btn.plus1,.quantity input[type=number] {
+    width:50px;
+    padding:.5em;
+    font-size:1.2rem;
+    text-align:center;
+    font-weight:900;
+    background:white;
+    border:1px solid #aaa;
+    height: 52px;
+    line-height: 1;
+  }
+  .quantity input[type=number] {
+    border-left:none;
+    border-right:none;
   }
   #breadcrumbs {
     border-bottom: 1px solid $grey;
@@ -63,5 +90,6 @@
   .single.content {
     padding-top: 2em;
   }
+
 
 }
