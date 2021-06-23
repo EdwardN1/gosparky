@@ -18,6 +18,7 @@ $top-bar-background: $blue; //background colour of the top bar.
   display: block;
   &.top-bar {
     background-color: $top-bar-background;
+    padding: 0;
     @if $top-bar-fixed {
       position: fixed;
       width: 100%;
@@ -42,6 +43,10 @@ $top-bar-background: $blue; //background colour of the top bar.
       top: 0;
       left: 0;
     }
+    #main-nav {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
     ul {
       background-color: $top-bar-background;
       a {
@@ -50,6 +55,24 @@ $top-bar-background: $blue; //background colour of the top bar.
         font-size: 12px;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+      }
+    }
+    input:checked~.switch-paddle {
+      background: $medium-blue;
+    }
+    .tax-display-setting {
+      background: $white;
+      padding-top: 0.5rem;
+      line-height: 1.9;
+      .cell {
+        padding-left: 1em;
+        padding-right: 1em;
+        .switch-paddle {
+          border-radius: 15px;
+          &:after {
+            border-radius: 15px;
+          }
+        }
       }
     }
   }

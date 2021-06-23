@@ -1,5 +1,33 @@
 <?php
 /**
+ *
+ * Price Display
+ *
+ */
+
+
+add_filter('woocommerce_get_price_html', 'get_price_html_override', 100, 2);
+
+function get_price_html_override($price, $product)
+{
+    $price_excl_tax = wc_get_price_excluding_tax( $product ); // price without VAT
+    $price_incl_tax = wc_get_price_including_tax( $product );
+    ob_start();
+    ?>
+    <span class="woocommerce-Price-amount amount">
+        <span>
+            <span class="woocommerce-Price-currencySymbol"><?php  echo get_woocommerce_currency_symbol();?></span>
+            <span class="ex-tax" style="display: none;"><?php echo number_format($price_excl_tax,2); ?></span>
+            <span class="inc-tax" style="display: none;"><?php echo number_format($price_incl_tax,2); ?></span>
+        </span>
+    </span>
+    <?php
+    $output = ob_get_clean();
+    return $output;
+}
+
+
+/**
  * Hook: woocommerce_single_product_summary.
  *
  * @hooked woocommerce_template_single_title - 5
@@ -52,25 +80,25 @@ function woocommerce_template_single_price_override()
     <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
         <span class="only">ONLY</span>
         <span class="display-price"><?php echo $product->get_price_html(); ?></span>
-        <span class="vat">Excl.VAT</span>
+        <span class="vat ex-tax" style="display: none;">Excl.VAT</span><span class="vat inc-tax" style="display: none;">Incl.VAT</span>
     </p>
     <?php
-}
+    }
 
-/*add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 50);
-add_action('woocommerce_before_add_to_cart_quantity', 'woocommerce_before_add_to_cart_quantity_minus_btn', 10);
-add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_before_add_to_cart_quantity_plus_btn', 20);
+    /*add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 50);
+    add_action('woocommerce_before_add_to_cart_quantity', 'woocommerce_before_add_to_cart_quantity_minus_btn', 10);
+    add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_before_add_to_cart_quantity_plus_btn', 20);
 
-function woocommerce_before_add_to_cart_quantity_minus_btn()
-{
-    */ ?><!--
+    function woocommerce_before_add_to_cart_quantity_minus_btn()
+    {
+        */ ?><!--
     <button class="btn minus1" style="font-size: 26px">-</button>
     <?php
-/*}
+    /*}
 
-function woocommerce_before_add_to_cart_quantity_plus_btn()
-{
-    */ ?>
+    function woocommerce_before_add_to_cart_quantity_plus_btn()
+    {
+        */ ?>
     <button class="btn plus1" style="font-size: 26px">+</button>
     --><?php
 /*
@@ -129,7 +157,7 @@ function woocommerce_template_single_add_to_cart_override()
         <script>
             var buttons = document.querySelectorAll('.btn');
             for (i = 0; i < buttons.length; i++) {
-                buttons[i].addEventListener('click', function(e) {
+                buttons[i].addEventListener('click', function (e) {
                     e.preventDefault();
                 });
             }
