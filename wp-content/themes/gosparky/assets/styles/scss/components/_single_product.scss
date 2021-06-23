@@ -11,6 +11,7 @@
         margin-right: auto;
       }
     }
+
     .product_title {
       font-family: $cervo-neue;
       font-size: 42px;
@@ -18,33 +19,49 @@
       color: $blue;
       font-weight: $bold;
     }
+
     form.cart {
       .quantity {
         margin: 0;
       }
     }
+
     .woocommerce-tabs {
+      background-color: transparent;
+
       ul.tabs.wc-tabs {
         border: none;
         padding-top: 1em;
+        padding-left: 0;
+        border-top: 1px solid $grey;
+        background-color: transparent;
+
         &:before {
           bottom: auto;
           top: 0;
         }
-        li{
+
+        li {
           border: none;
           background-color: transparent;
           padding: 0;
           min-width: 20%;
           padding-right: 2em;
           width: auto;
+          margin: 0;
+
           a {
             font-family: $cervo-neue;
             text-transform: uppercase;
             font-weight: $regular;
             font-size: 22px;
             letter-spacing: 1px;
+            border-right: 1px solid $grey;
+            display: block;
+            width: 100%;
+            //text-align: center;
           }
+
           &.active {
             a {
               color: $blue;
@@ -57,22 +74,27 @@
     }
 
   }
+
   .product_meta {
     font-weight: $bold;
     border-top: 1px solid $grey;
     padding-top: 2em;
     padding-bottom: 2em;
+
     .sku, .posted_in a {
       font-weight: $regular;
     }
+
     .sku {
       padding-right: 3em;
     }
   }
+
   .price {
     > span {
       display: block;
     }
+
     .only {
       font-family: $cervo-neue;
       font-weight: $bold;
@@ -81,6 +103,7 @@
       line-height: 1.2;
       color: $blue;
     }
+
     .display-price {
       font-family: $cervo-neue;
       font-weight: $bold;
@@ -89,6 +112,7 @@
       line-height: 1;
       color: $blue;
     }
+
     .vat {
       color: $body-font-color;
       line-height: 2;
@@ -97,29 +121,33 @@
   }
 
   .quantity input[type=number]::-webkit-inner-spin-button,
-  .quantity input[type=number]::-webkit-outer-spin-button{
-    -webkit-appearance:none;
+  .quantity input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
   }
-  .btn.minus1, .btn.plus1,.quantity input[type=number] {
-    width:50px;
-    padding:.5em;
-    font-size:1.2rem;
-    text-align:center;
-    font-weight:$regular;
-    background:white;
-    border:1px solid #aaa;
+
+  .btn.minus1, .btn.plus1, .quantity input[type=number] {
+    width: 50px;
+    padding: .5em;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: $regular;
+    background: white;
+    border: 1px solid #aaa;
     height: 52px;
     line-height: 1;
   }
+
   .btn.minus1, .btn.plus1 {
     &:hover {
       cursor: pointer;
     }
   }
+
   .quantity input[type=number] {
-    border-left:none;
-    border-right:none;
+    border-left: none;
+    border-right: none;
   }
+
   .single_add_to_cart_button {
     background-color: $medium-blue !important;
     margin-left: 3em;
@@ -130,14 +158,20 @@
     border-radius: 5px;
     line-height: 52px;
   }
+
   #breadcrumbs {
     border-bottom: 1px solid $grey;
     padding-top: 2em;
   }
+
   .single.content {
     padding-top: 2em;
   }
 
-
+  #tab-description, #tab-additional_information {
+    h2 {
+      display: none;
+    }
+  }
 
 }
