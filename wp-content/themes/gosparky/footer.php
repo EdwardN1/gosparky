@@ -61,12 +61,92 @@
 
 <footer class="footer" role="contentinfo">
 
-    <div class="inner-footer grid-x>
+    <div class="inner-footer grid-x">
 
         <div class="small-12 medium-12 large-12 cell">
-            <nav role="navigation">
-                <?php joints_footer_links(); ?>
-            </nav>
+            <div class="grid-container">
+                <div class="grid-x">
+                    <div class="cell large-3 medium-6 small-12">
+                        <div class="logo">
+                            <a href="/"><img
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
+                        </div>
+                        <div class="tel">
+                            <a href="tel:08001120090">08001120090</a>
+                        </div>
+                        <div class="email">
+                            <a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a>
+                        </div>
+                        <div class="address">
+                            Unit 5 & 6 Ravenna Point, Terminus Road,
+                            Chichester, West Sussex, PO19 8GS
+                        </div>
+                    </div>
+                    <div class="cell large-3 medium-6 small-12">
+                        <div class="heading">
+                            Information
+                        </div>
+                        <nav role="navigation">
+                            <?php joints_footer_links(); ?>
+                        </nav>
+                    </div>
+                    <div class="cell large-3 medium-6 small-12">
+                        <div class="heading">
+                            Information
+                        </div>
+                        <div class="payment-logos">
+                            <div class="grid-x">
+                                <div class="cell large-4 medium-4 small-4">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Visa.svg'; ?>">
+                                </div>
+                                <div class="cell large-4 medium-4 small-4">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/mastercard.svg'; ?>">
+                                </div>
+                                <div class="cell large-4 medium-4 small-4">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/maestro.svg'; ?>">
+                                </div>
+                                <div class="cell large-4 medium-4 small-4">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/paypal.svg'; ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social">
+                            <div class="heading">
+                                Follow Us
+                            </div>
+                            <div class="grid-x">
+                                <div class="cell auto">
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Facebook.svg'; ?>"></a>
+                                </div>
+                                <div class="cell auto">
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Twitter.svg'; ?>"></a>
+                                </div>
+                                <div class="cell auto">
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Youtube.svg'; ?>"></a>
+                                </div>
+                                <div class="cell auto">
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Linkedin.svg'; ?>"></a>
+                                </div>
+                                <div class="cell auto">
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Google.svg'; ?>"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell large-3 medium-6 small-12">
+                        <div class="chat">
+                            <span>Click for:</span><br>
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Livechat.svg'; ?>"><br>
+                            <span>Monday to Friday</span><span class="bold">7am - 6pm</span>
+                        </div>
+                        <div class="charity">
+                            Supporting the:<br>
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/emily-trans-white.png'; ?>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="small-12 medium-12 large-12 cell copyright-row">

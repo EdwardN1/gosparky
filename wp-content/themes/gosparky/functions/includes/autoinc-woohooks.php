@@ -1,16 +1,9 @@
 <?php
-/**
- *
- * Price Display
- *
- */
-
-
 add_filter('woocommerce_get_price_html', 'get_price_html_override', 100, 2);
 
 function get_price_html_override($price, $product)
 {
-    $price_excl_tax = wc_get_price_excluding_tax( $product ); // price without VAT
+    $price_excl_tax = wc_get_price_excluding_tax( $product );
     $price_incl_tax = wc_get_price_including_tax( $product );
     ob_start();
     ?>
@@ -25,20 +18,6 @@ function get_price_html_override($price, $product)
     $output = ob_get_clean();
     return $output;
 }
-
-
-/**
- * Hook: woocommerce_single_product_summary.
- *
- * @hooked woocommerce_template_single_title - 5
- * @hooked woocommerce_template_single_rating - 10
- * @hooked woocommerce_template_single_price - 10
- * @hooked woocommerce_template_single_excerpt - 20
- * @hooked woocommerce_template_single_add_to_cart - 30
- * @hooked woocommerce_template_single_meta - 40
- * @hooked woocommerce_template_single_sharing - 50
- * @hooked WC_Structured_Data::generate_product_data() - 60
- */
 
 remove_all_actions('woocommerce_single_product_summary');
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 10);
@@ -56,7 +35,7 @@ function woocommerce_template_single_meta_override()
         <?php if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type('variable'))) : ?>
 
             <span class="sku_wrapper"><?php esc_html_e('Part Number:', 'woocommerce'); ?> <span
-                        class="sku"><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></span></span>
+                    class="sku"><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></span></span>
 
         <?php endif; ?>
 
@@ -83,26 +62,7 @@ function woocommerce_template_single_price_override()
         <span class="vat ex-tax" style="display: none;">Excl.VAT</span><span class="vat inc-tax" style="display: none;">Incl.VAT</span>
     </p>
     <?php
-    }
-
-    /*add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 50);
-    add_action('woocommerce_before_add_to_cart_quantity', 'woocommerce_before_add_to_cart_quantity_minus_btn', 10);
-    add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_before_add_to_cart_quantity_plus_btn', 20);
-
-    function woocommerce_before_add_to_cart_quantity_minus_btn()
-    {
-        */ ?><!--
-    <button class="btn minus1" style="font-size: 26px">-</button>
-    <?php
-    /*}
-
-    function woocommerce_before_add_to_cart_quantity_plus_btn()
-    {
-        */ ?>
-    <button class="btn plus1" style="font-size: 26px">+</button>
-    --><?php
-/*
-}*/
+}
 
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart_override', 50);
 
@@ -114,7 +74,7 @@ function woocommerce_template_single_add_to_cart_override()
         return;
     }
 
-    echo wc_get_stock_html($product); // WPCS: XSS ok.
+    echo wc_get_stock_html($product);
 
     if ($product->is_in_stock()) : ?>
 
