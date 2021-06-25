@@ -1,14 +1,19 @@
 .orbit-bullets {
-  margin-top: -4rem;
+  //margin-top: -4rem;
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
   button {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     margin: .1rem;
     border-radius: 50%;
     background-color: transparent;
-    border: 1px solid $white;
+    border: 2px solid $white;
+    margin-right: 2em;
+    cursor: pointer;
     &.is-active, &:hover {
-      background-color: transparent;
+      background-color: $white;
       position: relative;
       &:before {
         content: " ";

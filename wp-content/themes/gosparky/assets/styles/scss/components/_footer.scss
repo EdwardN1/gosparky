@@ -68,9 +68,118 @@ footer, .footer {
   background-color: $blue;
   color: $white;
   margin: 0;
+  padding-top: 3em;
   a {
     color: $white;
   }
+
+  .main-footer {
+    padding-bottom: 3em;
+    .col1, .col2, .col3 {
+      padding-right: 3em;
+    }
+
+    .col1 {
+      .tel {
+        padding-top: 1em;
+        a {
+          font-size: 34px;
+          font-weight: $font-black;
+          letter-spacing: 0.5px;
+        }
+      }
+      .email {
+        padding-bottom: 2em;
+        a {
+          font-size: 22px;
+        }
+      }
+      .address {
+        font-size: 14px;
+        font-weight: $medium;
+      }
+    }
+
+    .col2 {
+      .heading {
+        font-family: $cervo-neue;
+        font-size: 22px;
+        font-weight: $bold;
+        letter-spacing: 1px;
+      }
+      nav {
+        a {
+          font-weight: $medium;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .col3 {
+      .heading {
+        font-family: $cervo-neue;
+        font-size: 22px;
+        font-weight: $bold;
+        letter-spacing: 1px;
+        padding-bottom: 0.5em;
+      }
+      .visa {
+        height: 40px;
+      }
+      .mastercard {
+        height: 40px;
+        margin-left: 2em;
+      }
+      .maestro {
+        height: 40px;
+      }
+      .paypal {
+        margin-top: 1.2em;
+        width: 110px;
+      }
+      .social {
+        padding-top: 2em;
+        .heading {
+          font-size: 18px;
+        }
+        .social-icon {
+          max-width: 50px;
+        }
+        .cell {
+          padding-right: 5px;
+        }
+      }
+
+    }
+
+    .col4 {
+      .chat {
+        span {
+          padding-bottom: 0.5em;
+          font-size: 16px;
+          display: inline-block;
+          &.bold {
+            font-weight: $bold;
+          }
+        }
+        img {
+          max-width: 250px;
+          margin-bottom: 0.5em;
+          display: block;
+        }
+      }
+      .charity {
+        padding-top: 1em;
+        font-size: 16px;
+        img {
+          margin-top: 1.5em;
+          max-width: 250px;
+        }
+      }
+    }
+
+  }
+
   .copyright-row {
     background-color: $light-blue;
     p {
@@ -78,4 +187,5 @@ footer, .footer {
       line-height: 50px;
     }
   }
+
 }
