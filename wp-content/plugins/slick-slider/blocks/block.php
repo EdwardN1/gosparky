@@ -105,9 +105,13 @@ $speed = 300;
                 }
                 $slidestoscroll = get_sub_field('slidestoscroll');
                 $slidestoshow = get_sub_field('slidestoshow');
+                $classes = get_sub_field('classes');
+                if($classes != '') {
+                    $classes = ' class="'.$classes.'"';
+                }
                 $speed = get_sub_field('speed');
                 if (have_rows('slides')) :
-                    $block_content = '<div id="slick-container' . $block['id'] . '">';
+                    $block_content = '<div id="slick-container' . $block['id'] . '"'.$classes.'>';
                     while (have_rows('slides')) : the_row();
                         $slide_type = get_sub_field('type');
                         if ($slide_type == 'Image') {
