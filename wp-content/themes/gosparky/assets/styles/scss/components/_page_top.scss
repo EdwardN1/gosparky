@@ -1,0 +1,48 @@
+.page-top {
+  padding-top: 1em;
+  @include breakpoint(1355) {
+    padding-top: 1.75em;
+  }
+  .contact-top {
+    .tel {
+      a {
+        font-family: $cervo-neue;
+        color: red;
+        letter-spacing: 1px;
+        font-weight: $bold;
+        font-size: 30px;
+        line-height: 1;
+        @include breakpoint(1355) {
+          font-size: 46px;
+        }
+      }
+    }
+    .email {
+      a {
+        font-size: 18px;
+        font-weight: $bold;
+        @include breakpoint(1355) {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+  .top-icons {
+    .account {
+      img {
+        max-height: 59px;
+        @include breakpoint (1355) {
+          max-height: 85px;
+        }
+      }
+    }
+    .cart {
+      img {
+        max-height: 52px;
+        @include breakpoint (1355) {
+          max-height: 80px;
+        }
+      }
+    }
+  }
+}

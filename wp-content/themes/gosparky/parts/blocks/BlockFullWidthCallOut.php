@@ -34,17 +34,19 @@ if (!empty($block['align'])) {
 </style>
 
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>">
-    <div class="grid-x">
-        <div class="cell auto text-left">
-            <h2><?php the_field('heading'); ?></h2>
-        </div>
-        <?php
-        $blank = '';
-        if (get_field('open_in_new_tab') == 1) {
-            $blank = ' target="_blank"';
-        } ?>
-        <div class="cell auto text-right">
-            <a href="<?php the_field('link'); ?>"<?php echo $blank;?>><?php  the_field('link_description'); ?></a>
+    <div class="inner">
+        <div class="grid-x">
+            <div class="cell auto text-left">
+                <h2><?php the_field('heading'); ?></h2>
+            </div>
+            <?php
+            $blank = '';
+            if (get_field('open_in_new_tab') == 1) {
+                $blank = ' target="_blank"';
+            } ?>
+            <div class="cell auto text-right">
+                <a href="<?php the_field('link'); ?>"<?php echo $blank; ?>><?php the_field('link_description'); ?></a>
+            </div>
         </div>
     </div>
 </div>

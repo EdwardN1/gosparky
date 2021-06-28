@@ -57,19 +57,21 @@
                     <a href="/"><img
                                 src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
                 </div>
-                <div class="cell shrink search">
+                <div class="cell shrink search show-for-large">
                     <?php get_product_search_form(); ?>
                     <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/searchbox.png'; */ ?>">-->
                 </div>
                 <div class="cell auto contact-top text-center">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/contact-top.png'; ?>">
+                    <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
+                    <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a></div>
+                    <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/contact-top.png'; */?>">-->
                 </div>
                 <div class="cell shrink top-icons">
                     <div class="grid-x">
-                        <div class="cell shrink"><a href="/my-account/"><img
+                        <div class="cell shrink account"><a href="/my-account/"><img
                                         src="<?php echo get_template_directory_uri() . '/assets/images/prototype/account-icon.png'; ?>"></a>
                         </div>
-                        <div class="cell shrink">
+                        <div class="cell shrink cart">
                             <div class="cart-icon-wrapper">
                                 <a href="<?php echo wc_get_cart_url(); ?>"><img
                                             src="<?php echo get_template_directory_uri() . '/assets/images/basket-icon.png'; ?>"></a>

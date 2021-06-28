@@ -10,17 +10,23 @@
     font-weight: $bold;
     font-size: 12px;
     letter-spacing: 1px;
-    top:50px;
     left:30%;
     width: 100%;
     text-align: center;
+    top:26px;
+    @include breakpoint (1355) {
+      top:46px;
+    }
   }
   .cart-items {
     font-size: 12px;
-    top: 67px;
     left: 30%;
     width: 100%;
     text-align: center;
     font-weight: $bold;
+    top: 40px;
+    @include breakpoint (1355) {
+      top:62px;
+    }
   }
 }

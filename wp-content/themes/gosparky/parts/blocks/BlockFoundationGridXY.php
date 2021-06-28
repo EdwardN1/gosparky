@@ -90,6 +90,7 @@ $css_classes = get_field('css_classes');
                     $small_size = get_sub_field('small_size');
                     $cell_custom_styles = get_sub_field('custom_styles');
                     $cell_css_classes = get_sub_field('css_classes');
+                    $image_position = get_sub_field('image_position');
 
                     $type = get_sub_field('type');
                     $content = get_sub_field('content');
@@ -128,10 +129,16 @@ $css_classes = get_field('css_classes');
                                 $cellFooter .= '</div></div>';
                             }
                         }
-                        $content = '<div class="cell-type-image">';
-                        $content .= '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
-                        $content .= $cellFooter;
-                        $content .= '</div>';
+                        if($image_position=='islink') {
+                            $content = '<div class="cell-type-image">';
+                            $content .= '<a href="'.$image_link.'">'.'<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/></a>';
+                            $content .= '</div>';
+                        } else {$content = '<div class="cell-type-image">';
+                            $content .= '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                            $content .= $cellFooter;
+                            $content .= '</div>';
+                        }
+
                     }
 
                     $cell_classes = 'cell';

@@ -9,7 +9,7 @@
 <div class="top-bar" id="top-bar-menu">
     <div class="grid-container">
 
-        <div class="show-for-medium">
+        <div class="show-for-large">
             <div class="grid-x">
                 <div class="cell auto">
                     <?php joints_top_nav(); ?>
@@ -73,7 +73,7 @@
                 });
             });
         </script>
-        <div class="float-right show-for-small-only">
+        <div class="float-right hide-for-large">
             <ul class="menu">
                 <!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
                 <li><a data-toggle="off-canvas"><?php _e('Menu', 'jointswp'); ?></a></li>
