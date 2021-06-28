@@ -64,9 +64,9 @@
     <div class="inner-footer grid-x">
 
         <div class="small-12 medium-12 large-12 cell">
-            <div class="grid-container">
+            <div class="grid-container main-footer">
                 <div class="grid-x">
-                    <div class="cell large-3 medium-6 small-12">
+                    <div class="cell large-3 medium-6 small-12 col1">
                         <div class="logo">
                             <a href="/"><img
                                         src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
@@ -82,7 +82,7 @@
                             Chichester, West Sussex, PO19 8GS
                         </div>
                     </div>
-                    <div class="cell large-3 medium-6 small-12">
+                    <div class="cell large-3 medium-6 small-12 col2">
                         <div class="heading">
                             Information
                         </div>
@@ -90,23 +90,23 @@
                             <?php joints_footer_links(); ?>
                         </nav>
                     </div>
-                    <div class="cell large-3 medium-6 small-12">
+                    <div class="cell large-3 medium-6 small-12 col3">
                         <div class="heading">
-                            Information
+                            Payments
                         </div>
                         <div class="payment-logos">
                             <div class="grid-x">
                                 <div class="cell large-4 medium-4 small-4">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Visa.svg'; ?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Visa.svg'; ?>" class="visa">
                                 </div>
                                 <div class="cell large-4 medium-4 small-4">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/mastercard.svg'; ?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/mastercard.svg'; ?>" class="mastercard">
                                 </div>
                                 <div class="cell large-4 medium-4 small-4">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/maestro.svg'; ?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/maestro.svg'; ?>" class="maestro">
                                 </div>
                                 <div class="cell large-4 medium-4 small-4">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/paypal.svg'; ?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/paypal.svg'; ?>" class="paypal">
                                 </div>
                             </div>
                         </div>
@@ -116,24 +116,24 @@
                             </div>
                             <div class="grid-x">
                                 <div class="cell auto">
-                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Facebook.svg'; ?>"></a>
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Facebook.svg'; ?>" class="social-icon"></a>
                                 </div>
                                 <div class="cell auto">
-                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Twitter.svg'; ?>"></a>
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Twitter.svg'; ?>" class="social-icon"></a>
                                 </div>
                                 <div class="cell auto">
-                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Youtube.svg'; ?>"></a>
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Youtube.svg'; ?>" class="social-icon"></a>
                                 </div>
                                 <div class="cell auto">
-                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Linkedin.svg'; ?>"></a>
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Linkedin.svg'; ?>" class="social-icon"></a>
                                 </div>
                                 <div class="cell auto">
-                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Google.svg'; ?>"></a>
+                                    <a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Google.svg'; ?>" class="social-icon"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-3 medium-6 small-12">
+                    <div class="cell large-3 medium-6 small-12 col4">
                         <div class="chat">
                             <span>Click for:</span><br>
                             <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Livechat.svg'; ?>"><br>

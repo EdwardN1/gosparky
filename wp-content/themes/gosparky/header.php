@@ -106,8 +106,10 @@
 
         <div class="grid-container">
             <?php
-            if (function_exists('yoast_breadcrumb')) {
-                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+            if (!is_front_page()) {
+                if (function_exists('yoast_breadcrumb')) {
+                    yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+                }
             }
             ?>
         </div>
