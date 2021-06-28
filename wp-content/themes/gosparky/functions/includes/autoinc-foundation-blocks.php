@@ -20,6 +20,39 @@ add_filter( 'block_categories', function( $categories, $post ) {
 
 /**
  *
+ * =======================Full Width Call Out ==============
+ *
+ */
+
+add_action( 'acf/init', 'register_full_width_call_out' );
+function register_full_width_call_out() {
+
+    if ( function_exists( 'acf_register_block_type' ) ) {
+
+        // Register LockettsSlider block
+        acf_register_block_type( array(
+            'name' 					=> 'ThemeSparkyFullWidthCallOut',
+            'title' 				=> __( 'ThemeSparkyFullWidthCallOut' ),
+            'description' 			=> __( 'A full width bar call out with heading and link.' ),
+            'category' 				=> 'foundationblocks',
+            'icon'					=> 'minus',
+            'keywords'				=> array( 'fullwidth','callout' ),
+            'post_types'			=> array( 'post', 'page' ),
+            'mode'					=> 'edit',
+            // 'align'				=> 'wide',
+            'render_template'		=> get_template_directory() . '/parts/blocks/BlockFullWidthCallOut.php',
+            // 'render_callback'	=> 'foundationOrbit_block_render_callback',
+            // 'enqueue_style' 		=> get_template_directory_uri() . '/template-parts/blocks/foundationOrbit/foundationOrbit.css',
+            // 'enqueue_script' 	=> get_template_directory_uri() . '/template-parts/blocks/foundationOrbit/foundationOrbit.js',
+            // 'enqueue_assets' 	=> 'foundationOrbit_block_enqueue_assets',
+        ));
+
+    }
+
+}
+
+/**
+ *
  * ======================= Orbit =======================
  *
  */
