@@ -1,0 +1,42 @@
+.mobile-page-top {
+  .logo {
+    padding-top: 7px;
+    padding-right: 8px;
+    padding-bottom: 14px;
+    img {
+      max-width: 120px;
+    }
+  }
+}
+
+.mobile-menu-bar {
+  background-color: $blue;
+  .cell {
+    padding-top: 1em;
+    text-align: center;
+    position: relative;
+    color: $white;
+    a {
+      color: $white;
+      line-height: 2.5;
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      right: 0;
+      top: 5px;
+      bottom: 5px;
+      width: 1px;
+      background-color: $white;
+    }
+    &:last-of-type {
+      &:after {
+        content: "";
+        background-color: transparent;
+      }
+    }
+    img {
+      max-width: 50px;
+    }
+  }
+}

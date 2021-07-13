@@ -1,32 +1,25 @@
 .cart-icon-wrapper {
-  position: relative;
-  width: 100%;
-  .cart-total, .cart-items {
-    position: absolute;
-  }
-  .cart-total {
-    color: $red;
-    font-family: $cervo-neue;
-    font-weight: $bold;
-    font-size: 12px;
-    letter-spacing: 1px;
-    left:30%;
+  a {
+    display: block;
     width: 100%;
     text-align: center;
-    top:26px;
-    @include breakpoint (1355) {
-      top:46px;
+    .cart-total {
+      display: block;
+      color: #ed1c24;
+      font-family: "Oswald",sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      width: 100%;
+      text-align: center;
+      padding-top: 2px;
     }
-  }
-  .cart-items {
-    font-size: 12px;
-    left: 30%;
-    width: 100%;
-    text-align: center;
-    font-weight: $bold;
-    top: 40px;
-    @include breakpoint (1355) {
-      top:62px;
+    .cart-items {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
     }
   }
 }

@@ -65,8 +65,12 @@ $top-bar-background: $blue; //background colour of the top bar.
       padding-top: 0.5rem;
       line-height: 1.9;
       .cell {
-        padding-left: 1em;
-        padding-right: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        @include breakpoint(large) {
+          padding-left: 1em;
+          padding-right: 1em;
+        }
         .switch-paddle {
           border-radius: 15px;
           &:after {
@@ -75,6 +79,12 @@ $top-bar-background: $blue; //background colour of the top bar.
         }
       }
     }
+  }
+  .tel {
+    color: $white;
+    line-height: 45px;
+    font-size: 20px;
+    font-weight: bold;
   }
 }
 
@@ -100,6 +110,8 @@ $top-bar-background: $blue; //background colour of the top bar.
   padding-top: 1em;
   padding-bottom: 1em;
   .spacer {
-    border-right: 1px solid $grey;
+    @include breakpoint(large) {
+      border-right: 1px solid $grey;
+    }
   }
 }

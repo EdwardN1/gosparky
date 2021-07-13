@@ -29,19 +29,30 @@
   }
   .top-icons {
     .account {
-      img {
-        max-height: 59px;
-        @include breakpoint (1355) {
-          max-height: 85px;
+      padding-right: 1rem;
+      padding-top: 5px;
+      a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        img {
+          width: 36px;
         }
+      }
+
+      .red-text {
+        color: $red;
+        font-family: $cervo-neue;
+        font-weight: $bold;
+        font-size: 12px;
+        letter-spacing: 1px;
+        padding-top: 1px;
       }
     }
     .cart {
+      padding-top: 5px;
       img {
-        max-height: 52px;
-        @include breakpoint (1355) {
-          max-height: 80px;
-        }
+        width: 37px;
       }
     }
   }

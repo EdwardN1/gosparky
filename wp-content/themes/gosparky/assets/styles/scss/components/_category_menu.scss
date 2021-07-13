@@ -10,11 +10,27 @@
       color: $white;
       background-color: $blue;
       text-align: center;
-      min-height: 48px;
+      min-height: 70px;
       padding-top: 1rem;
       padding-bottom: 1rem;
       border-right: 1px solid $white;
-
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      font-size: 12px;
+      max-width: 130px;
+      @include breakpoint(1090) {
+        max-width: 100px;
+        font-size: 14px;
+      }
+      @include breakpoint(1200) {
+        max-width: none;
+        min-height: 48px;
+      }
+      @include breakpoint(1430) {
+        padding-right: 1.5rem;
+        padding-left: 1rem;
+        font-size: 14px;
+      }
       &:after {
         content: "";
         display: none;
