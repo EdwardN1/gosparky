@@ -10,27 +10,33 @@
     <div class="grid-container">
 
         <div class="">
+            <div class="logo hide-for-large"><a href="/"><img
+                            src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a></div>
             <div class="grid-x">
-                <div class="cell auto">
+                <div class="cell large-auto small-12">
                     <div class="show-for-large">
                         <?php joints_top_nav(); ?>
                     </div>
-                    <div class="hide-for-large">
+                    <div class="hide-for-large text-right tel-cell">
                         <a href="tel:08001120090" class="tel">0800 112 00 90</a>
                     </div>
                 </div>
-                <div class="cell shrink tax-display-setting">
-                    <div class="grid-x">
-                        <div class="cell shrink eBold">Ex VAT</div>
-                        <div class="cell shrink">
-                            <div class="switch small">
-                                <input class="switch-input" id="vatSwitch" type="checkbox" name="vatSwitch">
-                                <label class="switch-paddle" for="vatSwitch">
-                                    <span class="show-for-sr">VAT switch</span>
-                                </label>
+                <div class="cell large-shrink tax-display-setting small-12">
+                    <div class="outer">
+
+                        <div class="grid-x">
+                            <div class="cell small-auto large-shrink"></div>
+                            <div class="cell shrink eBold">ex VAT</div>
+                            <div class="cell shrink">
+                                <div class="switch small">
+                                    <input class="switch-input" id="vatSwitch" type="checkbox" name="vatSwitch">
+                                    <label class="switch-paddle" for="vatSwitch">
+                                        <span class="show-for-sr">VAT switch</span>
+                                    </label>
+                                </div>
                             </div>
+                            <div class="cell shrink iBold">inc VAT</div>
                         </div>
-                        <div class="cell shrink iBold">Inc VAT</div>
                     </div>
                 </div>
             </div>

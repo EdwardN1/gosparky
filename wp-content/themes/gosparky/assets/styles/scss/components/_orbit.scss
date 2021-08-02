@@ -1,8 +1,15 @@
 .orbit-bullets {
   //margin-top: -4rem;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 60px;
+  display: none;
+  @include breakpoint(medium) {
+    display: block;
+  }
+  @include breakpoint(large) {
+    bottom: 20px;
+  }
   button {
     width: 1.6rem;
     height: 1.6rem;

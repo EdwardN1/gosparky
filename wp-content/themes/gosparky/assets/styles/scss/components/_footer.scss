@@ -16,11 +16,21 @@
 #footer-trustpilot {
   padding-top: 1em;
   padding-bottom: 1em;
+  &.grid-container {
+    padding-top: 0;
+  }
   .grid-x {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    background-color: $navy;
-
+    > div {
+      background-color: $navy;
+      min-height: 65px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    @include breakpoint(medium) {
+      background-color: $navy;
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
   }
 }
 
@@ -33,7 +43,17 @@
     .message {
       padding-left: 2em;
       h2 {
-        line-height: 3;
+        line-height: 1.2;
+        font-size: 30px;
+        @include breakpoint(large){
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+          font-size: 40px;
+        }
+        @include breakpoint(1100){
+          padding-top: 1em;
+          padding-bottom: 1em;
+        }
       }
       p {
         font-size: 18px;
@@ -41,9 +61,33 @@
         line-height: 1.3;
       }
     }
+    .image {
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-top: 0.5em;
+      @include breakpoint(medium) {
+        padding: 0;
+      }
+      img {
+        @include breakpoint(medium) {
+          max-width: 250px;
+        }
+        @include breakpoint(large) {
+          max-width: none;
+        }
+      }
+    }
     .button-div {
-      padding-right: 2em;
-      padding-top: 9em;
+      text-align: center;
+      @include breakpoint(medium) {
+        text-align: left;
+        padding-right: 1em;
+        padding-top: 6em;
+      }
+      @include breakpoint(large) {
+        padding-top: 9em;
+        padding-right: 2em;
+      }
       a.button {
         font-family: $cervo-neue;
         font-size: 18px;
@@ -61,7 +105,22 @@
   color: $blue;
   letter-spacing: 1px;
   font-weight: $bold;
-  line-height: 80px;
+  line-height: 1;
+  .cell {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .text-right {
+    padding-right: 1em;
+    padding-top: 1em;
+    line-height: 1.2;
+    text-align: center;
+    @include breakpoint(1130) {
+      text-align: right;
+      line-height: 1;
+      padding-top: 1.5em;
+    }
+  }
 }
 
 footer, .footer {
@@ -77,6 +136,7 @@ footer, .footer {
     padding-bottom: 3em;
     .col1, .col2, .col3 {
       padding-right: 3em;
+      padding-bottom: 1em;
     }
 
     .col1 {
@@ -123,19 +183,34 @@ footer, .footer {
         letter-spacing: 1px;
         padding-bottom: 0.5em;
       }
+      .payment-logos {
+        .cell {
+          padding-right: 10px;
+        }
+      }
       .visa {
-        height: 40px;
+        max-height: 40px;
+        max-width: 20vw;
+        padding-top: 15px;
+        @include breakpoint(medium) {
+          padding-top: 0;
+        }
       }
       .mastercard {
-        height: 40px;
-        margin-left: 2em;
+        max-height: 40px;
+        max-width: 20vw;
+        @include breakpoint(medium) {
+          margin-left: 2em;
+        }
+
       }
       .maestro {
-        height: 40px;
+        max-height: 40px;
+        max-width: 20vw;
       }
       .paypal {
         margin-top: 1.2em;
-        width: 110px;
+        max-width: 20vw;
       }
       .social {
         padding-top: 2em;
@@ -184,7 +259,15 @@ footer, .footer {
     background-color: $light-blue;
     p {
       margin: 0;
-      line-height: 50px;
+      line-height: 1.2;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .text-right {
+      text-align: left;
+      @include breakpoint(medium) {
+        text-align: right;
+      }
     }
   }
 

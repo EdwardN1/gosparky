@@ -16,6 +16,35 @@ $top-bar-background: $blue; //background colour of the top bar.
 
 #top-bar-menu {
   display: block;
+  &:after {
+    content: " ";
+    position: absolute;
+    height: 1px;
+    background: transparent;
+    border-bottom: 1px solid $white;
+    left: 10px;
+    right: 10px;
+    bottom: 5px;
+  }
+  @include breakpoint(large) {
+    &:after {
+      content: "";
+      border: none;
+    }
+  }
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 150px;
+  }
+  .tel-cell {
+    padding-top: 10px;
+    padding-right: 5px;
+    @include breakpoint(large) {
+      padding: 0;
+    }
+  }
   &.top-bar {
     background-color: $top-bar-background;
     padding: 0;
@@ -47,6 +76,7 @@ $top-bar-background: $blue; //background colour of the top bar.
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
+
     ul {
       background-color: $top-bar-background;
       a {
@@ -60,16 +90,42 @@ $top-bar-background: $blue; //background colour of the top bar.
     input:checked~.switch-paddle {
       background: $medium-blue;
     }
+    > .grid-container {
+      padding-right: 3px;
+      @include breakpoint(960) {
+        padding-right: 15px;
+      }
+    }
     .tax-display-setting {
-      background: $white;
-      padding-top: 0.5rem;
+
+      padding-top: 3px;
+      padding-bottom: 3px;
+      @include breakpoint(960) {
+        padding: 0;
+      }
       line-height: 1.9;
+      .outer {
+        background: $blue;
+        padding-top: 0.5rem;
+        position: relative;
+        @include breakpoint(large) {
+          background: $white;
+        }
+        > .grid-x {
+          justify-content: flex-end;
+          @include breakpoint(large) {
+            justify-content: normal;
+          }
+        }
+      }
       .cell {
         padding-left: 0.5em;
         padding-right: 0.5em;
+        color: $white;
         @include breakpoint(large) {
           padding-left: 1em;
           padding-right: 1em;
+          color: $body-font-color;
         }
         .switch-paddle {
           border-radius: 15px;
@@ -90,7 +146,11 @@ $top-bar-background: $blue; //background colour of the top bar.
 
 @if $header-padded {
   header.header {
-    padding-bottom: $header-padding;
+    padding-bottom: 100px;
+    @include breakpoint(large) {
+      padding-bottom: $header-padding;
+    }
+
   }
 }
 

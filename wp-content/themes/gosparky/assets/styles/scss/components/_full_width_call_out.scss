@@ -10,7 +10,10 @@
 
   }
   a {
-    font-size: 28px;
+    font-size: 22px;
+    @include breakpoint(large) {
+      font-size: 28px;
+    }
     letter-spacing: 1px;
     text-decoration: underline;
     text-transform: uppercase;

@@ -1,16 +1,12 @@
 .mobile-page-top {
-  .logo {
-    padding-top: 7px;
-    padding-right: 8px;
-    padding-bottom: 14px;
-    img {
-      max-width: 120px;
-    }
+  .search {
+    padding-top: 15px;
   }
 }
 
 .mobile-menu-bar {
   background-color: $blue;
+  position: relative;
   .cell {
     padding-top: 1em;
     text-align: center;

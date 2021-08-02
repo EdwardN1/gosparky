@@ -56,4 +56,29 @@
 
     }
   }
+  .small-12 {
+    .cell-type-image {
+      text-align: center;
+      width: 100%;
+      a {
+        width: 100%;
+        display: block;
+      }
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @include breakpoint(medium) {
+        img {
+          width: 100%;
+          margin: 0;
+        }
+        a {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
 }

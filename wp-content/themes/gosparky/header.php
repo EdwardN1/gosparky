@@ -97,18 +97,7 @@
         </div>
 
         <div class="hide-for-large">
-            <div class="mobile-page-top grid-container">
-                <div class="grid-x">
-                    <div class="cell shrink logo">
-                        <a href="/"><img
-                                    src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
-                    </div>
-                    <div class="cell auto search">
-                        <?php get_product_search_form(); ?>
-                        <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/searchbox.png'; */ ?>">-->
-                    </div>
-                </div>
-            </div>
+
             <div class="grid-x mobile-menu-bar">
                 <div class="cell auto logo">
                     <a data-toggle="off-canvas"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/hamburger.svg'; ?>"><br>Browse</a>
@@ -126,6 +115,12 @@
                         <span class="cart-items"><?php echo sprintf(_n('%d item', '%d items', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?></span>
 
                     </a>
+                </div>
+            </div>
+            <div class="mobile-page-top grid-container">
+                <div class="search">
+                    <?php get_product_search_form(); ?>
+                    <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/searchbox.png'; */ ?>">-->
                 </div>
             </div>
         </div>

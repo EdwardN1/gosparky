@@ -33,14 +33,14 @@
 
 <div id="footer-contact-sales" class="grid-container">
     <div class="grid-x">
-        <div class="cell shrink">
+        <div class="cell medium-shrink large-shrink small-12 image">
             <img src="<?php echo get_template_directory_uri() . '/assets/images/prototype/binocular-icon.png'; ?>">
         </div>
-        <div class="cell auto message">
+        <div class="cell medium-auto large-auto small-12 message">
             <h2>Need help finding something?</h2>
             <p>We can help source the product you want<br>even if we don't stock it!</p>
         </div>
-        <div class="cell shrink button-div">
+        <div class="cell large-shrink medium-shrink small-12 button-div">
             <a href="#" class="button pill white">CONTACT SALES</a>
         </div>
     </div>
@@ -69,7 +69,7 @@
                     <div class="cell large-3 medium-6 small-12 col1">
                         <div class="logo">
                             <a href="/"><img
-                                        src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
                         </div>
                         <div class="tel">
                             <a href="tel:08001120090">08001120090</a>
@@ -96,16 +96,16 @@
                         </div>
                         <div class="payment-logos">
                             <div class="grid-x">
-                                <div class="cell large-4 medium-4 small-4">
+                                <div class="cell large-4 medium-4 small-3">
                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/Visa.svg'; ?>" class="visa">
                                 </div>
-                                <div class="cell large-4 medium-4 small-4">
+                                <div class="cell large-4 medium-4 small-3">
                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/mastercard.svg'; ?>" class="mastercard">
                                 </div>
-                                <div class="cell large-4 medium-4 small-4">
+                                <div class="cell large-4 medium-4 small-3">
                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/maestro.svg'; ?>" class="maestro">
                                 </div>
-                                <div class="cell large-4 medium-4 small-4">
+                                <div class="cell large-4 medium-4 small-3">
                                     <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/paypal.svg'; ?>" class="paypal">
                                 </div>
                             </div>
