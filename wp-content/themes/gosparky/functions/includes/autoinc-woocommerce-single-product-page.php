@@ -5,6 +5,8 @@ function get_price_html_override($price, $product)
 {
     $price_excl_tax = wc_get_price_excluding_tax( $product );
     $price_incl_tax = wc_get_price_including_tax( $product );
+    if(!$price_excl_tax) $price_excl_tax = 0;
+    if(!$price_incl_tax) $price_incl_tax = 0;
     ob_start();
     ?>
     <span class="woocommerce-Price-amount amount">
