@@ -16,7 +16,7 @@
           width: auto;
           height: auto;
           max-width: 205px;
-          max-height: 205px;
+          max-height: 220px;
           display: block;
           margin-left: auto;
           margin-right: auto;
@@ -42,4 +42,36 @@ h1.page-title {
   letter-spacing: 1px;
   color: $blue;
   font-weight: $bold;
+}
+
+.gosparky-archive, .related.products {
+  > .products {
+    width: 100%;
+    padding-bottom: 1em;
+    h2.woocommerce-loop-product__title {
+      padding-top: 1em;
+      font-family: $cervo-neue;
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: $medium;
+    }
+    .cell {
+      @include breakpoint(medium) {
+        border-right: 1px solid $grey;
+        &:nth-child(2n) {
+          border: none;
+        }
+      }
+      @include breakpoint(large) {
+        border-right: 1px solid $grey;
+        &:nth-child(2n) {
+          border-right: 1px solid $grey;
+        }
+        &:nth-child(4n) {
+          border: none;
+        }
+      }
+    }
+
+  }
 }

@@ -22,7 +22,7 @@ add_filter('woocommerce_product_loop_start', 'gosparky_product_loop_start');
 
 function gosparky_product_loop_start()
 {
-    echo '<div class="products grid-x">';
+    echo '<div class="products grid-x grid-margin-x grid-margin-y grid-padding-x">';
 }
 
 add_filter('woocommerce_product_loop_end', 'gosparky_product_loop_end');
