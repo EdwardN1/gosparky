@@ -35,7 +35,16 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<?php $master_style_class = ''; ?>
+<?php if (have_rows('general_settings', 'option')) : ?>
+    <?php while (have_rows('general_settings', 'option')) : the_row();
+        $master_style_id = get_sub_field('master_style_id');
+        if($master_style_id !='') {
+            $master_style_class = $master_style_id;
+        }
+    endwhile; ?>
+<?php endif; ?>
+<body <?php body_class($master_style_class); ?>>
 
 <div class="off-canvas-wrapper">
 
@@ -55,29 +64,92 @@
             <div class="page-top grid-container">
                 <div class="grid-x">
                     <div class="cell shrink logo">
-                        <a href="/"><img
-                                    src="<?php echo get_template_directory_uri() . '/assets/images/Logo-White-on-Blue.png'; ?>"></a>
+                        <?php if (have_rows('general_settings', 'option')) : ?>
+                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                <?php $header_logo = get_sub_field('header_logo'); ?>
+                                <?php if ($header_logo) : ?>
+                                    <a href="/"><img src="<?php echo esc_url($header_logo['url']); ?>"
+                                                     alt="<?php echo esc_attr($header_logo['alt']); ?>"/></a>
+                                <?php else: ?>
+                                    <a href="/"><img
+                                                src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <a href="/"><img
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                        <?php endif; ?>
                     </div>
                     <div class="cell shrink search show-for-large">
                         <?php get_product_search_form(); ?>
                         <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/searchbox.png'; */ ?>">-->
                     </div>
                     <div class="cell auto contact-top text-center">
-                        <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
-                        <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a></div>
-                        <!--<img src="<?php /*echo get_template_directory_uri() . '/assets/images/prototype/contact-top.png'; */ ?>">-->
+
+                        <?php if (have_rows('general_settings', 'option')) : ?>
+                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                <?php $telephone_number = get_sub_field('telephone_number'); ?>
+                                <?php $email_address = get_sub_field('email_address'); ?>
+                                <?php if ($telephone_number != '') : ?>
+                                    <div class="tel"><a
+                                                href="tel:<?php echo str_replace(' ', '', $telephone_number); ?>"><?php the_sub_field('telephone_number'); ?></a>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
+                                <?php endif; ?>
+                                <?php if ($email_address != '') : ?>
+                                    <div class="email"><a
+                                                href="mailto:<?php echo $email_address; ?>"><?php echo $email_address; ?></a>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
+                            <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a></div>
+                        <?php endif; ?>
+
                     </div>
                     <div class="cell shrink top-icons">
                         <div class="grid-x">
                             <div class="cell shrink account">
-                                <a href="/my-account/"><img
-                                            src="<?php echo get_template_directory_uri() . '/assets/images/svg/account-icon.svg'; ?>"></a>
+                                <a href="/my-account/">
+                                    <?php if (have_rows('general_settings', 'option')) : ?>
+                                        <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                            <?php $desktop_account_icon = get_sub_field('desktop_account_icon'); ?>
+                                            <?php if ($desktop_account_icon) : ?>
+                                                <img src="<?php echo esc_url($desktop_account_icon['url']); ?>"
+                                                     alt="<?php echo esc_attr($desktop_account_icon['alt']); ?>"/>
+                                            <?php else: ?>
+                                                <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/account-icon.svg'; ?>">
+                                            <?php endif; ?>
+                                        <?php endwhile; ?>
+                                    <?php else: ?>
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/account-icon.svg'; ?>">
+                                    <?php endif; ?>
+                                </a>
                                 <a href="/my-account/" class="red-text">My Account</a>
                             </div>
                             <div class="cell shrink cart">
                                 <div class="cart-icon-wrapper">
-                                    <a href="<?php echo wc_get_cart_url(); ?>"><img
-                                                src="<?php echo get_template_directory_uri() . '/assets/images//svg/trolley-icon.svg'; ?>"></a>
+                                    <a href="<?php echo wc_get_cart_url(); ?>">
+                                        <?php if (have_rows('general_settings', 'option')) : ?>
+                                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                                <?php $desktop_cart_icon = get_sub_field('desktop_cart_icon'); ?>
+                                                <?php if ($desktop_cart_icon) : ?>
+                                                    <img src="<?php echo esc_url($desktop_cart_icon['url']); ?>"
+                                                         alt="<?php echo esc_attr($desktop_cart_icon['alt']); ?>"/>
+                                                <?php else: ?>
+                                                    <img src="<?php echo get_template_directory_uri() . '/assets/images//svg/trolley-icon.svg'; ?>">
+                                                <?php endif; ?>
+                                            <?php endwhile; ?>
+                                        <?php else: ?>
+                                            <img src="<?php echo get_template_directory_uri() . '/assets/images//svg/trolley-icon.svg'; ?>">
+                                        <?php endif; ?>
+
+                                    </a>
                                     <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>"
                                        title="<?php _e('View your shopping cart'); ?>">
                                         <span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
@@ -100,11 +172,13 @@
 
             <div class="grid-x mobile-menu-bar">
                 <div class="cell auto logo">
-                    <a data-toggle="off-canvas"><img src="<?php echo get_template_directory_uri() . '/assets/images/svg/hamburger.svg'; ?>"><br>Browse</a>
+                    <a data-toggle="off-canvas"><img
+                                src="<?php echo get_template_directory_uri() . '/assets/images/svg/hamburger.svg'; ?>"><br>Browse</a>
                 </div>
                 <div class="cell auto account">
                     <a href="/my-account/"><img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/svg/account-icon-white.svg'; ?>"><br>My Account</a>
+                                src="<?php echo get_template_directory_uri() . '/assets/images/svg/account-icon-white.svg'; ?>"><br>My
+                        Account</a>
                 </div>
                 <div class="cell auto cart">
                     <a href="<?php echo wc_get_cart_url(); ?>"><img

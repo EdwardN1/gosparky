@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="bdc5f63e-20ca-4ea0-9b31-6aa16fe35567" name="Upex Stage" url="https://upex.making.me.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
