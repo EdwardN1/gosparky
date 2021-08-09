@@ -69,11 +69,11 @@
                     <div class="cell large-3 medium-6 small-12 col1">
                         <div class="logo">
 
-                            <?php if ( have_rows( 'general_settings', 'option' ) ) : ?>
-                                <?php while ( have_rows( 'general_settings', 'option' ) ) : the_row(); ?>
-                                    <?php $footer_logo = get_sub_field( 'footer_logo' ); ?>
-                                    <?php if ( $footer_logo ) : ?>
-                                        <a href="/"><img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>" /></a>
+                            <?php if (have_rows('general_settings', 'option')) : ?>
+                                <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                    <?php $footer_logo = get_sub_field('footer_logo'); ?>
+                                    <?php if ($footer_logo) : ?>
+                                        <a href="/"><img src="<?php echo esc_url($footer_logo['url']); ?>" alt="<?php echo esc_attr($footer_logo['alt']); ?>"/></a>
                                     <?php else: ?>
                                         <a href="/"><img
                                                     src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
@@ -85,17 +85,17 @@
                             <?php endif; ?>
                         </div>
 
-                        <?php if ( have_rows( 'general_settings', 'option' ) ) : ?>
-                            <?php while ( have_rows( 'general_settings', 'option' ) ) : the_row(); ?>
-                                <?php $telephone_number = get_sub_field( 'telephone_number' ); ?>
-                                <?php $email_address = get_sub_field( 'email_address' ); ?>
-                                <?php if ( $telephone_number != '' ) : ?>
-                                    <div class="tel"><a href="tel:<?php echo str_replace(' ', '', $telephone_number);?>"><?php the_sub_field( 'telephone_number' ); ?></a></div>
+                        <?php if (have_rows('general_settings', 'option')) : ?>
+                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                <?php $telephone_number = get_sub_field('telephone_number'); ?>
+                                <?php $email_address = get_sub_field('email_address'); ?>
+                                <?php if ($telephone_number != '') : ?>
+                                    <div class="tel"><a href="tel:<?php echo str_replace(' ', '', $telephone_number); ?>"><?php the_sub_field('telephone_number'); ?></a></div>
                                 <?php else: ?>
                                     <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
                                 <?php endif; ?>
-                                <?php if ( $email_address != '' ) : ?>
-                                    <div class="email"><a href="mailto:<?php echo $email_address;?>"><?php echo $email_address;?></a></div>
+                                <?php if ($email_address != '') : ?>
+                                    <div class="email"><a href="mailto:<?php echo $email_address; ?>"><?php echo $email_address; ?></a></div>
                                 <?php else: ?>
                                     <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a></div>
                                 <?php endif; ?>
@@ -113,10 +113,10 @@
                             <a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a>
                         </div>-->
 
-                        <?php if ( have_rows( 'general_settings', 'option' ) ) : ?>
-                            <?php while ( have_rows( 'general_settings', 'option' ) ) : the_row(); ?>
-                                <?php $address = get_sub_field( 'address' ); ?>
-                                <?php if ( $address != '' ) : ?>
+                        <?php if (have_rows('general_settings', 'option')) : ?>
+                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                <?php $address = get_sub_field('address'); ?>
+                                <?php if ($address != '') : ?>
                                     <div class="address">
                                         <?php echo $address; ?>
                                     </div>
@@ -194,8 +194,8 @@
                             <span>Monday to Friday</span><span class="bold">7am - 6pm</span>
                         </div>
                         <div class="charity">
-                            Supporting the:<br>
-                            <img src="<?php echo get_template_directory_uri() . '/assets/images/emily-trans-white.png'; ?>">
+                            <!--Supporting the:<br>
+                            <img src="<?php /*echo get_template_directory_uri() . '/assets/images/emily-trans-white.png'; */ ?>">-->
                         </div>
                     </div>
                 </div>
@@ -206,10 +206,20 @@
         <div class="small-12 medium-12 large-12 cell copyright-row">
             <div class="grid-container">
                 <div class="grid-x">
-                    <div class="cell large-6 medium-6 small-12 text-left">
-                        <p class="source-org copyright">&copy; <?php echo date('Y'); ?> Go-Sparky.co.uk Ltd and its registered trademarks all rights reserved. Company No. 11303375</p>
+                    <div class="cell large-8 medium-8 small-12 text-left">
+                        <?php if (have_rows('general_settings', 'option')) : ?>
+                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                <?php $copyright = get_sub_field('copyright'); ?>
+                                <?php if ($copyright != ''): ?>
+                                    <p class="source-org copyright">&copy; <?php echo date('Y'); ?><?php echo $copyright;?></p>
+                                <?php else: ?>
+                                    <p class="source-org copyright">&copy; <?php echo date('Y'); ?> A Company Ltd and its registered trademarks all rights reserved. Company No. XXXXXXXX</p>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+
                     </div>
-                    <div class="cell large-6 medium-6 small-12 text-right">
+                    <div class="cell large-4 medium-4 small-12 text-right">
                         <p class="source-org copyright">&copy; <?php echo date('Y'); ?> This website was designed and built by <a href="https://ng15.co.uk" target="_blank">NG15 Ltd</a></p>
                     </div>
 
