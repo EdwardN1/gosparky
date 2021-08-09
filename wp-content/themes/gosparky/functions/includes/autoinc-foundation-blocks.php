@@ -116,3 +116,36 @@ function register_foundation_xy_grid_block() {
     }
 
 }
+
+/**
+ *
+ * ======================= Image Carousel Brands' =======================
+ *
+ */
+
+add_action( 'acf/init', 'register_image_carousel_brands_block' );
+function register_image_carousel_brands_block() {
+
+    if ( function_exists( 'acf_register_block_type' ) ) {
+
+        // Register Image Carousel Brands block
+        acf_register_block_type( array(
+            'name' 					=> 'image-carousel-brands',
+            'title' 				=> __( 'Image Carousel Brands' ),
+            'description' 			=> __( 'A custom Image Carousel Brands block.' ),
+            'category' 				=> 'foundationblocks',
+            'icon'					=> 'layout',
+            'keywords'				=> array( 'image', 'carousel', 'brands' ),
+            'post_types'			=> array( 'post', 'page' ),
+            'mode'					=> 'edit',
+            // 'align'				=> 'wide',
+            'render_template'		=> get_template_directory() . '/parts/blocks/Block-image-carousel-brands.php',
+            // 'render_callback'	=> 'image_carousel_brands_block_render_callback',
+            // 'enqueue_style' 		=> get_template_directory_uri() . '/template-parts/blocks/image-carousel-brands/image-carousel-brands.css',
+            // 'enqueue_script' 	=> get_template_directory_uri() . '/template-parts/blocks/image-carousel-brands/image-carousel-brands.js',
+            // 'enqueue_assets' 	=> 'image_carousel_brands_block_enqueue_assets',
+        ));
+
+    }
+
+}

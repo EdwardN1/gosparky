@@ -89,3 +89,14 @@ function gosparky_content_product($located, $template_name, $slug)
     }
     load_template($located,false);
 }
+
+// wrap images
+add_action( 'woocommerce_before_shop_loop_item_title', 'gosparky_add_img_wrapper_start', 5, 2 );
+function gosparky_add_img_wrapper_start() {
+    echo '<div class="archive-img-wrap">';
+}
+
+add_action( 'woocommerce_before_shop_loop_item_title', 'gosparky_add_img_wrapper_close', 12, 2 );
+function gosparky_add_img_wrapper_close() {
+    echo '</div>';
+}

@@ -1,4 +1,4 @@
-.woocommerce {
+/*.woocommerce {
   h2, h3 {
     font-family: $cervo-neue;
     font-size: 24px;
@@ -34,7 +34,7 @@
       }
     }
   }
-}
+}*/
 
 h1.page-title {
   font-family: $cervo-neue;
@@ -48,12 +48,35 @@ h1.page-title {
   > .products {
     width: 100%;
     padding-bottom: 1em;
+    text-align: center;
     h2.woocommerce-loop-product__title {
-      padding-top: 1em;
+      padding-top: 0.5em;
       font-family: $cervo-neue;
       font-size: 14px;
       line-height: 17px;
       font-weight: $medium;
+      text-align: center;
+    }
+    .price {
+      text-align: center;
+      padding-bottom: 0.5em;
+      display: block;
+      width: 100%;
+    }
+    .archive-img-wrap {
+      width: 100%;
+      height: 225px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-height: 225px;
+        max-width: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
     .cell {
       @include breakpoint(medium) {
@@ -72,6 +95,14 @@ h1.page-title {
         }
       }
     }
-
+    .button {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 50%;
+      background-color: $medium-blue;
+      border-radius: 5px;
+      color: $white;
+    }
   }
 }

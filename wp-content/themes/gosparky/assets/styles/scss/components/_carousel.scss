@@ -1,9 +1,22 @@
-#home-page-brand-carousel {
-  padding-top: 3em;
+.block-image-carousel-brands {
+  padding-top: 1em;
   padding-left: 24px;
   padding-right: 24px;
+  .slick-slider {
+    padding-left: 50px;
+    padding-right: 50px;
+    .image-container {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
   .slick-next, .slick-prev {
-    margin-top: -18px;
+    position: absolute;
+    color: transparent;
+    height: 26px;
+    width: 26px;
+    z-index: 10;
+    top: 40%;
     &:before {
       border-style: solid;
       border-width: 5px 5px 0 0;
@@ -20,12 +33,13 @@
     }
   }
   .slick-prev {
-    left: -24px;
     transform: rotate(-135deg);
+    left: 0;
+
   }
   .slick-next {
-    right: -24px;
     transform: rotate(45deg);
+    right: 0;
   }
 }
 

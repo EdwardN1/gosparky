@@ -4,9 +4,12 @@ function site_scripts() {
         
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/scripts/scripts.js', array( 'jquery' ), filemtime(get_template_directory() . '/assets/scripts/js'), true );
+    wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/vendor/slick-1.8.1/slick/slick.min.js', array( 'site-js' ), filemtime(get_template_directory() . '/vendor/slick-1.8.1/slick/slick.min.js'), true );
+    wp_enqueue_script( 'ritz-js', get_template_directory_uri() . '/assets/scripts/sparky.js', array( 'slick-js' ), filemtime(get_template_directory() . '/assets/scripts/sparky.js'), true );
     //wp_enqueue_script( 'js-cookies', 'https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js', array( 'jquery' ), filemtime(get_template_directory() . '/assets/scripts/js'), true );
    
     // Register main stylesheet
+    wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/vendor/slick-1.8.1/slick/slick.css', array(), filemtime(get_template_directory() . '/vendor/slick-1.8.1/slick/slick.css'), 'all' );
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/styles/style.css', array(), filemtime(get_template_directory() . '/assets/styles/scss'), 'all' );
 
     // Comment reply script for threaded comments
