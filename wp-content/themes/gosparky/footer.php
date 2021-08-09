@@ -7,6 +7,14 @@
  * For more info: https://developer.wordpress.org/themes/basics/template-files/#template-partials
  */
 ?>
+
+<?php
+$show_quote_and_callback_row = get_field('show_quote_and_callback_row','option');
+$show_trustpilot_row = get_field('show_trustpilot_row','option');
+$show_sales_contact_row = get_field('show_sales_contact_row','option');
+$show_newsletter_signups = get_field('show_newsletter_signups','option');
+?>
+<?php if($show_quote_and_callback_row ==1): ?>
 <div id="footer-top" class="grid-container">
     <div class="grid-x">
         <div class="large-6 medium-6 small-12">
@@ -17,7 +25,9 @@
         </div>
     </div>
 </div>
+<?php endif;?>
 
+<?php if($show_trustpilot_row ==1): ?>
 <div id="footer-trustpilot" class="grid-container">
 
     <div class="grid-x">
@@ -30,7 +40,8 @@
     </div>
 
 </div>
-
+<?php endif;?>
+<?php if($show_sales_contact_row ==1): ?>
 <div id="footer-contact-sales" class="grid-container">
     <div class="grid-x">
         <div class="cell medium-shrink large-shrink small-12 image">
@@ -45,7 +56,8 @@
         </div>
     </div>
 </div>
-
+<?php endif;?>
+<?php if($show_newsletter_signups ==1): ?>
 <div id="footer-opt-in">
     <div class="grid-container">
         <div class="grid-x">
@@ -58,7 +70,9 @@
         </div>
     </div>
 </div>
-
+<?php else:?>
+    <div class="spacer"></div>
+<?php endif;?>
 <footer class="footer" role="contentinfo">
 
     <div class="inner-footer grid-x">

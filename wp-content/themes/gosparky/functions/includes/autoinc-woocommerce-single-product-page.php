@@ -3,17 +3,17 @@ add_filter('woocommerce_get_price_html', 'get_price_html_override', 100, 2);
 
 function get_price_html_override($price, $product)
 {
-    $price_excl_tax = wc_get_price_excluding_tax( $product );
-    $price_incl_tax = wc_get_price_including_tax( $product );
-    if(!$price_excl_tax) $price_excl_tax = 0;
-    if(!$price_incl_tax) $price_incl_tax = 0;
+    $price_excl_tax = wc_get_price_excluding_tax($product);
+    $price_incl_tax = wc_get_price_including_tax($product);
+    if (!$price_excl_tax) $price_excl_tax = 0;
+    if (!$price_incl_tax) $price_incl_tax = 0;
     ob_start();
     ?>
     <span class="woocommerce-Price-amount amount">
         <span>
-            <span class="woocommerce-Price-currencySymbol"><?php  echo get_woocommerce_currency_symbol();?></span>
-            <span class="ex-tax" style="display: none;"><?php echo number_format($price_excl_tax,2); ?></span>
-            <span class="inc-tax" style="display: none;"><?php echo number_format($price_incl_tax,2); ?></span>
+            <span class="woocommerce-Price-currencySymbol"><?php echo get_woocommerce_currency_symbol(); ?></span>
+            <span class="ex-tax" style="display: none;"><?php echo number_format($price_excl_tax, 2); ?></span>
+            <span class="inc-tax" style="display: none;"><?php echo number_format($price_incl_tax, 2); ?></span>
         </span>
     </span>
     <?php
@@ -37,7 +37,7 @@ function woocommerce_template_single_meta_override()
         <?php if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type('variable'))) : ?>
 
             <span class="sku_wrapper"><?php esc_html_e('Part Number:', 'woocommerce'); ?> <span
-                    class="sku"><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></span></span>
+                        class="sku"><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></span></span>
 
         <?php endif; ?>
 
@@ -89,7 +89,9 @@ function woocommerce_template_single_add_to_cart_override()
             <?php do_action('woocommerce_before_add_to_cart_button'); ?>
             <div class="grid-x">
                 <div class="cell shrink">
-                    <button class="btn minus1" style="font-size: 26px" onclick="document.querySelector('.quantity .qty').stepDown()">-</button>
+                    <button class="btn minus1" style="font-size: 26px"
+                            onclick="document.querySelector('.quantity .qty').stepDown()">-
+                    </button>
                 </div>
                 <div class="cell shrink">
                     <?php
@@ -107,7 +109,9 @@ function woocommerce_template_single_add_to_cart_override()
                     ?>
                 </div>
                 <div class="cell shrink">
-                    <button class="btn plus1" style="font-size: 26px" onclick="document.querySelector('.quantity .qty').stepUp()">+</button>
+                    <button class="btn plus1" style="font-size: 26px"
+                            onclick="document.querySelector('.quantity .qty').stepUp()">+
+                    </button>
                 </div>
                 <div class="cell auto">
                     <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
@@ -132,3 +136,21 @@ function woocommerce_template_single_add_to_cart_override()
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 55);
 
 remove_all_actions('woocommerce_after_add_to_cart_quantity');
+
+add_action('woocommerce_before_single_product_summary', 'woocommerce_open_single_product_summary', 5);
+add_action('woocommerce_after_single_product_summary', 'woocommerce_close_single_product_summary',10);
+
+function woocommerce_open_single_product_summary()
+{
+    ?>
+    <div class="begin-single-product-summary">
+    <?php
+}
+
+    function woocommerce_close_single_product_summary()
+    {
+    ?>
+        <div class="clear"></div>
+        </div>
+    <?php
+}

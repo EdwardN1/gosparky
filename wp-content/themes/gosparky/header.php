@@ -199,6 +199,10 @@
             </div>
         </div>
 
+    <?php $show_header_icons_row = get_field('show_header_icons_row','option'); ?>
+
+        <?php if($show_header_icons_row == 1): ?>
+
         <div class="header-icons grid-container">
             <div class="grid-x">
                 <div class="cell large-auto medium-12 text-center spacer"><img
@@ -212,6 +216,10 @@
                 </div>
             </div>
         </div>
+
+        <?php else: ?>
+        <div class="spacer"></div>
+        <?php endif;?>
 
         <div class="grid-container">
             <?php
