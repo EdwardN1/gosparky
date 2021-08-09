@@ -11,7 +11,7 @@
 
         <div class="">
             <div class="logo hide-for-large"><a href="/"><img
-                            src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a></div>
+                            src="<?php echo get_template_directory_uri() . '/assets/images/UPEX-New-horizontal-PNG.png'; ?>"></a></div>
             <div class="grid-x">
                 <div class="cell large-auto small-12">
                     <div class="show-for-large">

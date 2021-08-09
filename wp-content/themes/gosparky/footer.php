@@ -68,19 +68,73 @@
                 <div class="grid-x">
                     <div class="cell large-3 medium-6 small-12 col1">
                         <div class="logo">
-                            <a href="/"><img
-                                        src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+
+                            <?php if ( have_rows( 'general_settings', 'option' ) ) : ?>
+                                <?php while ( have_rows( 'general_settings', 'option' ) ) : the_row(); ?>
+                                    <?php $footer_logo = get_sub_field( 'footer_logo' ); ?>
+                                    <?php if ( $footer_logo ) : ?>
+                                        <a href="/"><img src="<?php echo esc_url( $footer_logo['url'] ); ?>" alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>" /></a>
+                                    <?php else: ?>
+                                        <a href="/"><img
+                                                    src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                                    <?php endif; ?>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <a href="/"><img
+                                            src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                            <?php endif; ?>
                         </div>
-                        <div class="tel">
+
+                        <?php if ( have_rows( 'general_settings', 'option' ) ) : ?>
+                            <?php while ( have_rows( 'general_settings', 'option' ) ) : the_row(); ?>
+                                <?php $telephone_number = get_sub_field( 'telephone_number' ); ?>
+                                <?php $email_address = get_sub_field( 'email_address' ); ?>
+                                <?php if ( $telephone_number != '' ) : ?>
+                                    <div class="tel"><a href="tel:<?php echo str_replace(' ', '', $telephone_number);?>"><?php the_sub_field( 'telephone_number' ); ?></a></div>
+                                <?php else: ?>
+                                    <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
+                                <?php endif; ?>
+                                <?php if ( $email_address != '' ) : ?>
+                                    <div class="email"><a href="mailto:<?php echo $email_address;?>"><?php echo $email_address;?></a></div>
+                                <?php else: ?>
+                                    <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a></div>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <div class="tel"><a href="tel:08001120090">0800 112 00 90</a></div>
+                            <div class="email"><a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a></div>
+                        <?php endif; ?>
+
+
+                        <!--<div class="tel">
                             <a href="tel:08001120090">08001120090</a>
                         </div>
                         <div class="email">
                             <a href="mailto:sales@gosparky.co.uk">sales@gosparky.co.uk</a>
-                        </div>
-                        <div class="address">
-                            Unit 5 & 6 Ravenna Point, Terminus Road,
-                            Chichester, West Sussex, PO19 8GS
-                        </div>
+                        </div>-->
+
+                        <?php if ( have_rows( 'general_settings', 'option' ) ) : ?>
+                            <?php while ( have_rows( 'general_settings', 'option' ) ) : the_row(); ?>
+                                <?php $address = get_sub_field( 'address' ); ?>
+                                <?php if ( $address != '' ) : ?>
+                                    <div class="address">
+                                        <?php echo $address; ?>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="address">
+                                        Unit 5 & 6 Ravenna Point, Terminus Road,
+                                        Chichester, West Sussex, PO19 8GS
+                                    </div>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <div class="address">
+                                Unit 5 & 6 Ravenna Point, Terminus Road,
+                                Chichester, West Sussex, PO19 8GS
+                            </div>
+                        <?php endif; ?>
+
+
                     </div>
                     <div class="cell large-3 medium-6 small-12 col2">
                         <div class="heading">

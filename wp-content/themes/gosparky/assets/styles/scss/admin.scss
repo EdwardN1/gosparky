@@ -1,36 +1,25 @@
-/******************************************************************
-	
-Stylesheet: Main Stylesheet
-
-Here's where the magic happens. Here is where you import
-all of your Sass files so they can compile into one
-CSS file. 
-
-******************************************************************/
-
 // Import local Foundation overrides - Don't link to Bower version as it will be overwritten whenever updated
 @import "settings";
-
-@import "overrides/settings";
 
 // Import foundation.scss from vendor files
 @import "../../../node_modules/foundation-sites/scss/foundation";
 
 // Import Motion-UI from vendor files
-@import "../../../node_modules/motion-ui/src/motion-ui";
+/*@import "../../../node_modules/motion-ui/src/motion-ui";
 @include motion-ui-transitions;
-@include motion-ui-animations;
+@include motion-ui-animations;*/
 
 // Select the components you want to use
-@include foundation-global-styles;
+//@include foundation-global-styles;
 
 // Select the grid you would like to use
 // @include foundation-grid;
 // @include foundation-flex-grid;
 @include foundation-xy-grid-classes;
 
-@include foundation-flex-classes;
-@include foundation-typography;
+//@include foundation-flex-classes;
+//@include foundation-typography;
+/*
 @include foundation-forms;
 @include foundation-button;
 @include foundation-accordion;
@@ -65,31 +54,6 @@ CSS file.
 @include foundation-top-bar;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
+*/
 
-// Import your custom styles
-@import "global";
-
-@import "overrides/global";
-
-@import "components/defaults";
-@import "classes/responsive_text_alignment";
-@import "components/top_bar";
-@import "components/spacer";
-@import "components/category_menu";
-@import "components/footer";
-@import "components/buttons";
-@import "components/archive";
-@import "components/woocommerce-checkout-payment";
-@import "components/search_form";
-@import "components/cart_icon";
-@import "components/single_product";
-@import "components/related-products";
-@import "components/carousel";
-@import "components/orbit";
-@import "components/full_width_call_out";
-@import "components/page_top";
-@import "components/mobile_page_top";
-@import "components/off_canvas";
-@import "components/xygrid";
-
-@import "overrides/components";
+@include foundation-visibility-classes;
