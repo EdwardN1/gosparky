@@ -166,11 +166,24 @@ footer, .footer {
         font-size: 22px;
         font-weight: $bold;
         letter-spacing: 1px;
+        text-transform: uppercase;
+        padding-bottom: 5px;
       }
       nav {
+        ul {
+          margin: 0;
+          display: block;
+          li {
+            display: block;
+          }
+        }
         a {
           font-weight: $medium;
-          font-size: 12px;
+          font-size: 14px;
+          padding-left: 0;
+        }
+        .active a {
+          background-color: $light-blue;
         }
       }
     }
@@ -182,6 +195,8 @@ footer, .footer {
         font-weight: $bold;
         letter-spacing: 1px;
         padding-bottom: 0.5em;
+        text-transform: uppercase;
+        padding-bottom: 10px;
       }
       .payment-logos {
         .cell {
@@ -214,6 +229,9 @@ footer, .footer {
       }
       .social {
         padding-top: 2em;
+        img {
+          height: 50px;
+        }
         .heading {
           font-size: 18px;
         }

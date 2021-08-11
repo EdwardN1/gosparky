@@ -6,6 +6,22 @@
  *
  */
 
+add_filter('block_categories', 'reorderBlocks', 99, 2);
+
+function reorderBlocks($categories, $post)
+{
+    $retCats = array();
+    $ritzBlocks = array(
+        'slug' => 'foundationblocks',
+        'title' => __('Foundation Blocks', 'foundationblocks'),
+    );
+    $retCats[0] = $ritzBlocks;
+    foreach ($categories as $category) {
+        $retCats[] = $category;
+    }
+    return $retCats;
+}
+
 add_filter( 'block_categories', function( $categories, $post ) {
     return array_merge(
         $categories,

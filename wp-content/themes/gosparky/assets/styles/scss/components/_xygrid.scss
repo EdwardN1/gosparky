@@ -56,6 +56,31 @@
 
     }
   }
+  .cell-type-term {
+    height: 19.583vw;
+    max-height: 282px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 1px solid $blue;
+    position: relative;
+    .term-name {
+      position: absolute;
+      left: 0;
+      bottom: 2em;
+      background-color: $dark-gray;
+      color: $white;
+      padding-right: 1em;
+      padding-left: 1em;
+      text-transform: uppercase;
+      line-height: 1;
+      padding-top: 0.6em;
+      padding-bottom: 0.4em;
+      font-size: 18px;
+      font-family: $roboto;
+      font-weight: $light;
+    }
+  }
   .small-12 {
     .cell-type-image {
       text-align: center;

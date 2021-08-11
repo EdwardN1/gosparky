@@ -4,10 +4,10 @@
  *
  * Foundation Xy Grid Block Template.
  *
- * @param array $block The block settings and attributes.
  * @param string $content The block inner HTML (empty).
- * @param bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
+ * @var bool $is_preview True during AJAX preview.
+ * @var array $block The block settings and attributes.
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -52,16 +52,16 @@ $css_classes = get_field('css_classes');
     if ($full == 1) {
         $gc_classes .= ' full';
     }
-    if($css_classes != '') {
-        $gc_classes .= ' '.$css_classes;
+    if ($css_classes != '') {
+        $gc_classes .= ' ' . $css_classes;
     }
     $gc_styles = '';
-    if($custom_styles != '') {
-        $gc_styles = ' style="'.$custom_styles.'"';
+    if ($custom_styles != '') {
+        $gc_styles = ' style="' . $custom_styles . '"';
     }
     ?>
 
-    <div class="grid-container<?php echo $gc_classes; ?>"<?php echo $gc_styles;?>>
+    <div class="grid-container<?php echo $gc_classes; ?>"<?php echo $gc_styles; ?>>
         <?php endif; ?>
 
         <?php if (have_rows('Columns')) : ?>
@@ -94,6 +94,7 @@ $css_classes = get_field('css_classes');
 
                     $type = get_sub_field('type');
                     $content = get_sub_field('content');
+
                     if ($type == 'Video') {
                         $reb_class = '';
                         if ($aspect_ratio == 'Vertical') {
@@ -111,58 +112,72 @@ $css_classes = get_field('css_classes');
                         $content .= '" frameborder="0" allowfullscreen></iframe>';
                         $content .= '</div>';
                     }
-                    if ($image) {
-                        $cellFooter = '';
-                        if(($image_description!='')) {
-                            $cellFooter .= '<div class="image-description"><div class="container">';
-                            $cellFooter .= '<span>'.$image_description.'</span>';
-                            if($image_link!='') {
-                               if($image_link_description=='') $image_link_description = $image_link;
-                                $cellFooter .= '<a href="'.$image_link.'">'.$image_link_description.'</a>';
-                            }
-                            $cellFooter .= '</div></div>';
-                        } else {
-                            if($image_link!='') {
-                                $cellFooter .= '<div class="image-description"><div class="container">';
-                                if($image_link_description=='') $image_link_description = $image_link;
-                                $cellFooter .= '<a href="'.$image_link.'">'.$image_link_description.'</a>';
-                                $cellFooter .= '</div></div>';
-                            }
-                        }
-                        if($image_position=='islink') {
-                            $content = '<div class="cell-type-image">';
-                            $content .= '<a href="'.$image_link.'">'.'<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/></a>';
-                            $content .= '</div>';
-                        } else {$content = '<div class="cell-type-image">';
-                            $content .= '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
-                            $content .= $cellFooter;
-                            $content .= '</div>';
-                        }
 
+                    if ($type == 'Image') {
+                        if ($image) {
+                            $cellFooter = '';
+                            if (($image_description != '')) {
+                                $cellFooter .= '<div class="image-description"><div class="container">';
+                                $cellFooter .= '<span>' . $image_description . '</span>';
+                                if ($image_link != '') {
+                                    if ($image_link_description == '') $image_link_description = $image_link;
+                                    $cellFooter .= '<a href="' . $image_link . '">' . $image_link_description . '</a>';
+                                }
+                                $cellFooter .= '</div></div>';
+                            } else {
+                                if ($image_link != '') {
+                                    $cellFooter .= '<div class="image-description"><div class="container">';
+                                    if ($image_link_description == '') $image_link_description = $image_link;
+                                    $cellFooter .= '<a href="' . $image_link . '">' . $image_link_description . '</a>';
+                                    $cellFooter .= '</div></div>';
+                                }
+                            }
+                            if ($image_position == 'islink') {
+                                $content = '<div class="cell-type-image">';
+                                $content .= '<a href="' . $image_link . '">' . '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/></a>';
+                                $content .= '</div>';
+                            } else {
+                                $content = '<div class="cell-type-image">';
+                                $content .= '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                                $content .= $cellFooter;
+                                $content .= '</div>';
+                            }
+
+                        }
+                    }
+
+                    if ($type == 'Product Category') {
+                        $product_category = get_sub_field('product_category');
+                        $term = get_term_by('id', $product_category, 'product_cat');
+                        $image_style = '';
+                        if ($image) {
+                            $image_style = ' style="background-image: url('.esc_url($image['url']).');"';
+                        }
+                        $content = '<a href="'.esc_url( get_term_link( $term ) ).'"><div class="cell-type-term"' . $image_style . '><div class="term-name">'.esc_html( $term->name ).'</div></div></a>';
                     }
 
                     $cell_classes = 'cell';
-                    if($global_size=='Auto') {
+                    if ($global_size == 'Auto') {
                         $cell_classes .= ' auto';
                     } else {
-                        if($global_size=='Shrink') {
+                        if ($global_size == 'Shrink') {
                             $cell_classes .= ' shrink';
                         } else {
-                            if($large_size !='none') $cell_classes .= ' large-'.$large_size;
-                            if($medium_size !='none') $cell_classes .= ' medium-'.$medium_size;
-                            if($small_size !='none') $cell_classes .= ' small-'.$small_size;
+                            if ($large_size != 'none') $cell_classes .= ' large-' . $large_size;
+                            if ($medium_size != 'none') $cell_classes .= ' medium-' . $medium_size;
+                            if ($small_size != 'none') $cell_classes .= ' small-' . $small_size;
                         }
                     }
-                    if($cell_css_classes != '') {
-                        $cell_classes .= ' '.$cell_css_classes;
+                    if ($cell_css_classes != '') {
+                        $cell_classes .= ' ' . $cell_css_classes;
                     }
-                    if($cell_custom_styles != '') {
-                        $cell_custom_styles = ' style="'.$cell_custom_styles.'"';
+                    if ($cell_custom_styles != '') {
+                        $cell_custom_styles = ' style="' . $cell_custom_styles . '"';
                     }
                     ?>
-                <div class="<?php echo $cell_classes;?>"<?php echo $cell_custom_styles;?>>
-                    <?php echo $content;?>
-                </div>
+                    <div class="<?php echo $cell_classes; ?>"<?php echo $cell_custom_styles; ?>>
+                        <?php echo $content; ?>
+                    </div>
                 <?php
                 endwhile; ?>
             </div>

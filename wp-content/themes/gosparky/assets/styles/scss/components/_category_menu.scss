@@ -1,5 +1,8 @@
 .category-menu {
   padding-top: 2em;
+  .active a {
+    background-color: $light-blue;
+  }
 }
 
 #short-product-category-menu {

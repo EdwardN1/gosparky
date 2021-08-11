@@ -10,8 +10,20 @@
     <div class="grid-container">
 
         <div class="">
-            <div class="logo hide-for-large"><a href="/"><img
-                            src="<?php echo get_template_directory_uri() . '/assets/images/UPEX-New-horizontal-PNG.png'; ?>"></a></div>
+            <div class="logo hide-for-large"><a href="/">
+                    <?php if (have_rows('general_settings', 'option')) : ?>
+                        <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                            <?php $header_logo = get_sub_field('header_logo'); ?>
+                            <?php if ( $header_logo ) : ?>
+                                <img src="<?php echo esc_url( $header_logo['url'] ); ?>" alt="<?php echo esc_attr( $header_logo['alt'] ); ?>" />
+                            <?php else: ?>
+                                <img src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>">
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>">
+                    <?php endif; ?>
+                </a></div>
             <div class="grid-x">
                 <div class="cell large-auto small-12">
                     <div class="show-for-large">

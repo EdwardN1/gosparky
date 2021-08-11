@@ -86,6 +86,9 @@ $top-bar-background: $blue; //background colour of the top bar.
         padding-left: 0.5rem;
         padding-right: 0.5rem;
       }
+      .active a {
+        background-color: $light-blue;
+      }
     }
     input:checked~.switch-paddle {
       background: $medium-blue;

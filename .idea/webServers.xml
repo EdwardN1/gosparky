@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="42df2aee-b50d-43d8-a576-3ef2a45b02c6" name="Stage" url="https://gosparky.making.me.uk">
+      <webServer id="42df2aee-b50d-43d8-a576-3ef2a45b02c6" name="Go Sparky Stage" url="https://gosparky.making.me.uk">
         <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
@@ -10,6 +10,13 @@
         </fileTransfer>
       </webServer>
       <webServer id="bdc5f63e-20ca-4ea0-9b31-6aa16fe35567" name="Upex Stage" url="https://upex.making.me.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="09ffbbcb-645b-44cc-8d74-621a0a211a3a" name="Target Stage" url="https://target.making.me.uk/">
         <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
