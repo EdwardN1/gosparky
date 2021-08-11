@@ -1,13 +1,14 @@
 .category-menu {
   padding-top: 2em;
-  .active a {
+
+  .active>a {
     background-color: $light-blue;
   }
 }
 
 #short-product-category-menu {
   background-color: $blue;
-
+  justify-content: center;
   > li.menu-item {
     > a {
       color: $white;

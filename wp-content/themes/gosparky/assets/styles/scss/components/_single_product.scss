@@ -45,21 +45,33 @@
           border: none;
           background-color: transparent;
           padding: 0;
-          min-width: 20%;
-          padding-right: 2em;
+          //min-width: 20%;
           width: auto;
           margin: 0;
+          @include breakpoint(medium) {
+            padding-right: 30px;
+          }
+          &:before, &:after{
+            content: "";
+            box-shadow: none;
+            border: none;
+            border-radius: unset;
+          }
 
           a {
             font-family: $cervo-neue;
             text-transform: uppercase;
             font-weight: $regular;
-            font-size: 22px;
+            font-size: 12px;
             letter-spacing: 1px;
-            border-right: 1px solid $grey;
             display: block;
             width: 100%;
-            //text-align: center;
+            padding-right: 12px;
+            @include breakpoint(medium) {
+              font-size: 22px;
+              border-right: 1px solid $grey;
+              padding-right: 30px;
+            }
           }
 
           &.active {
