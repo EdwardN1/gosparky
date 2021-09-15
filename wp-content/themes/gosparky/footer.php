@@ -289,6 +289,12 @@ $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
 
 </div> <!-- end .off-canvas-wrapper -->
 
+<?php if ( have_rows( 'google_settings', 'option' ) ) : ?>
+    <?php while ( have_rows( 'google_settings', 'option' ) ) : the_row(); ?>
+        <?php the_sub_field( 'google_analytics' ); ?>
+    <?php endwhile; ?>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
 
 </body>

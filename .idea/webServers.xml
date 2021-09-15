@@ -23,6 +23,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="eee5f0d0-935c-41c6-8fc6-586caa3d0f3b" name="Target Live" url="https://wavertreeelec.co.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

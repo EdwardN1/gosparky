@@ -175,6 +175,7 @@ $top-bar-background: $blue; //background colour of the top bar.
   .spacer {
     @include breakpoint(large) {
       border-right: 1px solid $grey;
+      height: 100%;
     }
   }
 }

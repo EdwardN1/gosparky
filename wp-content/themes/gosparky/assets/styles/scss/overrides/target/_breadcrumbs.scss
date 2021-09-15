@@ -1,0 +1,8 @@
+.breadcrumbs {
+  a {
+    color: $blue !important;
+  }
+  .dropdown.menu>li.is-dropdown-submenu-parent>a::after {
+    border-top-color: $blue !important;
+  }
+}

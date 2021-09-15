@@ -1,0 +1,29 @@
+.breadcrumbs {
+  > li {
+    line-height: 28px;
+  }
+  li.no-spacer {
+    &:after {
+      content: "";
+    }
+    padding-right: 1em;
+    li {
+      &:after {
+        content: "";
+      }
+    }
+  }
+  .dropdown>li>a {
+    padding: 0;
+  }
+  .dropdown .is-dropdown-submenu a {
+    padding: 0;
+  }
+  .menu {
+    margin-top: 8px;
+    .is-dropdown-submenu {
+      padding: 10px;
+    }
+  }
+}
+

@@ -39,7 +39,7 @@
 <?php if (have_rows('general_settings', 'option')) : ?>
     <?php while (have_rows('general_settings', 'option')) : the_row();
         $master_style_id = get_sub_field('master_style_id');
-        if($master_style_id !='') {
+        if ($master_style_id != '') {
             $master_style_class = $master_style_id;
         }
     endwhile; ?>
@@ -199,27 +199,27 @@
             </div>
         </div>
 
-    <?php $show_header_icons_row = get_field('show_header_icons_row','option'); ?>
+        <?php $show_header_icons_row = get_field('show_header_icons_row', 'option'); ?>
 
-        <?php if($show_header_icons_row == 1): ?>
+        <?php if ($show_header_icons_row == 1): ?>
 
-        <div class="header-icons grid-container">
-            <div class="grid-x">
-                <div class="cell large-auto medium-12 text-center spacer"><img
-                            src="<?php echo get_template_directory_uri() . '/assets/images/prototype/chat-icon.png'; ?>">
-                </div>
-                <div class="cell large-auto medium-12 text-center spacer"><img
-                            src="<?php echo get_template_directory_uri() . '/assets/images/prototype/find-icon.png'; ?>">
-                </div>
-                <div class="cell large-auto medium-12 text-center"><img
-                            src="<?php echo get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png'; ?>">
+            <div class="header-icons grid-container show-for-large">
+                <div class="grid-x">
+                    <div class="cell large-auto medium-12 text-center spacer"><img
+                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/chat-icon.png'; ?>">
+                    </div>
+                    <div class="cell large-auto medium-12 text-center spacer"><img
+                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/find-icon.png'; ?>">
+                    </div>
+                    <div class="cell large-auto medium-12 text-center"><img
+                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png'; ?>">
+                    </div>
                 </div>
             </div>
-        </div>
 
         <?php else: ?>
-        <div class="spacer"></div>
-        <?php endif;?>
+            <div class="spacer"></div>
+        <?php endif; ?>
 
         <div class="grid-container">
             <?php
@@ -229,4 +229,61 @@
                 }
             }
             ?>
+            <?php if (is_product_category()): ?>
+                <div id="sub-categories">
+                    <?php
+                    $term_id = get_queried_object_id();
+                    $taxonomy = 'product_cat';
+
+                    $terms = get_terms([
+                        'taxonomy' => $taxonomy,
+                        'hide_empty' => true,
+                        'parent' => get_queried_object_id()
+                    ]);
+
+                    /*if(count($terms)>0) {
+
+                        $output = '<ul class="breadcrumbs"><li class="disabled">Sub Categories: </li>';
+
+                        foreach ($terms as $term) {
+                            $term_link = get_term_link($term, $taxonomy);
+                            $output .= '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+                        }
+
+                        echo $output.'</ul>';
+                    }*/
+
+                    if(count($terms)>0) {
+
+                        $output = '<ul class="breadcrumbs"><li class="disabled">Sub Categories</li>';
+
+                        foreach ($terms as $term) {
+                            $term_link = get_term_link($term, $taxonomy);
+                            $children = get_term_children($term->term_id,$taxonomy);
+                            if(count($children)>0) {
+                                $output .= '<li class="no-spacer">';
+                                $output .= '<ul class="dropdown menu" data-dropdown-menu><li><a href="' . $term_link . '">' . $term->name . '</a>';
+                                $output .= '<ul class="menu">';
+                                foreach ($children as $child_id) {
+                                    $child = get_term($child_id);
+                                    $child_term_link = get_term_link($child, $taxonomy);
+                                    $output .= '<li><a href="' . $child_term_link . '">' . $child->name . '</a></li>';
+                                }
+                                $output .= '</ul>';
+                                $output .= '</li></ul>';
+                                $output .= '</li>';
+                            } else {
+                                $output .= '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+                            }
+                            $output .= '';
+                        }
+
+                        echo $output.'</ul>';
+                    }
+
+                    ?>
+                </div>
+            <?php endif; ?>
+
+
         </div>
