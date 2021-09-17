@@ -229,6 +229,7 @@
                 }
             }
             ?>
+            <div class="hide-for-medium">
             <?php if (is_product_category()): ?>
                 <div id="sub-categories">
                     <?php
@@ -240,18 +241,6 @@
                         'hide_empty' => true,
                         'parent' => get_queried_object_id()
                     ]);
-
-                    /*if(count($terms)>0) {
-
-                        $output = '<ul class="breadcrumbs"><li class="disabled">Sub Categories: </li>';
-
-                        foreach ($terms as $term) {
-                            $term_link = get_term_link($term, $taxonomy);
-                            $output .= '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
-                        }
-
-                        echo $output.'</ul>';
-                    }*/
 
                     if(count($terms)>0) {
 
@@ -284,6 +273,7 @@
                     ?>
                 </div>
             <?php endif; ?>
+            </div>
 
 
         </div>

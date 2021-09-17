@@ -49,6 +49,7 @@ h1.page-title {
     width: 100%;
     padding-bottom: 1em;
     text-align: center;
+
     h2.woocommerce-loop-product__title {
       padding-top: 0.5em;
       font-family: $cervo-neue;
@@ -57,6 +58,7 @@ h1.page-title {
       font-weight: $medium;
       text-align: center;
     }
+
     .price {
       text-align: center;
       padding-bottom: 0.5em;
@@ -64,6 +66,7 @@ h1.page-title {
       width: 100%;
       color: $blue;
     }
+
     .archive-img-wrap {
       width: 100%;
       height: 225px;
@@ -71,6 +74,7 @@ h1.page-title {
       display: flex;
       align-items: center;
       justify-content: center;
+
       img {
         max-height: 225px;
         max-width: 150px;
@@ -79,6 +83,7 @@ h1.page-title {
         margin-right: auto;
       }
     }
+
     .cell {
       @include breakpoint(medium) {
         border-right: 1px solid $grey;
@@ -96,6 +101,7 @@ h1.page-title {
         }
       }
     }
+
     .button {
       display: block;
       margin-right: auto;
@@ -105,5 +111,24 @@ h1.page-title {
       border-radius: 5px;
       color: $white;
     }
+  }
+}
+
+.gosparky-filter {
+  padding-right: 1rem;
+  padding-top: 6px;
+  .menu a {
+    padding-left: 0;
+  }
+
+  > .menu > li {
+    border-top: 1px solid $blue;
+    &:last-of-type {
+      border-bottom: 1px solid $blue;
+    }
+  }
+
+  .submenu-toggle::after {
+    border-top-color: $blue;
   }
 }

@@ -30,6 +30,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="46028d38-26fb-4955-b757-a3ac0b36eb74" name="Sparky Direct Stage" url="http://sparky2.making.me.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
