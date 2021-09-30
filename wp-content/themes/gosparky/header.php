@@ -229,11 +229,11 @@
                 }
             }
             ?>
-            <div class="hide-for-medium">
-            <?php if (is_product_category()): ?>
+            <!--<div class="hide-for-medium">
+            <?php /*if (is_product_category()): */?>
                 <div id="sub-categories">
                     <?php
-                    $term_id = get_queried_object_id();
+/*                    $term_id = get_queried_object_id();
                     $taxonomy = 'product_cat';
 
                     $terms = get_terms([
@@ -270,10 +270,10 @@
                         echo $output.'</ul>';
                     }
 
-                    ?>
+                    */?>
                 </div>
-            <?php endif; ?>
-            </div>
+            <?php /*endif; */?>
+            </div>-->
 
 
         </div>
