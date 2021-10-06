@@ -14,8 +14,9 @@
                     <?php if (have_rows('general_settings', 'option')) : ?>
                         <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
                             <?php $header_logo = get_sub_field('header_logo'); ?>
-                            <?php if ( $header_logo ) : ?>
-                                <img src="<?php echo esc_url( $header_logo['url'] ); ?>" alt="<?php echo esc_attr( $header_logo['alt'] ); ?>" />
+                            <?php if ($header_logo) : ?>
+                                <img src="<?php echo esc_url($header_logo['url']); ?>"
+                                     alt="<?php echo esc_attr($header_logo['alt']); ?>"/>
                             <?php else: ?>
                                 <img src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>">
                             <?php endif; ?>
@@ -30,7 +31,18 @@
                         <?php joints_top_nav(); ?>
                     </div>
                     <div class="hide-for-large text-right tel-cell">
-                        <a href="tel:08001120090" class="tel">0800 112 00 90</a>
+                        <?php if (have_rows('general_settings', 'option')) : ?>
+                            <?php while (have_rows('general_settings', 'option')) : the_row(); ?>
+                                <?php $telephone_number = get_sub_field('telephone_number'); ?>
+                                <?php if ($telephone_number != '') : ?>
+                                    <a href="tel:<?php echo str_replace(' ', '', $telephone_number); ?>" class="tel"><?php the_sub_field('telephone_number'); ?></a>
+                                <?php else: ?>
+                                    <a href="tel:08001120090" class="tel">0800 112 00 90</a>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <a href="tel:08001120090" class="tel">0800 112 00 90</a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="cell large-shrink tax-display-setting small-12">
