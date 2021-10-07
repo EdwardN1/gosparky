@@ -35,4 +35,52 @@
       }
     }
   }
+  &.text-bullets {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 40px;
+    background: none;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    background: #efefef;
+    border-top: 2px solid $black;
+    @include breakpoint(medium) {
+      display: block;
+    }
+    button {
+      display: block;
+      float: left;
+      width: auto;
+      height: 38px;
+      line-height: 38px;
+      border-radius: 0;
+      border: none;
+      margin: 0;
+      background: -moz-linear-gradient(top, #fafafa 0%, #d4d4d4 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #d4d4d4));
+      background: -webkit-linear-gradient(top, #fafafa 0%, #d4d4d4 100%);
+      background: -o-linear-gradient(top, #fafafa 0%, #d4d4d4 100%);
+      background: -ms-linear-gradient(top, #fafafa 0%, #d4d4d4 100%);
+      background: linear-gradient(to bottom, #fafafa 0%, #d4d4d4 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#d4d4d4',GradientType=0 );
+      &:first-of-type {
+        padding-left: 1em;
+      }
+      .caption {
+        text-align: center;
+        display: inline-block;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+      &:before {
+        content: none;
+      }
+      &.is-active, &:hover {
+        background: $grey;
+        color: $white
+      }
+    }
+  }
 }

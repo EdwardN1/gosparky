@@ -8,7 +8,7 @@ function get_product_categories($id = '')
     if ($id == 'short-product-category-menu') {
         $res = '<ul id="' . $id . '" class="medium-horizontal menu dropdown" data-responsive-menu="accordion medium-dropdown" role="menubar">';
     } else {
-        if($id=='off-canvas') {
+        if ($id == 'off-canvas') {
             $res = '<ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true" role="menubar" style="width: 100%">';
         } else {
             $res = '<ul class="medium-horizontal menu dropdown" data-responsive-menu="accordion medium-dropdown" role="menubar">';
@@ -41,8 +41,8 @@ function get_product_categories($id = '')
         if (($cat->category_parent == 0) && ($cat->count > 0)) {
             $category_id = $cat->term_id;
             $top_active_class = '';
-            if($current_cat_id==$category_id) {
-                $top_active_class=' active';
+            if ($current_cat_id == $category_id) {
+                $top_active_class = ' active';
             }
 
             $args2 = array(
@@ -58,41 +58,50 @@ function get_product_categories($id = '')
             );
             $sub_cats = get_categories($args2);
 
-            if ($sub_cats) {
-                $text = $cat->name;
-                if (str_word_count($text) > 2) {
-                    $splitstring1 = substr($text, 0, floor(strlen($text) / 2));
-                    $splitstring2 = substr($text, floor(strlen($text) / 2));
+            /*if ($sub_cats) {*/
+            $text = $cat->name;
+            if (str_word_count($text) > 2) {
+                $splitstring1 = substr($text, 0, floor(strlen($text) / 2));
+                $splitstring2 = substr($text, floor(strlen($text) / 2));
 
-                    if (substr($splitstring1, 0, -1) != ' ' and substr($splitstring2, 0, 1) != ' ') {
-                        $middle = strlen($splitstring1) + strpos($splitstring2, ' ') + 1;
-                    } else {
-                        $middle = strrpos(substr($text, 0, floor(strlen($text) / 2)), ' ') + 1;
-                    }
-
-                    $string1 = substr($text, 0, $middle);
-                    $string2 = substr($text, $middle);
-                    $linkDesc = $string1 . '<br>' . $string2;
+                if (substr($splitstring1, 0, -1) != ' ' and substr($splitstring2, 0, 1) != ' ') {
+                    $middle = strlen($splitstring1) + strpos($splitstring2, ' ') + 1;
                 } else {
-                    $linkDesc = str_replace(' ', '<br>', $text);
+                    $middle = strrpos(substr($text, 0, floor(strlen($text) / 2)), ' ') + 1;
                 }
-                $res .= '<li class="menu-item'.$top_active_class.'"><a href="' . get_term_link($cat->slug, 'product_cat') . '">' . $linkDesc . '</a>';
-                $top_active_class = '';
 
+                $string1 = substr($text, 0, $middle);
+                $string2 = substr($text, $middle);
+                $linkDesc = $string1 . '<br>' . $string2;
+            } else {
+                $linkDesc = str_replace(' ', '<br>', $text);
             }
-            if ($sub_cats) {
-                $res .= '<ul class="menu submenu is-dropdown-menu vertical">';
-                foreach ($sub_cats as $sub_category) {
-                    $sub_category_id = $sub_category->term_id;
-                    if($sub_category_id==$current_cat_id) {
-                        $top_active_class=' active';
+            $epim_api_exclude_from_category_menu = get_term_meta($category_id, 'epim_api_exclude_from_category_menu', true);
+            if ($epim_api_exclude_from_category_menu != 'on') {
+                $res .= '<li class="menu-item' . $top_active_class . '"><a href="' . get_term_link($cat->slug, 'product_cat') . '">' . $linkDesc . '</a>';
+            }
+            $top_active_class = '';
+
+            /*}*/
+            if ($epim_api_exclude_from_category_menu != 'on') {
+                if ($sub_cats) {
+                    $res .= '<ul class="menu submenu is-dropdown-menu vertical">';
+                    foreach ($sub_cats as $sub_category) {
+                        $sub_category_id = $sub_category->term_id;
+                        if ($sub_category_id == $current_cat_id) {
+                            $top_active_class = ' active';
+                        }
+                        $sub_epim_api_exclude_from_category_menu = get_term_meta($sub_category_id, 'epim_api_exclude_from_category_menu', true);
+                        if ($sub_epim_api_exclude_from_category_menu != 'on') {
+                            $res .= '<li class="menu-item menu-item-type-taxonomy' . $top_active_class . '">' . '<a href="' . get_term_link($sub_category->slug, 'product_cat') . '">' . $sub_category->name . '</a></li>';
+                        }
+                        $top_active_class = '';
                     }
-                    $res .= '<li class="menu-item menu-item-type-taxonomy'.$top_active_class.'">' . '<a href="' . get_term_link($sub_category->slug, 'product_cat') . '">' . $sub_category->name . '</a></li>';
-                    $top_active_class='';
+                    $res .= '</ul>';
                 }
-                $res .= '</ul>';
+
+                $res .= '</li>';
             }
-            $res .= '</li>';
         }
     }
 

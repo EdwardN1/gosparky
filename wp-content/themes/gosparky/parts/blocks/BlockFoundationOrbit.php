@@ -66,6 +66,7 @@ if (!empty($block['align'])) {
                 $slides = '';
                 $activeClass = 'is-active ';
                 $dataSlide = 0;
+                $bulletsClass = '';
                 while (have_rows('slides')) :
                     the_row();
                     $image = get_sub_field('image');
@@ -91,7 +92,7 @@ if (!empty($block['align'])) {
                         } else {
                             $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
                         }
-                        if(($add_caption==1)&&($caption!='')) {
+                        if(($add_caption==1)&&($caption!='')&&($position!='Bottom')) {
                             $slides .= '<figcaption class="orbit-caption'.$caption_class.'">' . $caption . '</figcaption>';
                         }
                         $slides .= '</figure>';
@@ -100,13 +101,26 @@ if (!empty($block['align'])) {
                         if ($activeClass != ''):
                             $activeClass = ' class="is-active"';
                         endif;
-                        $bullets .= '<button' . $activeClass . ' data-slide="' . $dataSlide . '">';
-                        $bullets .= '<span class="show-for-sr">' . tch_NumToOrdinalWord($dataSlide + 1) . ' slide details.</span>';
-                        $bullets .= $extraSpan;
-                        $bullets .= '</button>';
-                        $dataSlide++;
-                        $activeClass = '';
-                        $extraSpan = '';
+                        if(($add_caption==1)&&($position=='Bottom')) {
+                            $bulletsClass =' text-bullets';
+                            $bullets .= '<button' . $activeClass . ' data-slide="' . $dataSlide . '">';
+                            $bullets .= '<span class="caption">'.$caption.'</span>';
+                            $bullets .= '<span class="show-for-sr">' . tch_NumToOrdinalWord($dataSlide + 1) . ' slide details.</span>';
+                            $bullets .= $extraSpan;
+                            $bullets .= '</button>';
+                            $dataSlide++;
+                            $activeClass = '';
+                            $extraSpan = '';
+                        } else {
+                            $bullets .= '<button' . $activeClass . ' data-slide="' . $dataSlide . '">';
+                            $bullets .= '<span class="show-for-sr">' . tch_NumToOrdinalWord($dataSlide + 1) . ' slide details.</span>';
+                            $bullets .= $extraSpan;
+                            $bullets .= '</button>';
+                            $dataSlide++;
+                            $activeClass = '';
+                            $extraSpan = '';
+                        }
+
                     endif;
                 endwhile;
                 ?>
@@ -114,7 +128,7 @@ if (!empty($block['align'])) {
                     <?php echo $slides; ?>
                 </ul>
                 <?php if (get_field('show_bullets') == 1) : ?>
-                    <nav class="orbit-bullets">
+                    <nav class="orbit-bullets<?php echo $bulletsClass;?>">
                         <?php echo $bullets; ?>
                     </nav>
                 <?php endif; ?>
