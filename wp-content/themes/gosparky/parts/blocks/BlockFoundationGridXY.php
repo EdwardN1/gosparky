@@ -126,8 +126,10 @@ $css_classes = get_field('css_classes');
                                 $cellFooter .= '</div></div>';
                             } else {
                                 if ($image_link != '') {
-                                    $cellFooter .= '<div class="image-description"><div class="container">';
-                                    if ($image_link_description == '') $image_link_description = $image_link;
+                                    $cellFooter .= '<div class="image-description">';
+                                    $cellFooter .= '<a href="'.$image_link.'" class="image-link"></a>';
+                                    $cellFooter .= '<div class="container">';
+                                    /*if ($image_link_description == '') $image_link_description = $image_link;*/
                                     $cellFooter .= '<a href="' . $image_link . '">' . $image_link_description . '</a>';
                                     $cellFooter .= '</div></div>';
                                 }
@@ -147,13 +149,23 @@ $css_classes = get_field('css_classes');
                     }
 
                     if ($type == 'Product Category') {
+                        $image_type = get_sub_field('image_style');
                         $product_category = get_sub_field('product_category');
                         $term = get_term_by('id', $product_category, 'product_cat');
-                        $image_style = '';
-                        if ($image) {
-                            $image_style = ' style="background-image: url('.esc_url($image['url']).');"';
+                        if($image_type=='Just Image') {
+                            $content = '<div class="cell-type-image">';
+                            $content .= '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                            $content .= '<div class="image-description">';
+                            $content .= '<a href="' . esc_url( get_term_link( $term ) ) . '" class="image-link"></a>';
+                            $content .= '</div>';
+                            $content .= '</div>';
+                        } else {
+                            if ($image) {
+                                $image_style = ' style="background-image: url('.esc_url($image['url']).');"';
+                            }
+                            $content = '<a href="'.esc_url( get_term_link( $term ) ).'"><div class="cell-type-term"' . $image_style . '><div class="term-name">'.esc_html( $term->name ).'</div></div></a>';
                         }
-                        $content = '<a href="'.esc_url( get_term_link( $term ) ).'"><div class="cell-type-term"' . $image_style . '><div class="term-name">'.esc_html( $term->name ).'</div></div></a>';
+
                     }
 
                     $cell_classes = 'cell';

@@ -52,7 +52,7 @@ $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
                 <p>We can help source the product you want<br>even if we don't stock it!</p>
             </div>
             <div class="cell large-shrink medium-shrink small-12 button-div">
-                <a href="#" class="button pill white">CONTACT SALES</a>
+                <a href="<?php the_field('sales_contact_link','option');?>" class="button pill white">CONTACT SALES</a>
             </div>
         </div>
     </div>
