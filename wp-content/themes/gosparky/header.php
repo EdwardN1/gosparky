@@ -202,17 +202,37 @@
         <?php $show_header_icons_row = get_field('show_header_icons_row', 'option'); ?>
 
         <?php if ($show_header_icons_row == 1): ?>
-
+            <?php
+            $left_h_icon = get_template_directory_uri() . '/assets/images/prototype/chat-icon.png';
+            $middle_h_icon =  get_template_directory_uri() . '/assets/images/prototype/find-icon.png';
+            $right_h_icon =get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png';
+            if ( have_rows( 'header_icons', 'option' ) ) {
+                while ( have_rows( 'header_icons', 'option' ) ) : the_row();
+                    $left_icon = get_sub_field( 'left_icon' );
+                    $middle_icon = get_sub_field( 'middle_icon' );
+                    $right_icon = get_sub_field( 'right_icon' );
+                    if($left_icon) {
+                        $left_h_icon = $left_icon['url'];
+                    }
+                    if($right_icon) {
+                        $right_h_icon = $right_icon['url'];
+                    }
+                    if($middle_icon) {
+                        $middle_h_icon = $middle_icon['url'];
+                    }
+                endwhile;
+            }
+            ?>
             <div class="header-icons grid-container show-for-large">
                 <div class="grid-x">
                     <div class="cell large-auto medium-12 text-center spacer"><img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/chat-icon.png'; ?>">
+                                src="<?php echo $left_h_icon; ?>">
                     </div>
                     <div class="cell large-auto medium-12 text-center spacer"><img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/find-icon.png'; ?>">
+                                src="<?php echo $middle_h_icon; ?>">
                     </div>
                     <div class="cell large-auto medium-12 text-center"><img
-                                src="<?php echo get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png'; ?>">
+                                src="<?php echo $right_h_icon; ?>">
                     </div>
                 </div>
             </div>
