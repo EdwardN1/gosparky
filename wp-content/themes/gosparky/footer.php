@@ -13,6 +13,7 @@ $show_quote_and_callback_row = get_field('show_quote_and_callback_row', 'option'
 $show_trustpilot_row = get_field('show_trustpilot_row', 'option');
 $show_sales_contact_row = get_field('show_sales_contact_row', 'option');
 $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
+$show_ecologi = get_field('show_ecologi', 'option');
 ?>
 <?php if ($show_quote_and_callback_row == 1): ?>
     <div id="footer-top" class="grid-container">
@@ -52,7 +53,31 @@ $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
                 <p>We can help source the product you want<br>even if we don't stock it!</p>
             </div>
             <div class="cell large-shrink medium-shrink small-12 button-div">
-                <a href="<?php the_field('sales_contact_link','option');?>" class="button pill white">CONTACT SALES</a>
+                <a href="<?php the_field('sales_contact_link', 'option'); ?>" class="button pill white">CONTACT
+                    SALES</a>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if ($show_ecologi == 1) : ?>
+    <div id="footer-ecologi-row" class="grid-container">
+        <div class="grid-x">
+            <div class="cell auto"></div>
+            <div class="cell large-2 medium-2 small-2">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/ecologi.svg'; ?>"/>
+            </div>
+            <div class="cell shrink"> Live Impact</div>
+            <div class="cell auto"></div>
+        </div>
+        <?php
+        $ecologi = gosparky_get_ecologi_impact();
+        ?>
+        <div class="grid-x">
+            <div class="cell large-6 medium-6 small-6 text-center">
+                Tree Count:<br><?php echo $ecologi['trees']; ?>
+            </div>
+            <div class="cell large-6 medium-6 small-6 text-center">
+                Carbon offset (tonnes)<br><?php $ecologi['carbonOffset'];?>
             </div>
         </div>
     </div>
@@ -200,35 +225,35 @@ $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
                                 ?>
                                 <?php if ($facebook != ''): ?>
                                     <div class="cell shrink">
-                                        <a href="<?php echo $facebook;?>"><img
+                                        <a href="<?php echo $facebook; ?>"><img
                                                     src="<?php echo get_template_directory_uri() . '/assets/images/svg/Facebook.svg'; ?>"
                                                     class="social-icon"></a>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($twitter != ''): ?>
-                                <div class="cell shrink">
-                                    <a href="<?php echo $twitter;?>"><img
-                                                src="<?php echo get_template_directory_uri() . '/assets/images/svg/Twitter.svg'; ?>"
-                                                class="social-icon"></a>
-                                </div>
+                                    <div class="cell shrink">
+                                        <a href="<?php echo $twitter; ?>"><img
+                                                    src="<?php echo get_template_directory_uri() . '/assets/images/svg/Twitter.svg'; ?>"
+                                                    class="social-icon"></a>
+                                    </div>
                                 <?php endif; ?>
                                 <?php if ($youtube != ''): ?>
                                     <div class="cell shrink">
-                                        <a href="<?php echo $youtube;?>"><img
+                                        <a href="<?php echo $youtube; ?>"><img
                                                     src="<?php echo get_template_directory_uri() . '/assets/images/svg/Youtube.svg'; ?>"
                                                     class="social-icon"></a>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($linkedin != ''): ?>
                                     <div class="cell shrink">
-                                        <a href="<?php echo $linkedin;?>"><img
+                                        <a href="<?php echo $linkedin; ?>"><img
                                                     src="<?php echo get_template_directory_uri() . '/assets/images/svg/Linkedin.svg'; ?>"
                                                     class="social-icon"></a>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($google != ''): ?>
                                     <div class="cell shrink">
-                                        <a href="<?php echo $google;?>"><img
+                                        <a href="<?php echo $google; ?>"><img
                                                     src="<?php echo get_template_directory_uri() . '/assets/images/svg/Google.svg'; ?>"
                                                     class="social-icon"></a>
                                     </div>
@@ -289,9 +314,9 @@ $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
 
 </div> <!-- end .off-canvas-wrapper -->
 
-<?php if ( have_rows( 'google_settings', 'option' ) ) : ?>
-    <?php while ( have_rows( 'google_settings', 'option' ) ) : the_row(); ?>
-        <?php the_sub_field( 'google_analytics' ); ?>
+<?php if (have_rows('google_settings', 'option')) : ?>
+    <?php while (have_rows('google_settings', 'option')) : the_row(); ?>
+        <?php the_sub_field('google_analytics'); ?>
     <?php endwhile; ?>
 <?php endif; ?>
 
