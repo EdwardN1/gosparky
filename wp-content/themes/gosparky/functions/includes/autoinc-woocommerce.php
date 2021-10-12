@@ -77,6 +77,9 @@ function get_product_categories($id = '')
                 $linkDesc = str_replace(' ', '<br>', $text);
             }
             $epim_api_exclude_from_category_menu = get_term_meta($category_id, 'epim_api_exclude_from_category_menu', true);
+            if($linkDesc[0]=='*') {
+                $epim_api_exclude_from_category_menu = 'on';
+            }
             if ($epim_api_exclude_from_category_menu != 'on') {
                 $res .= '<li class="menu-item' . $top_active_class . '"><a href="' . get_term_link($cat->slug, 'product_cat') . '">' . $linkDesc . '</a>';
             }
@@ -92,6 +95,10 @@ function get_product_categories($id = '')
                             $top_active_class = ' active';
                         }
                         $sub_epim_api_exclude_from_category_menu = get_term_meta($sub_category_id, 'epim_api_exclude_from_category_menu', true);
+                        $sub_link_desc = $sub_category->name;
+                        if($sub_link_desc[0]=='*') {
+                            $sub_epim_api_exclude_from_category_menu = 'on';
+                        }
                         if ($sub_epim_api_exclude_from_category_menu != 'on') {
                             $res .= '<li class="menu-item menu-item-type-taxonomy' . $top_active_class . '">' . '<a href="' . get_term_link($sub_category->slug, 'product_cat') . '">' . $sub_category->name . '</a></li>';
                         }
