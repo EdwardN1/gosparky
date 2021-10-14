@@ -12,3 +12,17 @@
 #add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
   background-color: $grey;
 }
+
+.payment_method_paypal {
+  > label {
+    img {
+      display: none;
+    }
+  }
+}
+
+#add_payment_method #payment .payment_method_paypal .about_paypal, .woocommerce-cart #payment .payment_method_paypal .about_paypal, .woocommerce-checkout #payment .payment_method_paypal .about_paypal {
+  float: none;
+  font-size: 14px;
+  padding-left: 5px;
+}
