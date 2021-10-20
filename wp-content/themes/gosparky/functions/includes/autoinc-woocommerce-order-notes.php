@@ -12,13 +12,14 @@ function gosparky_change_order_notes_placeholder( $fields ) {
 // Add custom checkout field: woocommerce_review_order_before_submit
 add_action( 'woocommerce_after_order_notes', 'gosparky_installation_checkout_field' );
 function gosparky_installation_checkout_field() {
-    echo '<div id="gosparky_installation_checkout_field">';
+    echo '<div id="gosparky_installation_checkout_field" style="border: 1px solid #d0d0d0; padding: 1em; background-color: #eaeaea;">';
 
     woocommerce_form_field( 'gosparky_installation_checkout_field', array(
         'type'      => 'checkbox',
         'class'     => array('input-checkbox'),
-        'label'     => __('Request installation'),
+        'label'     => __('Would you like us to Install your Product?'),
     ),  WC()->checkout->get_value( 'gosparky_installation_checkout_field' ) );
+    echo '<p>Simply tick to say you would like our installation service and we will pass this onto our provisioning team who will be in contact</p>';
     echo '</div>';
 }
 

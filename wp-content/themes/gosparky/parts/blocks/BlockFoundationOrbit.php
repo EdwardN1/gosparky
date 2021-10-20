@@ -75,6 +75,9 @@ if (!empty($block['align'])) {
                     $add_caption = get_sub_field('add_caption');
                     $position = get_sub_field('position');
                     $caption_class='';
+                    $add_category_link = get_sub_field('add_category_link');
+                    $category = get_sub_field('category');
+                    $category_link = get_term_link($category);
                     if($position=='Top') $caption_class = ' position-top';
                     if($position=='Top Left') $caption_class = ' position-top-left';
                     if($position=='Bottom Left') $caption_class = ' position-bottom-left';
@@ -90,8 +93,15 @@ if (!empty($block['align'])) {
                             $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
                             $slides .= '</a>';
                         } else {
-                            $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                            if(($add_category_link==1&!is_wp_error($category_link))) {
+                                $slides .= '<a href="'.$category_link.'">';
+                                $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                                $slides .= '</a>';
+                            } else {
+                                $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                            }
                         }
+
                         if(($add_caption==1)&&($caption!='')&&($position!='Bottom')) {
                             $slides .= '<figcaption class="orbit-caption'.$caption_class.'">' . $caption . '</figcaption>';
                         }
