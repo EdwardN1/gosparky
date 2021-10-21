@@ -60,6 +60,19 @@
             <?php get_template_part('parts/nav', 'offcanvas-topbar'); ?>
 
         </header> <!-- end .header -->
+        <!--<div class="cli-bar-container cli-style-v2">
+            <div class="grid-container">
+                <div class="cli-bar-message">
+                    We use cookies on our website to give you the most relevant experience by remembering your preferences and repeat visits.
+                    By clicking “Accept All”, you consent to the use of ALL the cookies. However, you may visit "Cookie Settings" to provide a controlled consent.
+                </div>
+                <div class="cli-bar-btn_container">
+                    <?php /*echo do_shortcode('[cookie_settings margin="0px 5px 0px 0px"]');*/?>
+                    <?php /*echo do_shortcode('[cookie_accept_all]');*/?>
+                </div>
+            </div>
+        </div>-->
+
         <div class="show-for-large">
             <div class="page-top grid-container">
                 <div class="grid-x">
@@ -204,20 +217,20 @@
         <?php if ($show_header_icons_row == 1): ?>
             <?php
             $left_h_icon = get_template_directory_uri() . '/assets/images/prototype/chat-icon.png';
-            $middle_h_icon =  get_template_directory_uri() . '/assets/images/prototype/find-icon.png';
-            $right_h_icon =get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png';
-            if ( have_rows( 'header_icons', 'option' ) ) {
-                while ( have_rows( 'header_icons', 'option' ) ) : the_row();
-                    $left_icon = get_sub_field( 'left_icon' );
-                    $middle_icon = get_sub_field( 'middle_icon' );
-                    $right_icon = get_sub_field( 'right_icon' );
-                    if($left_icon) {
+            $middle_h_icon = get_template_directory_uri() . '/assets/images/prototype/find-icon.png';
+            $right_h_icon = get_template_directory_uri() . '/assets/images/prototype/dpd-icon.png';
+            if (have_rows('header_icons', 'option')) {
+                while (have_rows('header_icons', 'option')) : the_row();
+                    $left_icon = get_sub_field('left_icon');
+                    $middle_icon = get_sub_field('middle_icon');
+                    $right_icon = get_sub_field('right_icon');
+                    if ($left_icon) {
                         $left_h_icon = $left_icon['url'];
                     }
-                    if($right_icon) {
+                    if ($right_icon) {
                         $right_h_icon = $right_icon['url'];
                     }
-                    if($middle_icon) {
+                    if ($middle_icon) {
                         $middle_h_icon = $middle_icon['url'];
                     }
                 endwhile;
@@ -250,49 +263,49 @@
             }
             ?>
             <!--<div class="hide-for-medium">
-            <?php /*if (is_product_category()): */?>
+            <?php /*if (is_product_category()): */ ?>
                 <div id="sub-categories">
                     <?php
-/*                    $term_id = get_queried_object_id();
-                    $taxonomy = 'product_cat';
+            /*                    $term_id = get_queried_object_id();
+                                $taxonomy = 'product_cat';
 
-                    $terms = get_terms([
-                        'taxonomy' => $taxonomy,
-                        'hide_empty' => true,
-                        'parent' => get_queried_object_id()
-                    ]);
+                                $terms = get_terms([
+                                    'taxonomy' => $taxonomy,
+                                    'hide_empty' => true,
+                                    'parent' => get_queried_object_id()
+                                ]);
 
-                    if(count($terms)>0) {
+                                if(count($terms)>0) {
 
-                        $output = '<ul class="breadcrumbs"><li class="disabled">Sub Categories</li>';
+                                    $output = '<ul class="breadcrumbs"><li class="disabled">Sub Categories</li>';
 
-                        foreach ($terms as $term) {
-                            $term_link = get_term_link($term, $taxonomy);
-                            $children = get_term_children($term->term_id,$taxonomy);
-                            if(count($children)>0) {
-                                $output .= '<li class="no-spacer">';
-                                $output .= '<ul class="dropdown menu" data-dropdown-menu><li><a href="' . $term_link . '">' . $term->name . '</a>';
-                                $output .= '<ul class="menu">';
-                                foreach ($children as $child_id) {
-                                    $child = get_term($child_id);
-                                    $child_term_link = get_term_link($child, $taxonomy);
-                                    $output .= '<li><a href="' . $child_term_link . '">' . $child->name . '</a></li>';
+                                    foreach ($terms as $term) {
+                                        $term_link = get_term_link($term, $taxonomy);
+                                        $children = get_term_children($term->term_id,$taxonomy);
+                                        if(count($children)>0) {
+                                            $output .= '<li class="no-spacer">';
+                                            $output .= '<ul class="dropdown menu" data-dropdown-menu><li><a href="' . $term_link . '">' . $term->name . '</a>';
+                                            $output .= '<ul class="menu">';
+                                            foreach ($children as $child_id) {
+                                                $child = get_term($child_id);
+                                                $child_term_link = get_term_link($child, $taxonomy);
+                                                $output .= '<li><a href="' . $child_term_link . '">' . $child->name . '</a></li>';
+                                            }
+                                            $output .= '</ul>';
+                                            $output .= '</li></ul>';
+                                            $output .= '</li>';
+                                        } else {
+                                            $output .= '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+                                        }
+                                        $output .= '';
+                                    }
+
+                                    echo $output.'</ul>';
                                 }
-                                $output .= '</ul>';
-                                $output .= '</li></ul>';
-                                $output .= '</li>';
-                            } else {
-                                $output .= '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
-                            }
-                            $output .= '';
-                        }
 
-                        echo $output.'</ul>';
-                    }
-
-                    */?>
+                                */ ?>
                 </div>
-            <?php /*endif; */?>
+            <?php /*endif; */ ?>
             </div>-->
 
 

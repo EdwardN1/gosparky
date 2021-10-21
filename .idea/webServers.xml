@@ -37,6 +37,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="0f9c1d72-6a5e-4357-916d-fab72892210a" name="GoSparky Live" url="https://gosparky.co.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

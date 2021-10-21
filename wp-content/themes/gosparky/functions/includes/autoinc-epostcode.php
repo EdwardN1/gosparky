@@ -1,5 +1,5 @@
 <?php
-add_action('woocommerce_before_checkout_billing_form', 'gosparky_epostcode_form');
+//add_action('woocommerce_before_checkout_billing_form', 'gosparky_epostcode_form');
 
 function gosparky_epostcode_form()
 {
