@@ -1,0 +1,68 @@
+.epim-demo {
+  .page-top {
+    padding-top: 1em;
+    @include breakpoint(1355) {
+      padding-top: 1.75em;
+    }
+
+    .contact-top {
+      .tel {
+        a {
+          font-family: $cervo-neue;
+          color: $red;
+          letter-spacing: 1px;
+          font-weight: $bold;
+          font-size: 30px;
+          line-height: 1;
+          @include breakpoint(1355) {
+            font-size: 46px;
+          }
+        }
+      }
+
+      .email {
+        a {
+          font-size: 18px;
+          font-weight: $bold;
+          @include breakpoint(1355) {
+            font-size: 26px;
+          }
+        }
+      }
+    }
+
+    .top-icons {
+      .account {
+        padding-right: 1rem;
+        padding-top: 5px;
+
+        a {
+          display: block;
+          width: 100%;
+          text-align: center;
+
+          img {
+            width: 36px;
+          }
+        }
+
+        .red-text {
+          color: $red;
+          font-family: $cervo-neue;
+          font-weight: $bold;
+          font-size: 14px;
+          letter-spacing: 1px;
+          padding-top: 1px;
+        }
+      }
+
+      .cart {
+        padding-top: 5px;
+
+        img {
+          width: 37px;
+        }
+      }
+    }
+  }
+}

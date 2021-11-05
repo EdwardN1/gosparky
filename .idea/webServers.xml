@@ -44,6 +44,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="bc6f8aef-77d2-43e4-86b8-2a1c0a256916" name="EPIM Demo" url="https://epim.making.me.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
