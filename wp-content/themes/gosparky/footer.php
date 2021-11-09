@@ -60,29 +60,37 @@ $show_ecologi = get_field('show_ecologi', 'option');
     </div>
 <?php endif; ?>
 <?php if ($show_ecologi == 1) : ?>
-    <div id="footer-ecologi-row" class="grid-container">
-        <div class="background">
-            <div class="grid-x">
-                <div class="cell auto"></div>
-                <div class="cell shrink">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/ecologi.svg'; ?>"/>
+    <?php $ecologi = gosparky_get_ecologi_impact(); ?>
+    <?php $ecologi_background_image = get_field( 'ecologi_background_image', 'option' ); ?>
+    <?php if ( $ecologi_background_image ) : ?>
+    <div id="footer-ecologi-background-row" class="grid-container show-for-large">
+        <img src="<?php echo esc_url( $ecologi_background_image['url'] ); ?>" alt="<?php echo esc_attr( $ecologi_background_image['alt'] ); ?>" />
+        <div class="trees"><?php echo (string)$ecologi['trees']; ?></div>
+        <div class="carbonOffset"><?php echo (string)$ecologi['carbonOffset']; ?>kg</div>
+    </div>
+    <?php else:?>
+        <div id="footer-ecologi-row" class="grid-container">
+            <div class="background">
+                <div class="grid-x">
+                    <div class="cell auto"></div>
+                    <div class="cell shrink">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/svg/ecologi.svg'; ?>"/>
+                    </div>
+                    <div class="cell shrink h2"> Live Impact</div>
+                    <div class="cell auto"></div>
                 </div>
-                <div class="cell shrink h2"> Live Impact</div>
-                <div class="cell auto"></div>
-            </div>
-            <?php
-            $ecologi = gosparky_get_ecologi_impact();
-            ?>
-            <div class="grid-x">
-                <div class="cell large-6 medium-6 small-6 text-center h2">
-                    Tree Count:<br><?php echo (string)$ecologi['trees']; ?>
-                </div>
-                <div class="cell large-6 medium-6 small-6 text-center h2">
-                    Carbon offset (tonnes):<br><?php echo (string)$ecologi['carbonOffset']; ?>
+
+                <div class="grid-x">
+                    <div class="cell large-6 medium-6 small-6 text-center h2">
+                        Tree Count:<br><?php echo (string)$ecologi['trees']; ?>
+                    </div>
+                    <div class="cell large-6 medium-6 small-6 text-center h2">
+                        Carbon offset (tonnes):<br><?php echo (string)$ecologi['carbonOffset']; ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 <?php endif; ?>
 <?php if ($show_newsletter_signups == 1): ?>
     <div id="footer-opt-in">

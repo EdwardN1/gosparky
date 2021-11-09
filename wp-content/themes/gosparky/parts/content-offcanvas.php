@@ -20,7 +20,12 @@
     foreach ($terms as $term) {
         $term_link = get_term_link($term, $taxonomy);
 
-        echo '<div class="main-cats"><a class="ccats" href="' . $term_link . '">' . $term->name . '</a></div>';
+        $tname = $term->name;
+
+        if($tname[0]!='*') {
+
+            echo '<div class="main-cats"><a class="ccats" href="' . $term_link . '">' . $term->name . '</a></div>';
+        }
     }
     ?>
     <h2>Browse Main Categories</h2>
