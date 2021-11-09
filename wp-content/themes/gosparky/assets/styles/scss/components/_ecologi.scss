@@ -12,22 +12,84 @@
   }
 }
 
-#footer-ecologi-background-row {
+#footer-ecologi-background-row, .footer-ecologi-background-row {
   position: relative;
   .trees, .carbonOffset {
     color: #184d3b;
     font-family: $cervo-neue;
-    font-size: 72px;
     font-weight: $bold;
     letter-spacing: 1px;
-    position: absolute;
-    top: 55%;
+    padding-top: 14px;
+    font-size: 22px;
+    @include breakpoint(510) {
+      padding-top: 24px;
+      font-size: 32px;
+    }
+    @include breakpoint(695) {
+      font-size: 52px;
+    }
+    @include breakpoint(1100) {
+      font-size: 72px;
+      padding-top: 24px;
+    }
+    /*position: absolute;
+    top: 55%;*/
   }
-  .trees {
+  /*.trees {
     left: 20%;
   }
   .carbonOffset {
     left: 60%;
+  }*/
+
+  .tree-data {
+    position: absolute;
+    width: 100%;
+    top: 46%;
+    /*.cell {
+      outline: 1px solid red;
+    }*/
+    .trees-planted {
+      @include breakpoint(1410) {
+        padding-right: 7vw;
+      }
+      @include breakpoint(1410) {
+        padding-right: 108px;
+      }
+    }
+    .trees {
+      padding-right: 0.2em;
+      min-width: 13.8vw;
+      @include breakpoint(1410) {
+        min-width: 195px;
+      }
+    }
+    .carbonOffset {
+      min-width: 20.9vw;
+      padding-right: 0.2em;
+      @include breakpoint(1410) {
+        min-width: 295px;
+      }
+    }
+    .tree, .trees-planted, .co2, .carbon-captured {
+      padding-top: 10px;
+      @include breakpoint(1100) {
+        padding-top: 0;
+      }
+      img {
+        width: auto;
+        max-height: 30px;
+        @include breakpoint(510) {
+          max-height: 60px;
+        }
+        @include breakpoint(695) {
+          max-height: 80px;
+        }
+        @include breakpoint(1100) {
+          max-height: none;
+        }
+      }
+    }
   }
 }
 

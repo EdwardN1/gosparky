@@ -63,10 +63,22 @@ $show_ecologi = get_field('show_ecologi', 'option');
     <?php $ecologi = gosparky_get_ecologi_impact(); ?>
     <?php $ecologi_background_image = get_field( 'ecologi_background_image', 'option' ); ?>
     <?php if ( $ecologi_background_image ) : ?>
-    <div id="footer-ecologi-background-row" class="grid-container show-for-large">
+    <div id="footer-ecologi-background-row" class="grid-container">
         <img src="<?php echo esc_url( $ecologi_background_image['url'] ); ?>" alt="<?php echo esc_attr( $ecologi_background_image['alt'] ); ?>" />
-        <div class="trees"><?php echo (string)$ecologi['trees']; ?></div>
-        <div class="carbonOffset"><?php echo (string)$ecologi['carbonOffset']; ?>kg</div>
+        <!--<div class="trees"><?php /*echo (string)$ecologi['trees']; */?></div>
+        <div class="carbonOffset"><?php /*echo (string)$ecologi['carbonOffset']; */?>kg</div>-->
+        <div class="tree-data">
+            <div class="grid-x">
+                <div class="cell auto"></div>
+                <div class="cell tree shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/tree.png'; ?>"></div>
+                <div class="cell trees shrink text-right"><?php echo (string)$ecologi['trees']; ?></div>
+                <div class="cell trees-planted shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/trees-planted.png'; ?>"></div>
+                <div class="cell co2 shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/co2.png'; ?>"></div>
+                <div class="cell carbonOffset shrink text-right"><?php echo (string)$ecologi['carbonOffset']; ?>kg</div>
+                <div class="cell carbon-captured shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/carbon-captured.png'; ?>"></div>
+                <div class="cell auto"></div>
+            </div>
+        </div>
     </div>
     <?php else:?>
         <div id="footer-ecologi-row" class="grid-container">
