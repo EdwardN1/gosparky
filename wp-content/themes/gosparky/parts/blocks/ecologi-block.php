@@ -4,10 +4,10 @@
  *
  * Ecologi Block Block Template.
  *
- * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
- * @param bool $is_preview True during AJAX preview.
- * @param   (int|string) $post_id The post ID this block is saved to.
+ * @var array $block The block settings and attributes.
+ * @var string $content The block inner HTML (empty).
+ * @var bool $is_preview True during AJAX preview.
+ * @var   (int|string) $post_id The post ID this block is saved to.
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -35,8 +35,10 @@ if (!empty($block['align'])) {
 
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>">
     <?php $ecologi = gosparky_get_ecologi_impact(); ?>
+    <?php $carbonOffset = $ecologi['carbonOffset'];?>
+    <?php if($carbonOffset==0) {$carbonOffset = $ecologi['trees'] * 5;} ?>
     <?php $ecologi_background_image = get_field('ecologi_background_image', 'option'); ?>
-    <div class="grid-container footer-ecologi-background-row">
+    <div class="grid-container footer-ecologi-background-row" style="padding-left: 0; padding-right: 0;">
         <img src="<?php echo esc_url($ecologi_background_image['url']); ?>"
              alt="<?php echo esc_attr($ecologi_background_image['alt']); ?>"/>
         <div class="tree-data">
@@ -50,7 +52,7 @@ if (!empty($block['align'])) {
                 </div>
                 <div class="cell co2 shrink"><img
                             src="<?php echo get_template_directory_uri() . '/assets/images/co2.png'; ?>"></div>
-                <div class="cell carbonOffset shrink text-right"><?php echo (string)$ecologi['carbonOffset']; ?>kg</div>
+                <div class="cell carbonOffset shrink text-right"><?php echo $carbonOffset; ?>kg</div>
                 <div class="cell carbon-captured shrink"><img
                             src="<?php echo get_template_directory_uri() . '/assets/images/carbon-captured.png'; ?>">
                 </div>

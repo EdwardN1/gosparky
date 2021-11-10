@@ -61,6 +61,8 @@ $show_ecologi = get_field('show_ecologi', 'option');
 <?php endif; ?>
 <?php if ($show_ecologi == 1) : ?>
     <?php $ecologi = gosparky_get_ecologi_impact(); ?>
+    <?php $carbonOffset = $ecologi['carbonOffset'];?>
+    <?php if($carbonOffset==0) {$carbonOffset = $ecologi['trees'] * 5;} ?>
     <?php $ecologi_background_image = get_field( 'ecologi_background_image', 'option' ); ?>
     <?php if ( $ecologi_background_image ) : ?>
     <div id="footer-ecologi-background-row" class="grid-container">
@@ -74,7 +76,7 @@ $show_ecologi = get_field('show_ecologi', 'option');
                 <div class="cell trees shrink text-right"><?php echo (string)$ecologi['trees']; ?></div>
                 <div class="cell trees-planted shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/trees-planted.png'; ?>"></div>
                 <div class="cell co2 shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/co2.png'; ?>"></div>
-                <div class="cell carbonOffset shrink text-right"><?php echo (string)$ecologi['carbonOffset']; ?>kg</div>
+                <div class="cell carbonOffset shrink text-right"><?php echo $carbonOffset; ?>kg</div>
                 <div class="cell carbon-captured shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/carbon-captured.png'; ?>"></div>
                 <div class="cell auto"></div>
             </div>

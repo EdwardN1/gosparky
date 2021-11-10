@@ -27,7 +27,7 @@ function register_ecologi_block_block() {
             'post_types'			=> array( 'post', 'page' ),
             'mode'					=> 'auto',
             // 'align'				=> 'wide',
-            'render_template'		=> get_template_directory() . 'parts/blocks/ecologi-block.php',
+            'render_template'		=> get_template_directory() . '/parts/blocks/ecologi-block.php',
             // 'render_callback'	=> 'ecologi_block_block_render_callback',
             // 'enqueue_style' 		=> get_template_directory_uri() . '/template-parts/blocks/ecologi-block/ecologi-block.css',
             // 'enqueue_script' 	=> get_template_directory_uri() . '/template-parts/blocks/ecologi-block/ecologi-block.js',

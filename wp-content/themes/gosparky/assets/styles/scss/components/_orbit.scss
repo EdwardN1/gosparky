@@ -46,7 +46,7 @@
     margin: 0;
     background: #efefef;
     border-top: 2px solid $black;
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       display: block;
     }
     button {
