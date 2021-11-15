@@ -14,6 +14,16 @@
   border-color:#FF9900 !important;
 }
 
+.woocommerce.gosparky, .woocommerce.gosparky.single-product {
+  a.button.add_to_cart_button, .single_add_to_cart_button, a.button.add_to_cart_button:hover, .single_add_to_cart_button:hover{
+    background-color: #f6db35 !important;
+    color: $black !important;
+  }
+  #aqbp_quick_buy_shop_btn, #aqbp_quick_buy_btn, #aqbp_quick_buy_shop_btn:hover, #aqbp_quick_buy_btn:hover {
+    background-color: #efaa30 !important;
+  }
+}
+
 .woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover {
   background-color:$blue !important;
   box-shadow: none;

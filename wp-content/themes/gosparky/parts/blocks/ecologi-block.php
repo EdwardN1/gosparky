@@ -39,8 +39,13 @@ if (!empty($block['align'])) {
     <?php if($carbonOffset==0) {$carbonOffset = $ecologi['trees'] * 5;} ?>
     <?php $ecologi_background_image = get_field('ecologi_background_image', 'option'); ?>
     <div class="grid-container footer-ecologi-background-row" style="padding-left: 0; padding-right: 0;">
-        <img src="<?php echo esc_url($ecologi_background_image['url']); ?>"
-             alt="<?php echo esc_attr($ecologi_background_image['alt']); ?>"/>
+        <?php if ( get_field( 'add_link' ) == 1 ) : ?>
+            <a href="<?php the_field( 'url' ); ?>" target="_blank"><img src="<?php echo esc_url($ecologi_background_image['url']); ?>"
+                 alt="<?php echo esc_attr($ecologi_background_image['alt']); ?>"/></a>
+        <?php else : ?>
+            <img src="<?php echo esc_url($ecologi_background_image['url']); ?>"
+                 alt="<?php echo esc_attr($ecologi_background_image['alt']); ?>"/>
+        <?php endif; ?>
         <div class="tree-data">
             <div class="grid-x">
                 <div class="cell auto"></div>

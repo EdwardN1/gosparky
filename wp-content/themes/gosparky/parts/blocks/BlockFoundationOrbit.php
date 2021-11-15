@@ -4,10 +4,10 @@
  *
  * foundationOrbit Block Template.
  *
- * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
- * @param bool $is_preview True during AJAX preview.
- * @param   (int|string) $post_id The post ID this block is saved to.
+ * @var array $block The block settings and attributes.
+ * @var string $content The block inner HTML (empty).
+ * @var bool $is_preview True during AJAX preview.
+ * @var   (int|string) $post_id The post ID this block is saved to.
  */
 
 // Create id attribute allowing for custom "anchor" value.
@@ -72,33 +72,42 @@ if (!empty($block['align'])) {
                     $image = get_sub_field('image');
                     $caption = get_sub_field('caption');
                     $link = get_sub_field('link');
+                    $url = get_sub_field( 'url' );
                     $add_caption = get_sub_field('add_caption');
                     $position = get_sub_field('position');
                     $caption_class='';
                     $add_category_link = get_sub_field('add_category_link');
                     $category = get_sub_field('category');
                     $category_link = get_term_link($category);
+                    $link_type = get_sub_field( 'link_type' );
                     if($position=='Top') $caption_class = ' position-top';
                     if($position=='Top Left') $caption_class = ' position-top-left';
                     if($position=='Bottom Left') $caption_class = ' position-bottom-left';
                     if($position=='Top RIght') $caption_class = ' position-top-right';
                     if($position=='Bottom Right') $caption_class = ' position-bottom-right';
                     if($position=='Centre') $caption_class = ' position-centre';
+                    $link_type = get_sub_field( 'link_type' );
                     $add_link = get_sub_field('add_link');
                     if ($image) :
                         $slides .= '<li class="' . $activeClass . 'orbit-slide">';
                         $slides .= '<figure class="orbit-figure">';
-                        if(($add_link==1)&&($link!='')) {
-                            $slides .= '<a href="'.$link.'">';
+                        if(($link_type=='URL')&&($add_category_link != 1)) {
+                            $slides .= '<a href="' . $url . '" target="_blank">';
                             $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
                             $slides .= '</a>';
                         } else {
-                            if(($add_category_link==1&!is_wp_error($category_link))) {
-                                $slides .= '<a href="'.$category_link.'">';
+                            if (($add_link == 1) && ($link != '')) {
+                                $slides .= '<a href="' . $link . '">';
                                 $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
                                 $slides .= '</a>';
                             } else {
-                                $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                                if (($add_category_link == 1 & !is_wp_error($category_link))) {
+                                    $slides .= '<a href="' . $category_link . '">';
+                                    $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                                    $slides .= '</a>';
+                                } else {
+                                    $slides .= '<img class="orbit-image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/>';
+                                }
                             }
                         }
 

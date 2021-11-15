@@ -67,8 +67,8 @@
                     By clicking “Accept All”, you consent to the use of ALL the cookies. However, you may visit "Cookie Settings" to provide a controlled consent.
                 </div>
                 <div class="cli-bar-btn_container">
-                    <?php /*echo do_shortcode('[cookie_settings margin="0px 5px 0px 0px"]');*/?>
-                    <?php /*echo do_shortcode('[cookie_accept_all]');*/?>
+                    <?php /*echo do_shortcode('[cookie_settings margin="0px 5px 0px 0px"]');*/ ?>
+                    <?php /*echo do_shortcode('[cookie_accept_all]');*/ ?>
                 </div>
             </div>
         </div>-->
@@ -177,7 +177,11 @@
             </div>
 
             <div class="category-menu grid-container">
-                <?php echo get_product_categories('short-product-category-menu'); ?>
+                <?php if (get_field('mega_menu_style', 'option') == 1): ?>
+                    <?php echo get_product_categories('category-mega-menu'); ?>
+                <?php else: ?>
+                    <?php echo get_product_categories('short-product-category-menu'); ?>
+                <?php endif; ?>
             </div>
         </div>
 

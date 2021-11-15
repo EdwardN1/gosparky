@@ -1,0 +1,39 @@
+.mega-menu{
+  //padding: .5rem 1.3rem .7rem;
+  -webkit-transition: background-color .2s ease-out;
+  -moz-transition: background-color .2s ease-out;
+  -o-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  /*&:hover{
+    background-color: scale-color($button-background, $lightness: -1%);
+  }*/
+  z-index:999;//USED TO GO OVER ORBIT CONTROLS
+  background: $blue;
+  a {
+    color: $white;
+  }
+
+  .mega{
+    width: 100%;
+    background: $blue;
+    color: $white;
+    /*margin: 0 auto !important;
+    left: 0% !important;
+    right: 0% !important;
+    display: flex;
+    justify-content: flex-start;*/
+    left: 0 !important;
+    border: none;
+    li {
+      padding: 0 2%;
+      list-style: none;
+      color: $white;
+
+    }
+
+  }
+}
+
+.menu-background {
+  background-color: $blue;
+}
