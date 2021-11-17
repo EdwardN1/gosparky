@@ -165,3 +165,30 @@ function register_image_carousel_brands_block() {
     }
 
 }
+
+add_action( 'acf/init', 'register_featured_products_carousel_block' );
+function register_featured_products_carousel_block() {
+
+    if ( function_exists( 'acf_register_block_type' ) ) {
+
+        // Register Image Carousel Brands block
+        acf_register_block_type( array(
+            'name' 					=> 'featured-products-carousel-block',
+            'title' 				=> __( 'Featured Products Carousel Block' ),
+            'description' 			=> __( 'Featured Products Carousel Block.' ),
+            'category' 				=> 'foundationblocks',
+            'icon'					=> 'layout',
+            'keywords'				=> array( 'featured', 'carousel', 'products' ),
+            'post_types'			=> array( 'post', 'page' ),
+            'mode'					=> 'edit',
+            // 'align'				=> 'wide',
+            'render_template'		=> get_template_directory() . '/parts/blocks/Block-featured-products-carousel.php',
+            // 'render_callback'	=> 'image_carousel_brands_block_render_callback',
+            // 'enqueue_style' 		=> get_template_directory_uri() . '/template-parts/blocks/image-carousel-brands/image-carousel-brands.css',
+            // 'enqueue_script' 	=> get_template_directory_uri() . '/template-parts/blocks/image-carousel-brands/image-carousel-brands.js',
+            // 'enqueue_assets' 	=> 'image_carousel_brands_block_enqueue_assets',
+        ));
+
+    }
+
+}
