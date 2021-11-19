@@ -1,0 +1,53 @@
+.block-featured-products-carousel-block {
+  > h2 {
+    font-family: $cervo-neue;
+    font-size: 42px;
+    letter-spacing: 1px;
+    color: #293871;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 0.5em;
+  }
+  .featured-product-slide {
+    .img-wrap {
+      a {
+        max-width: 275px;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        img {
+          max-width: 275px;
+          height: auto;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+    .product-title {
+      padding-top: 0.5em;
+      font-family: $cervo-neue;
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: 500;
+      text-align: center;
+      padding-bottom: 0.5em;
+    }
+    .product-price {
+      text-align: center;
+      font-size: 1.25em;
+      padding-bottom: 0.5em;
+    }
+    .add-to-cart, .buy-now {
+      text-align: center;
+      .button {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 50%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
