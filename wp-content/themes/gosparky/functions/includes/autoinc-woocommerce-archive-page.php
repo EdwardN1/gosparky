@@ -111,7 +111,7 @@ function gosparky_open_div()
     echo '<div class="grid-x">';
     echo '<div class="gosparky-filter cell large-2 medium-3 show-for-medium">' . gosparky_vertical_filter() . '</div>';
     echo '<div class="gosparky-archive cell large-10 medium-9 small-12">';
-    //echo gosparky_woo_featured_products();
+    echo gosparky_woo_featured_products();
 
 }
 
