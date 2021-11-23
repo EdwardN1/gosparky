@@ -7,9 +7,11 @@
     font-weight: 700;
     text-align: center;
     padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
   .featured-product-slide {
     .img-wrap {
+      min-height: 300px;
       a {
         max-width: 275px;
         height: auto;
