@@ -2,11 +2,117 @@
 add_action('woocommerce_before_shop_loop', 'gosparky_open_div', 5);
 add_action('woocommerce_after_shop_loop', 'gosparky_close_div', 15);
 
+function gosparky_woo_featured_products()
+{
+    ob_start();
+
+    $term = get_queried_object();
+    $category_id = empty($term->term_id) ? 0 : $term->term_id;
+
+    $meta_query = WC()->query->get_meta_query();
+    $tax_query = WC()->query->get_tax_query();
+
+    $tax_query[] = array(
+        'taxonomy' => 'product_visibility',
+        'field' => 'name',
+        'terms' => 'featured',
+        'operator' => 'IN',
+    );
+
+    $tax_query[] = array(
+        'taxonomy' => 'product_cat',
+        'field' => 'id',
+        'terms' => $category_id
+    );
+
+    $args = array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'ignore_sticky_posts' => 1,
+        'posts_per_page' => -1,
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'meta_query' => $meta_query,
+        'tax_query' => $tax_query,
+    );
+
+    $loop = new WP_Query($args);
+    if ($loop->have_posts()):
+        $data = ' data-fade="false" data-infinite="true" data-draggable="true"';
+        $data .= ' data-arrows="false"';
+        $data .= ' data-autoplay="true"';
+
+        $data .= ' data-slidestoscroll="1"';
+        $data .= ' data-slidestoshow="4"';
+        $data .= ' data-slidestoshowmedium="2"';
+        $data .= ' data-slidestoshowsmall="1"';
+        ?>
+        <div class="block-featured-products-carousel-block">
+            <h2>Featured Products</h2>
+            <div data-slick class="slick-slider"<?php echo $data; ?>>
+                <?php
+                while ($loop->have_posts()) : $loop->the_post();
+                    $this_product = wc_get_product($loop->post->ID);
+                    $price = $this_product->get_price();
+                    $post_thumbnail_id = $this_product->get_image_id();
+                    $size = 'shop_catalog';
+                    $image_size = apply_filters('single_product_archive_thumbnail_size', $size);
+                    $image = get_the_post_thumbnail($loop->post->ID, $image_size);
+                    $sku = $this_product->get_sku();
+                    $title = $this_product->get_name();
+                    ?>
+
+                    <div class="featured-product-container slide">
+                        <div class="featured-product-slide">
+                            <div class="img-wrap">
+                                <a href="<?php echo get_permalink($loop->post->ID) ?>">
+                                    <?php echo $image; ?>
+                                </a>
+                            </div>
+                            <div class="product-title"><a
+                                        href="<?php echo get_permalink($loop->post->ID); ?>"><?php echo $title; ?></a>
+                            </div>
+                            <div class="product-price"><a
+                                        href="<?php echo get_permalink($loop->post->ID); ?>">£<?php echo number_format($price, 2); ?></a>
+                            </div>
+                            <div class="add-to-cart">
+                                <a href="?add-to-cart=<?php echo $loop->post->ID; ?>" data-quantity="1"
+                                   class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                   data-product_id="<?php echo $loop->post->ID; ?>"
+                                   data-product_sku="<?php echo $sku; ?>"
+                                   aria-label="Add “<?php echo $title; ?>” to your basket" rel="nofollow">Add to
+                                    basket</a>
+                            </div>
+                            <div class="buy-now">
+                                <a href="<?php echo wc_get_checkout_url(); ?>?add-to-cart=<?php echo $loop->post->ID; ?>&amp;quantity=1"
+                                   id="aqbp_quick_buy_shop_btn" data-quantity="1"
+                                   class="button product_type_simple add_to_cart_button"
+                                   data-product_id="<?php echo $loop->post->ID; ?>"
+                                   data-product_sku="<?php echo $sku; ?>"
+                                   aria-label="Add <?php echo $title; ?> to your cart" rel="nofollow">BUY NOW</a>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php
+                endwhile;
+                ?>
+            </div>
+        </div>
+    <?php
+    endif;
+    wp_reset_query();
+
+    return ob_get_clean();
+}
+
 function gosparky_open_div()
 {
     echo '<div class="grid-x">';
-    echo '<div class="gosparky-filter cell large-2 medium-3 show-for-medium">'.gosparky_vertical_filter().'</div>';
+    echo '<div class="gosparky-filter cell large-2 medium-3 show-for-medium">' . gosparky_vertical_filter() . '</div>';
     echo '<div class="gosparky-archive cell large-10 medium-9 small-12">';
+    //echo gosparky_woo_featured_products();
+
 }
 
 function gosparky_close_div()
