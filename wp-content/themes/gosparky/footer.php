@@ -14,7 +14,26 @@ $show_trustpilot_row = get_field('show_trustpilot_row', 'option');
 $show_sales_contact_row = get_field('show_sales_contact_row', 'option');
 $show_newsletter_signups = get_field('show_newsletter_signups', 'option');
 $show_ecologi = get_field('show_ecologi', 'option');
+$show_powered_by_row = get_field('show_powered_by_row', 'option');
 ?>
+
+<?php if ($show_powered_by_row == 1): ?>
+    <div id="footer-powered" class="grid-container">
+        <h2>Powered By</h2>
+        <div class="grid-x">
+            <div class="large-4 medium-4 small-12 text-center">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/NG15-PB.png';?>">
+            </div>
+            <div class="large-4 medium-4 small-12 text-center">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/epim-logo-PB.png';?>">
+            </div>
+            <div class="large-4 medium-4 small-12 text-center">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/Luckins-PB.jpg';?>">
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
 <?php if ($show_quote_and_callback_row == 1): ?>
     <div id="footer-top" class="grid-container">
         <div class="grid-x">

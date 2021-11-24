@@ -14,7 +14,7 @@
   border-color:#FF9900 !important;
 }
 
-.woocommerce.gosparky, .woocommerce.gosparky.single-product, .featured-product-slide {
+.woocommerce.gosparky, .woocommerce.gosparky.single-product, .woocommerce.gosparky .featured-product-slide {
   a.button.add_to_cart_button, .single_add_to_cart_button, a.button.add_to_cart_button:hover, .single_add_to_cart_button:hover{
     background-color: #f6db35 !important;
     color: $black !important;

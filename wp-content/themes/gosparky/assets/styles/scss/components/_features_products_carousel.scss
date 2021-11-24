@@ -4,7 +4,7 @@
     font-family: $cervo-neue;
     font-size: 42px;
     letter-spacing: 1px;
-    color: #293871;
+    color: $blue;
     font-weight: 700;
     text-align: center;
     /*padding-top: 0.5em;*/
@@ -13,6 +13,7 @@
   .featured-product-slide {
     .img-wrap {
       min-height: 300px;
+      max-height: 300px;
       a {
         max-width: 275px;
         height: auto;
@@ -22,9 +23,11 @@
         img {
           max-width: 275px;
           height: auto;
+          width: auto;
           display: block;
           margin-left: auto;
           margin-right: auto;
+          max-height: 275px;
         }
       }
     }
@@ -54,7 +57,20 @@
     }
     .buy-now {
       .button {
-        background-color: #efaa30 !important;
+        display: none;
+      }
+    }
+  }
+}
+
+.gosparky {
+  .block-featured-products-carousel-block {
+    .featured-product-slide {
+      .buy-now {
+        .button {
+          display: block;
+          background-color: #efaa30 !important;
+        }
       }
     }
   }
