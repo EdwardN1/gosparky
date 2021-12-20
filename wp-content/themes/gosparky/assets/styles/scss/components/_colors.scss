@@ -1,0 +1,698 @@
+$navy: #0f102f;
+$blue: #293871;
+$medium-blue: #2f59a7;
+$light-blue: #4c82e2;
+$red: #ed1c24;
+$dark-gray: #707070;
+$gray: #999999;
+$light-gray: #e3e4e5;
+$black: #0a0a0a;
+$white: #fefefe;
+$dark-yellow: #FF9900;
+$yellow: #f6db35;
+
+/** _defaults.scss */
+
+a {
+  color: $blue;
+
+  &:hover {
+    color: $light-blue;
+  }
+}
+
+/** _top_bar.scss */
+
+#top-bar-menu {
+  &:after {
+    border-bottom: 1px solid $white;
+  }
+
+  &.top-bar {
+    background-color: $blue;
+
+    ul {
+      background-color: $blue;
+
+      a {
+        color: $white;
+      }
+
+      .active a {
+        background-color: $light-blue;
+      }
+    }
+
+    input:checked ~ .switch-paddle {
+      background: $medium-blue;
+    }
+
+    .tax-display-setting {
+      .outer {
+        background: $blue;
+      }
+
+      .cell {
+        color: $white;
+      }
+    }
+  }
+
+  .tel {
+    color: $white;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  #top-bar-menu {
+    &.top-bar {
+      .tax-display-setting {
+        .outer {
+          background: $white;
+        }
+
+        .cell {
+          color: $dark-gray;
+        }
+      }
+    }
+
+    .tel {
+      color: $white;
+    }
+  }
+
+  .header-icons {
+    .spacer {
+      border-right: 1px solid $gray;
+    }
+  }
+}
+
+/** _category_menu.scss */
+
+.category-menu {
+  padding-top: 2em;
+
+  .active > a {
+    background-color: $light-blue;
+  }
+}
+
+#short-product-category-menu {
+  background-color: $blue;
+
+  > li.menu-item {
+    > a {
+      color: $white;
+      background-color: $blue;
+
+      &:hover {
+        background-color: $light-blue;
+      }
+    }
+
+    &.active {
+      > a {
+        background-color: $light-blue;
+      }
+    }
+  }
+}
+
+/** _footer.scss */
+
+#footer-trustpilot {
+  .grid-x {
+    > div {
+      background-color: $navy;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  #footer-trustpilot {
+    .grid-x {
+      background-color: $navy;
+    }
+  }
+}
+
+#footer-powered {
+  h2 {
+    background-color: $blue;
+    color: $white;
+  }
+}
+
+#footer-contact-sales {
+  .grid-x {
+    color: $white;
+    background-color: $red;
+  }
+}
+
+#footer-opt-in {
+  background-color: $light-gray;
+  color: $blue;
+}
+
+footer, .footer {
+  background-color: $blue;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+
+  .main-footer {
+    .col2 {
+      nav {
+        .active a {
+          background-color: $light-blue;
+        }
+      }
+    }
+  }
+
+  .copyright-row {
+    background-color: $light-blue;
+  }
+}
+
+footer.article-footer {
+  background-color: transparent;
+  color: $dark-gray;
+}
+
+/** _buttons.scss */
+
+a.button {
+  text-transform: uppercase;
+
+  &.blue {
+    background-color: $blue;
+    color: $white;
+  }
+
+  &.light-blue {
+    background-color: $light-blue;
+    color: $white;
+  }
+
+  &.white {
+    background-color: $white !important;
+    color: $blue !important;
+  }
+
+  &.pill {
+    border-radius: 0.4em;
+  }
+}
+
+.woocommerce {
+  .button {
+    background-color: $blue;
+    color: $white;
+  }
+
+  .checkout-button, a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt {
+    color: $white;
+
+    &.white.pill {
+      background-color: $white !important;
+      color: $blue !important;
+    }
+  }
+
+  .woocommerce .checkout-button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt {
+    color: $white;
+
+    &.white.pill {
+      background-color: $white !important;
+      color: $blue !important;
+    }
+  }
+
+  .wc-proceed-to-checkout {
+    .checkout-button, a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt {
+      color: $white;
+
+      &.white.pill {
+        background-color: $white !important;
+        color: $blue !important;
+      }
+    }
+  }
+
+  .woocommerce {
+    .checkout-button, a.button.alt, button.button.alt, input.button.alt, #respond input#submit.alt {
+      color: $white;
+
+      &.white.pill {
+        background-color: $white !important;
+        color: $blue !important;
+      }
+    }
+  }
+
+}
+
+.woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt {
+  color: $white !important;
+
+  &.white.pill {
+    background-color: $white !important;
+    color: $blue !important;
+  }
+}
+
+/** _archive.scss */
+
+h1.page-title {
+  color: $blue;
+}
+
+.gosparky-archive, .related.products {
+  > .products {
+    .price {
+      color: $blue;
+    }
+
+    .button {
+      background-color: $medium-blue;
+      color: $white;
+    }
+
+  }
+}
+
+.gosparky-filter {
+  > .menu > li {
+    border-top: 1px solid $blue;
+
+    &:last-of-type {
+      border-bottom: 1px solid $blue;
+    }
+  }
+
+  .submenu-toggle::after {
+    border-top-color: $blue;
+  }
+}
+
+/** _woocommerce-checkout-payment.scss */
+
+.woocommerce-checkout-payment {
+  color: $white;
+  button, label, a {
+    color: $white;
+  }
+}
+
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
+  background-color: $dark-gray;
+}
+
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+  background-color: $gray;
+}
+
+/** _search_form.scss */
+
+.page-top {
+  .search {
+    .search-wrapper {
+      border: 1px solid $blue;
+    }
+  }
+}
+
+.mobile-page-top {
+  .search {
+    .search-wrapper {
+      border: 1px solid $blue;
+    }
+  }
+}
+
+.search-php {
+  h1.archive-title {
+    color: $blue;
+  }
+
+  h3.title {
+    color: $blue;
+  }
+
+  .button {
+    background-color: $medium-blue;
+  }
+}
+
+/** _cart_icon.scss */
+
+.cart-icon-wrapper {
+  a {
+    .cart-total {
+      color: $red;
+    }
+  }
+}
+
+/** _single_product.scss */
+
+.woocommerce.single-product {
+  .product {
+
+    .product_title {
+      color: $blue;
+    }
+
+    .woocommerce-tabs {
+      background-color: transparent;
+
+      ul.tabs.wc-tabs {
+        border-top: 1px solid $gray;
+
+        li {
+          &.active {
+            a {
+              color: $blue;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .product_meta {
+    border-top: 1px solid $gray;
+  }
+
+  .price {
+    > span {
+      display: block;
+    }
+
+    .only {
+      color: $blue;
+    }
+
+    .display-price {
+      color: $blue;
+    }
+
+    .vat {
+      color: $dark-gray;
+    }
+
+  }
+
+  .btn.minus1, .btn.plus1, .quantity input[type=number] {
+    background: white;
+    border: 1px solid $gray;
+  }
+
+  .single_add_to_cart_button {
+    background-color: $medium-blue !important;
+  }
+
+  #breadcrumbs {
+    border-bottom: 1px solid $gray;
+  }
+
+  .related.products {
+    > h2 {
+      color: $blue;
+    }
+  }
+
+}
+
+@media screen and (min-width: 640px) {
+  .woocommerce.single-product {
+    .product {
+      .woocommerce-tabs {
+        ul.tabs.wc-tabs {
+          li {
+            a {
+              border-right: 1px solid $gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** _related_products.scss */
+
+.related.products {
+  ul.products {
+    li.product {
+      .button {
+        background-color: $medium-blue;
+        color: $white;
+      }
+    }
+  }
+}
+
+/** _carousel.scss */
+
+.block-image-carousel-brands {
+  .slick-next, .slick-prev {
+    &:before {
+      border-color: $blue;
+    }
+  }
+}
+
+/** _orbit.scss */
+
+.orbit-bullets {
+  button {
+    border: 2px solid $white;
+
+    &.is-active, &:hover {
+      background-color: $white;
+
+      &:before {
+        background-color: $white;
+      }
+    }
+  }
+
+  &.text-bullets {
+    border-top: 2px solid $black;
+
+    button {
+      &.is-active, &:hover {
+        background: $gray;
+        color: $white
+      }
+    }
+  }
+}
+
+/** _full_width_call_out.scss */
+
+.full-width-call-out {
+  color: $white;
+
+  .inner {
+    background-color: $blue;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+/** _page_top.scss */
+
+.page-top {
+  .contact-top {
+    .tel {
+      a {
+        color: $red;
+      }
+    }
+  }
+
+  .top-icons {
+    .account {
+      .red-text {
+        color: $red;
+      }
+    }
+  }
+}
+
+/** _mobile_page_top.scss */
+
+.mobile-menu-bar {
+  background-color: $blue;
+
+  .cell {
+    color: $white;
+
+    a {
+      color: $white;
+    }
+
+    &:after {
+      background-color: $white;
+    }
+  }
+}
+
+/** _off_canvas.scss */
+
+.off-canvas {
+  background: $blue;
+
+  a {
+    color: $white;
+  }
+
+  .close-button {
+    color: $white;
+  }
+
+  .is-dropdown-menu.vertical {
+    a {
+      color: $white;
+    }
+  }
+
+  #short-product-category-menu > li.menu-item > a, .main-cats a {
+    color: $white;
+  }
+
+  .is-accordion-submenu-parent {
+    &:after {
+      border: solid $white;
+    }
+  }
+
+  h2 {
+    color: $white;
+  }
+}
+
+/** _xygrid.scss */
+
+.grid-x {
+  .cell-type-image {
+
+    .image-description {
+      .container {
+        a {
+          &:hover, &:focus, &:visited {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  .cell-type-term {
+    .term-name {
+      background-color: $dark-gray;
+      color: $white;
+    }
+  }
+}
+
+/** _woocommerce_colors.scss */
+
+.woocommerce #content input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover {
+
+  background-color:$blue !important;
+  color:white !important;
+  text-shadow: transparent !important;
+  box-shadow: none;
+  border-color: $dark-yellow !important;
+}
+
+.woocommerce #content input.button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce-page #content input.button, .woocommerce-page #respond input#submit, .woocommerce-page a.button, .woocommerce-page button.button, .woocommerce-page input.button {
+  background-color:$blue !important;
+  color:white !important;
+  text-shadow: transparent !important;
+  border-color:$dark-yellow !important;
+}
+
+.woocommerce.gosparky, .woocommerce.gosparky.single-product, .woocommerce.gosparky .featured-product-slide {
+  a.button.add_to_cart_button, .single_add_to_cart_button, a.button.add_to_cart_button:hover, .single_add_to_cart_button:hover{
+    background-color: $yellow !important;
+    color: $black !important;
+  }
+  #aqbp_quick_buy_shop_btn, #aqbp_quick_buy_btn, #aqbp_quick_buy_shop_btn:hover, #aqbp_quick_buy_btn:hover {
+    background-color: $dark-yellow !important;
+  }
+}
+
+.woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover {
+  background-color:$blue !important;
+  box-shadow: none;
+  text-shadow: transparent !important;
+  color:white !important;
+  border-color:$dark-yellow !important;
+}
+
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price {
+  text-align: center;
+  color: $red;  /* This is what you MAY want to change color */
+  font-weight: 200;
+  font-size: 1em;
+}
+
+.woocommerce div.product span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price {
+  color: $red; /* Change this */
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.woocommerce .woocommerce-order, .woocommerce-account {
+  h2, h3 {
+    color: $blue;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 35px;
+  }
+}
+
+/** _full_width_menu.scss */
+
+.mega-menu {
+  background: $blue;
+
+  > a {
+    color: $white;
+  }
+
+  .mega {
+    background: $white;
+    border-left: 1px solid $black !important;
+    border-right: 1px solid $black !important;
+    border-bottom: 1px solid $black !important;
+    color: $black;
+
+    div {
+      color: $black;
+
+      a {
+        color: $black;
+      }
+    }
+  }
+}
+
+.menu-background {
+  background-color: $blue;
+}
+
