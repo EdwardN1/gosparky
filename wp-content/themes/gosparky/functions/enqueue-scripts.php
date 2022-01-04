@@ -11,6 +11,10 @@ function site_scripts() {
     // Register main stylesheet
     wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/vendor/slick-1.8.1/slick/slick.css', array(), filemtime(get_template_directory() . '/vendor/slick-1.8.1/slick/slick.css'), 'all' );
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/styles/style.css', array(), filemtime(get_template_directory() . '/assets/styles/scss'), 'all' );
+    $filename = get_template_directory().'/assets/styles/custom_colours.css';
+    if(file_exists($filename)) {
+        wp_enqueue_style( 'custom-colours-css', get_template_directory_uri() . '/assets/styles/custom_colours.css', array('site-css'), filemtime(get_template_directory() . '/assets/styles/custom_colours.css'), 'all' );
+    }
 
     // Comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
