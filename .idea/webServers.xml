@@ -51,6 +51,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="bf88afe1-90ff-4254-84a3-204aa7145101" name="Rapid Electrical Stage" url="https://rapidelectrical.making.me.uk/">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
