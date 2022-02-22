@@ -22,13 +22,13 @@ $show_powered_by_row = get_field('show_powered_by_row', 'option');
         <h2>Powered By</h2>
         <div class="grid-x">
             <div class="large-4 medium-4 small-12 text-center">
-                <img src="<?php echo get_template_directory_uri() . '/assets/images/NG15-PB.png';?>">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/NG15-PB.png'; ?>">
             </div>
             <div class="large-4 medium-4 small-12 text-center">
-                <img src="<?php echo get_template_directory_uri() . '/assets/images/epim-logo-PB.png';?>">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/epim-logo-PB.png'; ?>">
             </div>
             <div class="large-4 medium-4 small-12 text-center">
-                <img src="<?php echo get_template_directory_uri() . '/assets/images/Luckins-PB.jpg';?>">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/Luckins-PB.jpg'; ?>">
             </div>
         </div>
     </div>
@@ -80,28 +80,30 @@ $show_powered_by_row = get_field('show_powered_by_row', 'option');
 <?php endif; ?>
 <?php if ($show_ecologi == 1) : ?>
     <?php $ecologi = gosparky_get_ecologi_impact(); ?>
-    <?php $carbonOffset = $ecologi['carbonOffset'];?>
-    <?php if($carbonOffset==0) {$carbonOffset = $ecologi['trees'] * 5;} ?>
-    <?php $ecologi_background_image = get_field( 'ecologi_background_image', 'option' ); ?>
-    <?php if ( $ecologi_background_image ) : ?>
-    <div id="footer-ecologi-background-row" class="grid-container">
-        <img src="<?php echo esc_url( $ecologi_background_image['url'] ); ?>" alt="<?php echo esc_attr( $ecologi_background_image['alt'] ); ?>" />
-        <!--<div class="trees"><?php /*echo (string)$ecologi['trees']; */?></div>
-        <div class="carbonOffset"><?php /*echo (string)$ecologi['carbonOffset']; */?>kg</div>-->
-        <div class="tree-data">
-            <div class="grid-x">
-                <div class="cell auto"></div>
-                <div class="cell tree shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/tree.png'; ?>"></div>
-                <div class="cell trees shrink text-right"><?php echo (string)$ecologi['trees']; ?></div>
-                <div class="cell trees-planted shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/trees-planted.png'; ?>"></div>
-                <div class="cell co2 shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/co2.png'; ?>"></div>
-                <div class="cell carbonOffset shrink text-right"><?php echo $carbonOffset; ?>kg</div>
-                <div class="cell carbon-captured shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/carbon-captured.png'; ?>"></div>
-                <div class="cell auto"></div>
+    <?php $carbonOffset = $ecologi['carbonOffset']; ?>
+    <?php if ($carbonOffset == 0) {
+        $carbonOffset = $ecologi['trees'] * 5;
+    } ?>
+    <?php $ecologi_background_image = get_field('ecologi_background_image', 'option'); ?>
+    <?php if ($ecologi_background_image) : ?>
+        <div id="footer-ecologi-background-row" class="grid-container">
+            <img src="<?php echo esc_url($ecologi_background_image['url']); ?>" alt="<?php echo esc_attr($ecologi_background_image['alt']); ?>"/>
+            <!--<div class="trees"><?php /*echo (string)$ecologi['trees']; */ ?></div>
+        <div class="carbonOffset"><?php /*echo (string)$ecologi['carbonOffset']; */ ?>kg</div>-->
+            <div class="tree-data">
+                <div class="grid-x">
+                    <div class="cell auto"></div>
+                    <div class="cell tree shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/tree.png'; ?>"></div>
+                    <div class="cell trees shrink text-right"><?php echo (string)$ecologi['trees']; ?></div>
+                    <div class="cell trees-planted shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/trees-planted.png'; ?>"></div>
+                    <div class="cell co2 shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/co2.png'; ?>"></div>
+                    <div class="cell carbonOffset shrink text-right"><?php echo $carbonOffset; ?>kg</div>
+                    <div class="cell carbon-captured shrink"><img src="<?php echo get_template_directory_uri() . '/assets/images/carbon-captured.png'; ?>"></div>
+                    <div class="cell auto"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <?php else:?>
+    <?php else: ?>
         <div id="footer-ecologi-row" class="grid-container">
             <div class="background">
                 <div class="grid-x">
@@ -303,6 +305,24 @@ $show_powered_by_row = get_field('show_powered_by_row', 'option');
                                 <?php endif; ?>
                             </div>
                         </div>
+                        <?php if ($show_powered_by_row != 1): ?>
+                            <div class="powered-by">
+                                <div class="heading">
+                                    Powered By
+                                </div>
+                                <div class="grid-x">
+                                    <div class="cell large-4 medium-4 small-12 text-center">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/NG15-PB.png'; ?>">
+                                    </div>
+                                    <div class="cell large-4 medium-4 small-12 text-center">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/epim-logo-PB.png'; ?>">
+                                    </div>
+                                    <div class="cell large-4 medium-4 small-12 text-center">
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/Luckins-PB.jpg'; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <?php if ($show_4th_footer_column == 1): ?>
                         <div class="<?php echo $footer_col_classes; ?>col4">
