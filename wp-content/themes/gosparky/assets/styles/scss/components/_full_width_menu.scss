@@ -11,6 +11,9 @@
   background: $blue;
   > a {
     color: $white;
+    min-height: 50px;
+    max-height: 50px;
+    text-align: center;
   }
 
   .mega{

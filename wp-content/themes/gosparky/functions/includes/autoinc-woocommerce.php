@@ -33,8 +33,9 @@ function get_product_categories($id = '')
             <ul id="<?php echo $id; ?>" class="menu dropdown">
                 <?php
                 foreach ($all_categories as $cat) {
-                    if (($cat->category_parent == 0) && ($cat->count > 0)) {
-                        $category_id = $cat->term_id;
+                    $category_id = $cat->term_id;
+                    $epim_api_parent_id = get_term_meta($category_id,'epim_api_parent_id',true);
+                    if (($cat->category_parent == 0) && ($cat->count > 0)&&(!$epim_api_parent_id)) {
                         $top_active_class = '';
                         if ($current_cat_id == $category_id) {
                             $top_active_class = ' active';
@@ -65,7 +66,8 @@ function get_product_categories($id = '')
 
                             $string1 = substr($text, 0, $middle);
                             $string2 = substr($text, $middle);
-                            $linkDesc = $string1 . '<br>' . $string2;
+                            //$linkDesc = $string1 . '<br>' . $string2;
+                            $linkDesc = $string1 . '' . $string2;
                         } else {
                             $linkDesc = str_replace(' ', '<br>', $text);
                         }
@@ -148,8 +150,9 @@ function get_product_categories($id = '')
 
         //error_log('current category id = '.$current_cat_id);
         foreach ($all_categories as $cat) {
-            if (($cat->category_parent == 0) && ($cat->count > 0)) {
-                $category_id = $cat->term_id;
+            $category_id = $cat->term_id;
+            $epim_api_parent_id = get_term_meta($category_id,'epim_api_parent_id',true);
+            if (($cat->category_parent == 0) && ($cat->count > 0) && (!$epim_api_parent_id)) {
                 $top_active_class = '';
                 if ($current_cat_id == $category_id) {
                     $top_active_class = ' active';

@@ -60,7 +60,7 @@ a:hover {
     padding-top: 2em
 }
 
-.category-menu .active > a {
+.category-menu .active > a, .category-menu .active > a:hover {
     background-color: #4c82e2
 }
 
@@ -68,7 +68,7 @@ a:hover {
     background-color: #293871
 }
 
-#short-product-category-menu > li.menu-item > a {
+#short-product-category-menu > li.menu-item > a, #short-product-category-menu > li.menu-item > a:hover {
     color: #fefefe;
     background-color: #293871
 }
@@ -77,7 +77,7 @@ a:hover {
     background-color: #4c82e2
 }
 
-#short-product-category-menu > li.menu-item.active > a {
+#short-product-category-menu > li.menu-item.active > a, #short-product-category-menu > li.menu-item.active > a:hover {
     background-color: #4c82e2
 }
 
@@ -407,7 +407,7 @@ h1.page-title {
     color: #fefefe
 }
 
-.off-canvas #short-product-category-menu > li.menu-item > a, .off-canvas .main-cats a {
+.off-canvas #short-product-category-menu > li.menu-item > a, .off-canvas #short-product-category-menu > li.menu-item > a:hover, .off-canvas .main-cats a, .off-canvas .main-cats a:hover {
     color: #fefefe
 }
 
@@ -485,7 +485,7 @@ h1.page-title {
     background: #293871
 }
 
-.mega-menu > a {
+.mega-menu > a, .mega-menu > a:hover {
     color: #fefefe
 }
 
