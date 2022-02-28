@@ -258,6 +258,25 @@ footer, .footer {
         }
       }
 
+      .powered-by {
+        padding-top: 2em;
+        .grid-x {
+          background-color: #ffffff;
+        }
+        .heading {
+          font-size: 18px;
+        }
+        .cell {
+          padding: 5px;
+        }
+
+        img {
+          max-height: 42px;
+          width: auto;
+        }
+
+      }
+
     }
 
     .col4 {
