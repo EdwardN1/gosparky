@@ -58,6 +58,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="6fd42c8a-82e6-4643-85f3-9a228792dd5c" name="Upex Live" url="http://upexelectrical.co.uk">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
