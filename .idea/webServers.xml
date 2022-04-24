@@ -65,6 +65,20 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="520ecf08-c713-453a-978f-cb4b94c39749" name="Web LTD" url="https://web-ltd.making.me.uk/">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="1f79bd88-18d8-48c4-97fc-c0896fb0b8b6" name="Circuit Supply" url="https://circuitsupply.making.me.uk/">
+        <fileTransfer rootFolder="/web" host="mail.technicks.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
