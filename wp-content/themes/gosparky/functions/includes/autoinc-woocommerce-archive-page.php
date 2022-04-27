@@ -75,22 +75,38 @@ function gosparky_woo_featured_products()
                             <div class="product-price"><a
                                         href="<?php echo get_permalink($loop->post->ID); ?>">£<?php echo number_format($price, 2); ?></a>
                             </div>
-                            <div class="add-to-cart">
-                                <a href="?add-to-cart=<?php echo $loop->post->ID; ?>" data-quantity="1"
-                                   class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                   data-product_id="<?php echo $loop->post->ID; ?>"
-                                   data-product_sku="<?php echo $sku; ?>"
-                                   aria-label="Add “<?php echo $title; ?>” to your basket" rel="nofollow">Add to
-                                    basket</a>
-                            </div>
-                            <div class="buy-now">
-                                <a href="<?php echo wc_get_checkout_url(); ?>?add-to-cart=<?php echo $loop->post->ID; ?>&amp;quantity=1"
-                                   id="aqbp_quick_buy_shop_btn" data-quantity="1"
-                                   class="button product_type_simple add_to_cart_button"
-                                   data-product_id="<?php echo $loop->post->ID; ?>"
-                                   data-product_sku="<?php echo $sku; ?>"
-                                   aria-label="Add <?php echo $title; ?> to your cart" rel="nofollow">BUY NOW</a>
-                            </div>
+                            <?php
+                            $is_in_stock = true;
+
+                            $currentTaxIDs = $this_product->get_category_ids();
+                            $POACats = get_field('poa_categories', 'option');
+                            foreach ($POACats as $POACat) {
+                                foreach ($currentTaxIDs as $currentTaxID) {
+                                    if ($currentTaxID == $POACat) $is_in_stock = false;
+                                }
+                            }
+
+                            if ($is_in_stock) {
+                                ?>
+                                <div class="add-to-cart">
+                                    <a href="?add-to-cart=<?php echo $loop->post->ID; ?>" data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       data-product_id="<?php echo $loop->post->ID; ?>"
+                                       data-product_sku="<?php echo $sku; ?>"
+                                       aria-label="Add “<?php echo $title; ?>” to your basket" rel="nofollow">Add to
+                                        basket</a>
+                                </div>
+                                <div class="buy-now">
+                                    <a href="<?php echo wc_get_checkout_url(); ?>?add-to-cart=<?php echo $loop->post->ID; ?>&amp;quantity=1"
+                                       id="aqbp_quick_buy_shop_btn" data-quantity="1"
+                                       class="button product_type_simple add_to_cart_button"
+                                       data-product_id="<?php echo $loop->post->ID; ?>"
+                                       data-product_sku="<?php echo $sku; ?>"
+                                       aria-label="Add <?php echo $title; ?> to your cart" rel="nofollow">BUY NOW</a>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
 

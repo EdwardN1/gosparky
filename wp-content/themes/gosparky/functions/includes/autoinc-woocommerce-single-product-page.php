@@ -1,4 +1,27 @@
 <?php
+
+
+add_filter('woocommerce_loop_add_to_cart_link','woocommerce_loop_add_to_cart_link_override',10,2);
+
+function woocommerce_loop_add_to_cart_link_override($link,$product) {
+    $is_in_stock = true;
+
+    $currentTaxIDs= $product->get_category_ids();
+    $POACats = get_field('poa_categories','option');
+    foreach ($POACats as $POACat) {
+        foreach ($currentTaxIDs as $currentTaxID) {
+            if($currentTaxID==$POACat) $is_in_stock = false;
+        }
+    }
+
+    if(!$is_in_stock) {
+        return "";
+    }
+
+    return $link;
+}
+
+
 add_filter('woocommerce_get_price_html', 'get_price_html_override', 100, 2);
 
 function get_price_html_override($price, $product)
@@ -7,6 +30,11 @@ function get_price_html_override($price, $product)
     $price_incl_tax = wc_get_price_including_tax($product);
     if (!$price_excl_tax) $price_excl_tax = 0;
     if (!$price_incl_tax) $price_incl_tax = 0;
+    $currentTaxID = get_queried_object()->term_id;
+    $POACats = get_field('poa_categories','option');
+    foreach ($POACats as $POACat) {
+        if($POACat==$currentTaxID) $price_excl_tax = 0;
+    }
     if ($price_excl_tax == 0) {
         ob_start();
         ?>
@@ -73,6 +101,13 @@ function woocommerce_template_single_price_override()
 {
     global $product;
     $price_excl_tax = wc_get_price_excluding_tax($product);
+    $currentTaxIDs= $product->get_category_ids();
+    $POACats = get_field('poa_categories','option');
+    foreach ($POACats as $POACat) {
+        foreach ($currentTaxIDs as $currentTaxID) {
+            if($POACat==$currentTaxID) $price_excl_tax = 0;
+        }
+    }
     if ((!$price_excl_tax) || ($price_excl_tax == 0)) {
         ?>
         <p class="price"><span class="only">POA</span><span class="vat">Call for price</span> </p>
@@ -101,7 +136,17 @@ function woocommerce_template_single_add_to_cart_override()
 
     echo wc_get_stock_html($product);
 
-    if ($product->is_in_stock()) : ?>
+    $is_in_stock = $product->is_in_stock();
+
+    $currentTaxIDs= $product->get_category_ids();
+    $POACats = get_field('poa_categories','option');
+    foreach ($POACats as $POACat) {
+        foreach ($currentTaxIDs as $currentTaxID) {
+            if($POACat==$currentTaxID) $is_in_stock = false;
+        }
+    }
+
+    if ($is_in_stock) : ?>
 
         <?php do_action('woocommerce_before_add_to_cart_form'); ?>
 
