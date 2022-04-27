@@ -7,17 +7,33 @@ function get_price_html_override($price, $product)
     $price_incl_tax = wc_get_price_including_tax($product);
     if (!$price_excl_tax) $price_excl_tax = 0;
     if (!$price_incl_tax) $price_incl_tax = 0;
-    ob_start();
-    ?>
-    <span class="woocommerce-Price-amount amount">
+    if ($price_excl_tax == 0) {
+        ob_start();
+        ?>
+        <span class="woocommerce-Price-amount amount">
+        <span>
+            <span class="ex-tax" style="display: none;">POA</span>
+            <span class="inc-tax" style="display: none;">POA</span>
+        </span>
+    </span>
+        <?php
+        $output = ob_get_clean();
+
+    } else {
+
+
+        ob_start();
+        ?>
+        <span class="woocommerce-Price-amount amount">
         <span>
             <span class="woocommerce-Price-currencySymbol"><?php echo get_woocommerce_currency_symbol(); ?></span>
             <span class="ex-tax" style="display: none;"><?php echo number_format($price_excl_tax, 2); ?></span>
             <span class="inc-tax" style="display: none;"><?php echo number_format($price_incl_tax, 2); ?></span>
         </span>
     </span>
-    <?php
-    $output = ob_get_clean();
+        <?php
+        $output = ob_get_clean();
+    }
     return $output;
 }
 
@@ -56,14 +72,21 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_pr
 function woocommerce_template_single_price_override()
 {
     global $product;
-
-    ?>
-    <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-        <span class="only">ONLY</span>
-        <span class="display-price"><?php echo $product->get_price_html(); ?></span>
-        <span class="vat ex-tax" style="display: none;">Excl.VAT</span><span class="vat inc-tax" style="display: none;">Incl.VAT</span>
-    </p>
-    <?php
+    $price_excl_tax = wc_get_price_excluding_tax($product);
+    if ((!$price_excl_tax) || ($price_excl_tax == 0)) {
+        ?>
+        <p class="price"><span class="only">POA</span><span class="vat">Call for price</span> </p>
+        <?php
+    } else {
+        ?>
+        <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
+            <span class="only">ONLY</span>
+            <span class="display-price"><?php echo $product->get_price_html(); ?></span>
+            <span class="vat ex-tax" style="display: none;">Excl.VAT</span><span class="vat inc-tax"
+                                                                                 style="display: none;">Incl.VAT</span>
+        </p>
+        <?php
+    }
 }
 
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart_override', 50);
@@ -138,19 +161,19 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_sh
 remove_all_actions('woocommerce_after_add_to_cart_quantity');
 
 add_action('woocommerce_before_single_product_summary', 'woocommerce_open_single_product_summary', 5);
-add_action('woocommerce_after_single_product_summary', 'woocommerce_close_single_product_summary',10);
+add_action('woocommerce_after_single_product_summary', 'woocommerce_close_single_product_summary', 10);
 
 function woocommerce_open_single_product_summary()
 {
     ?>
     <div class="begin-single-product-summary">
-    <?php
-}
+        <?php
+        }
 
-    function woocommerce_close_single_product_summary()
-    {
-    ?>
+        function woocommerce_close_single_product_summary()
+        {
+        ?>
         <div class="clear"></div>
-        </div>
+    </div>
     <?php
 }
