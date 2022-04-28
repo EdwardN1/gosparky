@@ -8,9 +8,11 @@ function woocommerce_loop_add_to_cart_link_override($link,$product) {
 
     $currentTaxIDs= $product->get_category_ids();
     $POACats = get_field('poa_categories','option');
-    foreach ($POACats as $POACat) {
-        foreach ($currentTaxIDs as $currentTaxID) {
-            if($currentTaxID==$POACat) $is_in_stock = false;
+    if($POACats) {
+        foreach ($POACats as $POACat) {
+            foreach ($currentTaxIDs as $currentTaxID) {
+                if ($currentTaxID == $POACat) $is_in_stock = false;
+            }
         }
     }
 
@@ -21,20 +23,28 @@ function woocommerce_loop_add_to_cart_link_override($link,$product) {
     return $link;
 }
 
-
 add_filter('woocommerce_get_price_html', 'get_price_html_override', 100, 2);
 
 function get_price_html_override($price, $product)
 {
+    $is_in_stock = true;
+
+    $currentTaxIDs= $product->get_category_ids();
+    $POACats = get_field('poa_categories','option');
+    if($POACats) {
+        foreach ($POACats as $POACat) {
+            foreach ($currentTaxIDs as $currentTaxID) {
+                if ($currentTaxID == $POACat) $is_in_stock = false;
+            }
+        }
+    }
+
     $price_excl_tax = wc_get_price_excluding_tax($product);
     $price_incl_tax = wc_get_price_including_tax($product);
     if (!$price_excl_tax) $price_excl_tax = 0;
     if (!$price_incl_tax) $price_incl_tax = 0;
-    $currentTaxID = get_queried_object()->term_id;
-    $POACats = get_field('poa_categories','option');
-    foreach ($POACats as $POACat) {
-        if($POACat==$currentTaxID) $price_excl_tax = 0;
-    }
+    if(!$is_in_stock) $price_excl_tax = 0;
+
     if ($price_excl_tax == 0) {
         ob_start();
         ?>
@@ -103,9 +113,11 @@ function woocommerce_template_single_price_override()
     $price_excl_tax = wc_get_price_excluding_tax($product);
     $currentTaxIDs= $product->get_category_ids();
     $POACats = get_field('poa_categories','option');
-    foreach ($POACats as $POACat) {
-        foreach ($currentTaxIDs as $currentTaxID) {
-            if($POACat==$currentTaxID) $price_excl_tax = 0;
+    if($POACats) {
+        foreach ($POACats as $POACat) {
+            foreach ($currentTaxIDs as $currentTaxID) {
+                if ($POACat == $currentTaxID) $price_excl_tax = 0;
+            }
         }
     }
     if ((!$price_excl_tax) || ($price_excl_tax == 0)) {
@@ -140,9 +152,11 @@ function woocommerce_template_single_add_to_cart_override()
 
     $currentTaxIDs= $product->get_category_ids();
     $POACats = get_field('poa_categories','option');
-    foreach ($POACats as $POACat) {
-        foreach ($currentTaxIDs as $currentTaxID) {
-            if($POACat==$currentTaxID) $is_in_stock = false;
+    if($POACats) {
+        foreach ($POACats as $POACat) {
+            foreach ($currentTaxIDs as $currentTaxID) {
+                if ($POACat == $currentTaxID) $is_in_stock = false;
+            }
         }
     }
 
