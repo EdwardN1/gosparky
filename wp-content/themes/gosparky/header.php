@@ -85,12 +85,12 @@
                                                      alt="<?php echo esc_attr($header_logo['alt']); ?>"/></a>
                                 <?php else: ?>
                                     <a href="/"><img
-                                                src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                                                src="<?php echo get_template_directory_uri() . '/assets/images/theme-logo.png'; ?>"></a>
                                 <?php endif; ?>
                             <?php endwhile; ?>
                         <?php else: ?>
                             <a href="/"><img
-                                        src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                                        src="<?php echo get_template_directory_uri() . '/assets/images/theme-logo.png'; ?>"></a>
                         <?php endif; ?>
                     </div>
                     <div class="cell shrink search show-for-large">

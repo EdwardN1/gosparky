@@ -168,12 +168,12 @@ $show_powered_by_row = get_field('show_powered_by_row', 'option');
                                                          alt="<?php echo esc_attr($footer_logo['alt']); ?>"/></a>
                                     <?php else: ?>
                                         <a href="/"><img
-                                                    src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                                                    src="<?php echo get_template_directory_uri() . '/assets/images/theme-logo.png'; ?>"></a>
                                     <?php endif; ?>
                                 <?php endwhile; ?>
                             <?php else: ?>
                                 <a href="/"><img
-                                            src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>"></a>
+                                            src="<?php echo get_template_directory_uri() . '/assets/images/theme-logo.png'; ?>"></a>
                             <?php endif; ?>
                         </div>
 

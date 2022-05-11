@@ -18,11 +18,11 @@
                                 <img src="<?php echo esc_url($header_logo['url']); ?>"
                                      alt="<?php echo esc_attr($header_logo['alt']); ?>"/>
                             <?php else: ?>
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>">
+                                <img src="<?php echo get_template_directory_uri() . '/assets/images/theme-logo.png'; ?>">
                             <?php endif; ?>
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <img src="<?php echo get_template_directory_uri() . '/assets/images/gosparky-logo.png'; ?>">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/theme-logo.png'; ?>">
                     <?php endif; ?>
                 </a></div>
             <div class="grid-x">
