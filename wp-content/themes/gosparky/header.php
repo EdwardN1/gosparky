@@ -167,7 +167,6 @@
                                        title="<?php _e('View your shopping cart'); ?>">
                                         <span class="cart-total"><?php echo WC()->cart->get_cart_total(); ?></span>
                                         <span class="cart-items"><?php echo sprintf(_n('%d item', '%d items', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?></span>
-
                                     </a>
                                 </div>
                             </div>
